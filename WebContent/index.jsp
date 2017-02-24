@@ -139,6 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>	
 		<% } %>
 		 --%>	
+		 
 			<li class="grid"><a class="color2" href="#">Category</a>				
 				</li>				
 				<li><a class="color5" href="women.jsp">Category3</a>
