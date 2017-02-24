@@ -64,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start header_right -->
 		<div class="header_right">
 			<div class="rgt-bottom">
-			
-			
+			<!-- Session check -->
+			<!-- Providing login and register option  only if user variable is exit in session scope -->
 			<c:if test="${sessionScope.email == null}">  
 				
 				<div class="log">
@@ -102,19 +102,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="register.jsp">LOGOUT</a>
 				</div>
 				 </c:if> 	
-				
-			<div class="cart box_1">
-				<a href="checkout.jsp">
-					<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt=""></h3>
-				</a>	
-				<p><a href="javascript:;" class="simpleCart_empty">(empty card)</a></p>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="create_btn">
+				 <div class="create_btn">
 				<a href="checkout.jsp">CHECKOUT</a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
+				
+			<div class="cart box_1">
+				<a href="checkout.jsp">
+					<h3><span></span></h3>
+				</a>	
+				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
+				<div class="clearfix"> </div>
+			</div>
+			
+		
+	
 		<div class="search">
 		    <form>
 		    	<input type="text" value="" placeholder="search...">
@@ -125,21 +128,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"> </div>
 	</div>
+		
 		<!-- start header menu -->
 			<ul class="megamenu skyblue">
 			<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
 			
 		<!-- getting category name from list and displaying it in list -->
 		<%--  	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
+			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); --%>
 
-		<%for(Category category:categoryList){ %>
+	<%--	<%for(Category category:categoryList){ %>
 		
 			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
 				</li>	
 		<% } %>
 		 --%>	
-		 
 			<li class="grid"><a class="color2" href="#">Category</a>				
 				</li>				
 				<li><a class="color5" href="women.jsp">Category3</a>
@@ -169,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>NEW ARRIVALS</h3>
 					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
 					<div class="crt-btn">
-						<a href="details.jsp">TAKE A LOOK</a>
+						<a href="details.jsp">Category</a>
 					</div>
 				</div>
 			</div>
@@ -179,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>TUXEDO</h3>
 					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
 					<div class="crt-btn">
-						<a href="details.jsp">SHOP NOW</a>
+						<a href="details.jsp">Category</a>
 					</div>
 				</div>
 			</div>
@@ -192,14 +195,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>SWEATER</h3>
 					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
 					<div class="crt-btn">
-						<a href="details.jsp">SHOP NOW</a>
+						<a href="details.jsp">Category</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 arriv-right1">
 				<img src="images/4.jpg" class="img-responsive" alt="">
 				<div class="arriv-info2">
-					<a href="details.jsp"><h3>Trekking Shoes<i class="ars"></i></h3></a>
+					<a href="details.jsp"><h3>Category<i class="ars"></i></h3></a>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
@@ -208,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 arriv-left2">
 				<img src="images/5.jpg" class="img-responsive" alt="">
 				<div class="arriv-info2">
-					<a href="details.jsp"><h3>Casual Glasses<i class="ars"></i></h3></a>
+					<a href="details.jsp"><h3>Category<i class="ars"></i></h3></a>
 				</div>
 			</div>
 			<div class="col-md-4 arriv-middle">
@@ -216,14 +219,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="arriv-info3">
 					<h3>FRESH LOOK T-SHIRT</h3>
 					<div class="crt-btn">
-						<a href="details.jsp">SHOP NOW</a>
+						<a href="details.jsp">Category</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 arriv-right2">
 				<img src="images/7.jpg" class="img-responsive" alt="">
 				<div class="arriv-info2">
-					<a href="details.jsp"><h3>Elegant Watches<i class="ars"></i></h3></a>
+					<a href="details.jsp"><h3>category<i class="ars"></i></h3></a>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
