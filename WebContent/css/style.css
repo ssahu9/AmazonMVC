@@ -1747,6 +1747,7 @@ list-style: none;
 .grids_of_4{
 	display:block;
 	margin: 2% 0;
+	margin-left : 10%;
 }
 .grid1_of_4{
 	float: left;

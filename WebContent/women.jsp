@@ -163,11 +163,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 </div>
+<!-- *************************************************************************************************** -->
+<!-- -->
 <!-- content -->
 <div class="container">
 <div class="women_main">
 	<!-- start sidebar -->
-	<div class="col-md-3 s-d">
+<!-- 	<div class="col-md-3 s-d">
 	  <div class="w_sidebar">
 		<div class="w_nav1">
 			<h4>All</h4>
@@ -271,6 +273,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</section>
 	</div>
    </div>
+    -->
+   <!-- *********************************************************************************************** -->
 	<!-- start content -->
 	<div class="col-md-9 w_content">
 		<div class="women">
@@ -286,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		     <div class="clearfix"></div>	
 		</div>
 		<!-- grids_of_4 -->
-		<div class="grids_of_4">
+	<!-- 	<div class="grids_of_4"> -->
 		  <div class="grid1_of_4">
 				<div class="content_box"><a href="details.jsp">
 			   	   	 <img src="images/w1.jpg" class="img-responsive" alt=""/>
@@ -340,7 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   	</div>
 			</div>
 			<div class="clearfix"></div>
-		</div>
+	<!-- 	</div>  -->
 		
 		
 		<div class="grids_of_4">
