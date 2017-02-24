@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -63,6 +64,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start header_right -->
 		<div class="header_right">
 			<div class="rgt-bottom">
+			
+			
+			<c:if test="${sessionScope.email == null}">  
+				
 				<div class="log">
 					<div class="login" >
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
@@ -90,6 +95,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					<a href="register.jsp">REGISTER</a>
 				</div>
+		 	</c:if>	
+				<!--  Link for signout  only if user variable is not exit in session scope -->
+				<c:if test="${sessionScope.email != null}">  
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
+				</div>
+				 </c:if> 	
+				
 			<div class="cart box_1">
 				<a href="checkout.jsp">
 					<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt=""></h3>
