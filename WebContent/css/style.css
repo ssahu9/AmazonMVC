@@ -582,7 +582,7 @@ input:focus {
 }
 /*search*/
 .search{
-	position: relative;
+	position: right; /*relative*/
 	background: #f3f4f5;
 	border: 1px solid #D8D8D8;
 }
@@ -598,8 +598,8 @@ input:focus {
 	background: none;
 	border: none;
 	width:85.33333%;
-	line-height: 1.5em;
-	position: relative;
+	line-height: 1em;
+	position: right;
 	font-size: 0.8725em;
 	-webkit-appearance: none;
 	text-transform: capitalize;
@@ -620,11 +620,12 @@ input:focus {
 }
 .log {
   float: left;
-  width: 19%;
+  width: 29%;
 }
 .reg {
+	border: medium;
   float: left;
-  width: 20%;
+  width: 40%;
   margin: 5px 0;
 }
 /* create_btn */

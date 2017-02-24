@@ -61,12 +61,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start header_right -->
 		<div class="header_right">
 			<div class="rgt-bottom">
+			<!-- Session check -->
+			<!-- Providing login and register option  only if user variable is exit in session scope -->
+			<c:if test="${sessionScope.email == null}">  
+				
 				<div class="log">
 					<div class="login" >
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
-						    <div id="loginBox">                
-						        <form id="loginForm">
-						                <fieldset id="body">
+						    <div id="loginBox">         
+						    <!-- Insert target jsp page -->       
+						        <form id="loginForm" action=".\login">
+						                <fieldset id="body" >
 						                	<fieldset>
 						                          <label for="email">Email Address</label>
 						                          <input type="text" name="email" id="email">
@@ -78,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						                    <input type="submit" id="login" value="Sign in">
 						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 						            	</fieldset>
-						            <span><a href="#">Forgot your password?</a></span>
+						           <!-- <span><a href="#">Forgot your password?</a></span>-->
 								</form>
 							</div>
 						</div>
@@ -87,18 +92,159 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					<a href="register.jsp">REGISTER</a>
 				</div>
-			<div class="cart box_1">
-				<a href="checkout.jsp">
-					<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt=""></h3>
-				</a>	
-				<p><a href="javascript:;" class="simpleCart_empty">(empty card)</a></p>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="create_btn">
+		 	</c:if>	
+				<!--  Link for signout  only if user variable is not exit in session scope -->
+				<c:if test="${sessionScope.email != null}">  
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
+				</div>
+				 </c:if> 	
+				 <div class="create_btn">
 				<a href="checkout.jsp">CHECKOUT</a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
+				
+			<div class="cart box_1">
+				<a href="checkout.jsp">
+					<h3><span></span></h3>
+				</a>	
+				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
+				<div class="clearfix"> </div>
+			</div>
+			
+		
+	
+		<div class="search">
+		    <form>
+		    	<input type="text" value="" placeholder="search...">
+				<input type="submit" value="">
+			</form>
+		</div>
+		<div class="clearfix"> </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div><div class="header_right">
+			<div class="rgt-bottom">
+			<!-- Session check -->
+			<!-- Providing login and register option  only if user variable is exit in session scope -->
+			<c:if test="${sessionScope.email == null}">  
+				
+				<div class="log">
+					<div class="login" >
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+						    <div id="loginBox">         
+						    <!-- Insert target jsp page -->       
+						        <form id="loginForm" action=".\login">
+						                <fieldset id="body" >
+						                	<fieldset>
+						                          <label for="email">Email Address</label>
+						                          <input type="text" name="email" id="email">
+						                    </fieldset>
+						                    <fieldset>
+						                            <label for="password">Password</label>
+						                            <input type="password" name="password" id="password">
+						                     </fieldset>
+						                    <input type="submit" id="login" value="Sign in">
+						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+						            	</fieldset>
+						           <!-- <span><a href="#">Forgot your password?</a></span>-->
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reg">
+					<a href="register.jsp">REGISTER</a>
+				</div>
+		 	</c:if>	
+				<!--  Link for signout  only if user variable is not exit in session scope -->
+				<c:if test="${sessionScope.email != null}">  
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
+				</div>
+				 </c:if> 	
+				 <div class="create_btn">
+				<a href="checkout.jsp">CHECKOUT</a>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+				
+			<div class="cart box_1">
+				<a href="checkout.jsp">
+					<h3><span></span></h3>
+				</a>	
+				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
+				<div class="clearfix"> </div>
+			</div>
+			
+		
+	
+		<div class="search">
+		    <form>
+		    	<input type="text" value="" placeholder="search...">
+				<input type="submit" value="">
+			</form>
+		</div>
+		<div class="clearfix"> </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div><div class="header_right">
+			<div class="rgt-bottom">
+			<!-- Session check -->
+			<!-- Providing login and register option  only if user variable is exit in session scope -->
+			<c:if test="${sessionScope.email == null}">  
+				
+				<div class="log">
+					<div class="login" >
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+						    <div id="loginBox">         
+						    <!-- Insert target jsp page -->       
+						        <form id="loginForm" action=".\login">
+						                <fieldset id="body" >
+						                	<fieldset>
+						                          <label for="email">Email Address</label>
+						                          <input type="text" name="email" id="email">
+						                    </fieldset>
+						                    <fieldset>
+						                            <label for="password">Password</label>
+						                            <input type="password" name="password" id="password">
+						                     </fieldset>
+						                    <input type="submit" id="login" value="Sign in">
+						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+						            	</fieldset>
+						           <!-- <span><a href="#">Forgot your password?</a></span>-->
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reg">
+					<a href="register.jsp">REGISTER</a>
+				</div>
+		 	</c:if>	
+				<!--  Link for signout  only if user variable is not exit in session scope -->
+				<c:if test="${sessionScope.email != null}">  
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
+				</div>
+				 </c:if> 	
+				 <div class="create_btn">
+				<a href="checkout.jsp">CHECKOUT</a>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+				
+			<div class="cart box_1">
+				<a href="checkout.jsp">
+					<h3><span></span></h3>
+				</a>	
+				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
+				<div class="clearfix"> </div>
+			</div>
+			
+		
+	
 		<div class="search">
 		    <form>
 		    	<input type="text" value="" placeholder="search...">
