@@ -223,26 +223,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<c:forEach items="${requestScope.productList}" var="product">
 		  <div class="grid1_of_4"style="margin-left: 8px;">
 				<div class="content_box"><a href="details.jsp">
-			   	   	 <img src="images/w${i}.jpg" class="img-responsive" alt=""/>
-				   	  </a>
-				   	  
+			   	   	<img src="images/w${i}.jpg" class="img-responsive" alt=""/>
+				   	</a>  
 				    <h4><a href="details.jsp"><c:out value="${product.name}"></c:out></a></h4>
-				     <p></p><!--  display the discription of item-->
-				      <div class="grid_1 simpleCart_shelfItem">
-				    
-					 <div class="item_add"><span class="item_price"><h6><c:out value="${product.price}"></c:out></h6></span></div>
+				    <p></p><!--  display the discription of item-->
+				    <div class="grid_1 simpleCart_shelfItem">
+     				<div class="item_add"><span class="item_price"><h6><c:out value="${product.price}"></c:out></h6></span></div>
 					<div class="item_add"><span class="item_price"><h6> discount <c:out value="${product.discount}"></c:out></h6></span></div>
 					<div class="item_add"><span class="item_price"><h6> final price</h6></span></div>
 					<div class="item_add"><span class="item_price"><h6> available quantity<c:out value="${product.quantity}"></c:out></h6></span></div>
+					<div class="item_add">
+					 <form action="#">
+		    	<input type="" value= "<c:out value="${product.productId}"></c:out>"   name="pId">
+				<input type="submit" value="" >
+			</form>
+		</div>
+					
 					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-					 </div>
+					</div>
 			   	</div>
 			</div>
-	
 	</c:forEach>
-			
-	</div>	
+    </div>	
 	</div>
+	
+	<div class="item_add">
+		    <form action="index.jsp">
+		    	<input type="hidden" value="sasa"  name="searchProduct">
+				<input type="submit" value=" add to cart" >
+			</form>
+	
 	<div class="clearfix"></div>
 	
 	<!-- end content -->
@@ -264,7 +274,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"><i class="goog"> </i></a></li>
 						<li><a href="#"><i class="be"> </i></a></li>
 						<li><a href="#"><i class="pp"> </i></a></li>
-							<div class="clearfix"></div>	
+						<div class="clearfix"></div>	
 					</ul>
 				</div>
 			</li>

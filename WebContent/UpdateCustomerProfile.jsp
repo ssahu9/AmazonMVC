@@ -12,9 +12,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Home :: w3layouts</title>
+<title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Register :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary JavaScripts plugins) -->
+<!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -32,7 +32,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
 <!-- header_top -->
@@ -62,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<a href="index.jsp"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
 		</div>
 		<!-- start header_right -->
-		<div class="header_right">
+<div class="header_right">
 			<div class="rgt-bottom">
 			<!-- Session check -->
 			<!-- Providing login and register option  only if user variable is exit in session scope -->
@@ -73,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
 						    <div id="loginBox">         
 						    <!-- Insert target jsp page -->       
-						        <form id="loginForm" action=".\LoginServlet">
+						        <form id="loginForm"  action=".\LoginServlet">
 						                <fieldset id="body" >
 						                	<fieldset>
 						                          <label for="email">Email Address</label>
@@ -98,16 +97,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 	</c:if>	
 				<!--  Link for signout  only if user variable is not exit in session scope -->
 				<c:if test="${sessionScope.email != null}">  
-				<div class="log">
-					<a href="./Logout">LOGOUT</a>
-				</div>
-				<!--  Link for profile information updation  -->
-				<div class="log" style=" margin-left: 0px;">
-					<a href="UpdateCustomerProfile.jsp" >UPDATE PROFILE</a>
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
 				</div>
 				 </c:if> 	
 				 <div class="create_btn">
-				<a href="checkout.jsp" style=" margin-left: 50px;">CHECKOUT</a>
+				<a href="checkout.jsp">CHECKOUT</a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -123,33 +118,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 	
 		<div class="search">
-		    <form action="#">
-		    	<input type="text" value="" placeholder="search by product name" name="searchProduct">
-				<input type="submit" value="" >
+		    <form>
+		    	<input type="text" value="" placeholder="search...">
+				<input type="submit" value="">
 			</form>
 		</div>
 		<div class="clearfix"> </div>
 		</div>
 		<div class="clearfix"> </div>
-	</div>
-		
-		<!-- start header menu -->
+	</div>		<!-- start header menu -->
 			<ul class="megamenu skyblue">
 			<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
 			
-		<!-- getting category name from list and displaying it in list -->
-		<%--  	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); --%>
+			<!-- getting category name from list and displaying it in list -->
+			
+		<%--	<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
 
-	<%--	<%for(Category category:categoryList){ %>
+		<%for(Category category:categoryList){ %>
 		
 			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
 				</li>	
 		<% } %>
-		 --%>	
-			<li class="grid"><a class="color2" name="category" href="#">Category</a>				
+			--%>
+		 	
+			
+			<li><a class="color2" href="#">Category</a>				
 				</li>				
-				<li><a class="color5" href="women.jsp" name="category">Category3</a>
+				<li><a class="color5" href="#">Category3</a>
 				
 				</li>
 				<li><a class="color6" href="#">Category4</a>
@@ -167,117 +162,101 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 </div>
-<div class="arriv">
-	<div class="container">
-		<div class="arriv-top">
-			<div class="col-md-6 arriv-left">
-				<img src="images/1.jpg" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>NEW ARRIVALS</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.jsp">Category</a>
-					</div>
+<!-- content -->
+<div class="container">
+<div class="main">
+	<!-- start registration -->
+	<div class="registration">
+		<div class="registration_left">
+		<h2><span> update your profile </span></h2>
+		<!-- [if IE] 
+		    < link rel='stylesheet' type='text/css' href='ie.css'/>  
+		 [endif] -->  
+		  
+		<!-- [if lt IE 7]>  
+		    < link rel='stylesheet' type='text/css' href='ie6.css'/>  
+		<! [endif] -->  
+		<script>
+			(function() {
+		
+			// Create input element for testing
+			var inputs = document.createElement('input');
+			
+			// Create the supports object
+			var supports = {};
+			
+			supports.autofocus   = 'autofocus' in inputs;
+			supports.required    = 'required' in inputs;
+			supports.placeholder = 'placeholder' in inputs;
+		
+			// Fallback for autofocus attribute
+			if(!supports.autofocus) {
+				
+			}
+			
+			// Fallback for required attribute
+			if(!supports.required) {
+				
+			}
+		
+			// Fallback for placeholder attribute
+			if(!supports.placeholder) {
+				
+			}
+			
+			// Change text inside send button on submit
+			var send = document.getElementById('register-submit');
+			if(send) {
+				send.onclick = function () {
+					this.innerHTML = '...Sending';
+				}
+			}
+		
+		})();
+		</script>
+		 <div class="registration_form">
+		 <!-- Form -->
+			<form id="registration_form" action="#" method="post">
+				<div>
+					<label>
+						<input placeholder="New first name:" type="text" pattern=^[a-zA-Z]{1,20}$ tabindex="1" name="fname" required autofocus>
+					</label>
 				</div>
-			</div>
-			<div class="col-md-6 arriv-right">
-				<img src="images/2.jpg" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>TUXEDO</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.jsp">Category</a>
-					</div>
+				<div>
+					<label>
+						<input placeholder="New last name:" type="text" tabindex="2"  pattern=^[a-zA-Z]{1,20}$ name="lname" required autofocus>
+					</label>
 				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-bottm">
-			<div class="col-md-8 arriv-left1">
-				<img src="images/3.jpg" class="img-responsive" alt="">
-				<div class="arriv-info1">
-					<h3>SWEATER</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.jsp">Category</a>
-					</div>
+				<div>
+					<label>
+						<input placeholder="email address:" type="email"  name="email" tabindex="3" required>
+					</label>
 				</div>
-			</div>
-			<div class="col-md-4 arriv-right1">
-				<img src="images/4.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.jsp"><h3>Category<i class="ars"></i></h3></a>
+				<div>
+					<label>
+						<input placeholder=" New number" type="tel"  name="phone" pattern=^[7-9][0-9]{9}$ tabindex="3" required>
+					</label>
 				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-las">
-			<div class="col-md-4 arriv-left2">
-				<img src="images/5.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.jsp"><h3>Category<i class="ars"></i></h3></a>
+				<div>
+					<label>
+						<input placeholder=" New password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$  nanme="pwd" tabindex="4" required>
+					</label>
+				</div>						
+				<div>
+					<label>
+						<input placeholder="retype password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$ nanme="rpwd" tabindex="4" required>
+					</label>
+				</div>	
+				<div>
+					<input type="submit" value="Update" id="register-submit">
 				</div>
-			</div>
-			<div class="col-md-4 arriv-middle">
-				<img src="images/6.jpg" class="img-responsive" alt="">
-				<div class="arriv-info3">
-					<h3>FRESH LOOK T-SHIRT</h3>
-					<div class="crt-btn">
-						<a href="details.jsp">Category</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-right2">
-				<img src="images/7.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.jsp"><h3>category<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
+			</form>
+			<!-- /Form -->
 		</div>
 	</div>
+	
+	<!-- end profile Updation -->
 </div>
-<div class="special">
-	<div class="container">
-		<h3>Special Offers</h3>
-		<div class="specia-top">
-			<ul class="grid_2">
-		<li>
-				<a href="details.jsp"><img src="images/8.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Lorem ipsum dolor</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $40.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<li>
-				<a href="details.jsp"><img src="images/9.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Consectetur adipis</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $60.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.jsp"><img src="images/10.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Commodo consequat</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $14.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.jsp"><img src="images/11.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Voluptate velit</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $37.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<div class="clearfix"> </div>
-	</ul>
-		</div>
-	</div>
 </div>
 <div class="foot-top">
 	<div class="container">
