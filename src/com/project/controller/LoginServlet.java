@@ -17,33 +17,55 @@ package com.project.controller;
   	private static final long serialVersionUID = 1L;
   	CustomerBl customerBL = new CustomerBl();
   
-  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  	protected void doGet(HttpServletRequest request, HttpServletResponse response)  {
   		response.setContentType("text/html");
-  		PrintWriter out = response.getWriter();
+  		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
   		
   		String email = request.getParameter("email");
   		String password = request.getParameter("password");
-  		Customer customer = new Customer();
+  		Customer customer = null;
   		try {
+  			out.print("test");
   			customer = customerBL.signIn(email, password);
-  		} catch (ClassNotFoundException | SQLException e1) {
-  			e1.printStackTrace();
+  			out.print("test2");
+  			out.print("test"+customer.getEmail());
+  		} catch (ClassNotFoundException | SQLException e) {
+  			e.printStackTrace();
+  			out.print("EXCEPTION"+e);
   		}
   		
-  		try {
-  			if(customerBL.signIn(email, password) != null) { // login failed
+  		
+  			if(customer == null) { // login failed
   				out.print("Sorry, you entered the wrong credentials");
-  				request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
+  				try {
+					request.getRequestDispatcher("index.jsp").include(request, response);
+				} catch (ServletException | IOException e) {
+					// TODO Auto-generated catch block
+					out.print("EXCEPTION"+e);
+					e.printStackTrace();
+				} // redirecting to index.jsp
   			}
   			else { // login successful
   				out.print("Welcome, "+customer.getFirstName()+ " "+ customer.getLastName() + "!");
-  				request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting to index.jsp
+  				 // redirecting to index.jsp
   				HttpSession session = request.getSession(); // creating session
   				session.setAttribute("email", email); // setting session attribute
+  				try {
+					request.getRequestDispatcher("index.jsp").forward(request, response);
+				} catch (ServletException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					out.print("EXCEPTION"+e);
+				}
+  			
   			}
-  		} catch (ClassNotFoundException | SQLException e) {
-  			e.printStackTrace();
-  		}
+  	
   	}
   
   	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -13,33 +13,35 @@ private static  Connection connection =null ;
 public static Connection getCon() throws SQLException
 { 
 	
-	Properties p= null;
-	FileInputStream fis;
-	try {
-		fis = new FileInputStream("Connection.properties");
-		p = new Properties();
-		
-		p.load(fis);
-
-	} catch (IOException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}
+//	Properties p= null;
+//	FileInputStream fis;
+//	try {
+//		fis = new FileInputStream("Connection.properties");
+//		p = new Properties();
+//		
+//		p.load(fis);
+//
+//	} catch (IOException e1) {
+//		// TODO Auto-generated catch block
+//		e1.printStackTrace();
+//	}
 	
 		
-	String driver = p.getProperty("dn");
-	String url = p.getProperty("url");
-	String user = p.getProperty("user");
-	String pwd = p.getProperty("pwd");
-	
+//	String driver = p.getProperty("dn");
+//	String url = p.getProperty("url");
+//	String user = p.getProperty("user");
+//	String pwd = p.getProperty("pwd");
+//	
 	// making sure that only one connection object exist 
 	// create object only when connection is closed or does not exist. 
 	if(connection==null || connection.isClosed()== true){
 		try {
-	// Registering or loading  oracle driver		
-			Class.forName(driver);
+	// Registering or loading  oracle driver	
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		//	Class.forName(driver);
 	// calling for database Connection object
-			connection=DriverManager.getConnection(url, user, pwd);
+			//connection=DriverManager.getConnection(url, user, pwd);
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521", "system", "system");
 		} catch (ClassNotFoundException | SQLException e) {
 	// handling exception 
 			e.printStackTrace();

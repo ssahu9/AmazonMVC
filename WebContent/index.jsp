@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
 						    <div id="loginBox">         
 						    <!-- Insert target jsp page -->       
-						        <form id="loginForm" action=".\login">
+						        <form id="loginForm" action=".\LoginServlet">
 						                <fieldset id="body" >
 						                	<fieldset>
 						                          <label for="email">Email Address</label>
@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--  Link for signout  only if user variable is not exit in session scope -->
 				<c:if test="${sessionScope.email != null}">  
 				<div class="reg">
-					<a href="register.jsp">LOGOUT</a>
+					<a href="./Logout">LOGOUT</a>
 				</div>
 				 </c:if> 	
 				 <div class="create_btn">
