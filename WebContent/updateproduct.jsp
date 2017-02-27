@@ -13,7 +13,7 @@
 <form action="">
 <tr>
 <td>
-Enter Product id:
+Enter Product id of product you want to updaate:
 </td>
 <td><input type="text" name="pid" ></td>
 </tr>
