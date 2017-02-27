@@ -51,13 +51,20 @@ package com.project.controller;
 					e.printStackTrace();
 				} // redirecting to index.jsp
   			}
-  			else { // login successful
-  				out.print("Welcome, "+customer.getFirstName()+ " "+ customer.getLastName() + "!");
-  				 // redirecting to index.jsp
+  			else if(customer.getEmail().equals("admin") || customer.getPassword().equals("admin123")) {
   				HttpSession session = request.getSession(); // creating session
   				session.setAttribute("email", email); // setting session attribute
   				try {
-					request.getRequestDispatcher("index.jsp").forward(request, response);
+					request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting to admin.jsp
+				} catch (ServletException | IOException e) {
+					e.printStackTrace();
+				}
+  			}
+  			else { // customer login successful
+  				HttpSession session = request.getSession(); // creating session
+  				session.setAttribute("email", email); // setting session attribute
+  				try {
+					request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting to index.jsp
 				} catch (ServletException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

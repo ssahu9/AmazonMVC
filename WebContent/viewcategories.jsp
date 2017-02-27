@@ -9,14 +9,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
+<%--<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); --%>
 <table>
-<%for(Category category:categoryList){ %>
+<%--<%for(Category category:categoryList){ --%>
 <tr>
-<%=category.getCategoryName()%>
+<%--<%=category.getCategoryName()--%>
 </tr>
-<%}%>
+<%--<%}--%>
 </table>
-
+ -->
+ sdfhsdufhsdjfhsdfhsdjhffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 </body>
 </html>
