@@ -35,6 +35,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
+
+<!-- Load category list from database -->
+<jsp:include page="/AvailableCategory.jsp" />
+
 <!-- header_top -->
 <div class="top_bg">
 	<div class="container">
@@ -132,6 +136,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"> </div>
 	</div>
+		
+		
+		<!-- start header menu -->
+				<ul class="megamenu skyblue">
+				<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+			
+				<c:forEach items="${applicationScope['categoryList']}" var="category">
+				<form action="#">
+				<div class="item_add"><span class="item_price"><h6><c:out value="${product.price}"></c:out></h6></span></div>
+				
+				<li> <input type="submit"  class="color2" name="selectedCategory" value="${category.CategoryName}"> </li>
+				
+				</form>
+				</c:forEach>
+			
+			 	</ul> 
+		
 		
 		<!-- start header menu -->
 			<ul class="megamenu skyblue">
