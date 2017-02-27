@@ -99,7 +99,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="check">
 			<div class="col-md-3 cart-total">
-				<a class="continue" href="#">Continue to basket</a>
+				<a class="continue" href="index.jsp">Continue shopping</a>
+				
+				
 				<div class="price-details">
 					<h3>Price Details</h3>
 					<span>Total</span> <span class="total1">6200.00</span> <span>Discount</span>
@@ -119,12 +121,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<a class="order" href="#">Place Order</a>
 				<div class="total-item">
-					<h3>OPTIONS</h3>
-					<h4>COUPONS</h4>
-					<a class="cpns" href="#">Apply Coupons</a>
-					<p>
-						<a href="#">Log In</a> to use accounts - linked coupons
-					</p>
 				</div>
 			</div>
 			<div class="col-md-9 cart-items">
@@ -146,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="cart-item-info">
 							<h3>
-								<a href="#">Mountain Hopper(XS R034)</a><span>Model No:
+								<a href="">Mountain Hopper(XS R034)</a><span>Model No:
 									3578</span>
 							</h3>
 							<ul class="qty">
