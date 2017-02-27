@@ -16,6 +16,7 @@
 <%= blist. getBillId()+" "+ blist. getProductId()+" "+blist. getQuantity()+" "+blist. getDiscount()+" "+blist. getProductPrice()%>
 </tr>
 <%}%>
+
 </table>
 </body>
 </html>
