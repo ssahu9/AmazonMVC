@@ -154,19 +154,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				<!-- start header menu -->
+			<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
 
 					<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="#">
-							<div class="item_add">
-								<span class="item_price"><h6>
-										<c:out value="${product.price}"></c:out>
-									</h6></span>
-							</div>
-
+						<form action="./GetProducts">
+							
 							<li><input type="submit" class="color2"
 								name="selectedCategory" value="${category.CategoryName}">
 							</li>
@@ -175,6 +170,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</c:forEach>
 
 				</ul>
+				<!-- End of Header Menu -->
+				
+				
+				
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>

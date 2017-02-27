@@ -26,7 +26,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -69,6 +71,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+
+	<!-- start header menu -->
+	<ul class="megamenu skyblue">
+		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+
+		<c:forEach items="${applicationScope['categoryList']}" var="category">
+			<form action="#">
+				<div class="item_add">
+					<span class="item_price"><h6>
+							<c:out value="${product.price}"></c:out>
+						</h6></span>
+				</div>
+
+				<li><input type="submit" class="color2" name="selectedCategory"
+					value="${category.CategoryName}"></li>
+
+			</form>
+		</c:forEach>
+
+	</ul>
+
 	<!-- header -->
 	<ul class="megamenu skyblue">
 		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
@@ -100,8 +123,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="check">
 			<div class="col-md-3 cart-total">
 				<a class="continue" href="index.jsp">Continue shopping</a>
-				
-				
+
+
 				<div class="price-details">
 					<h3>Price Details</h3>
 					<span>Total</span> <span class="total1">6200.00</span> <span>Discount</span>
@@ -120,12 +143,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="clearfix"></div>
 				<a class="order" href=" ">Place Order</a>
-				<div class="total-item">
-				</div>
+				<div class="total-item"></div>
 			</div>
 			<div class="col-md-9 cart-items">
 				<h1>My Shopping Bag</h1>
-				
+
 				<script>
 					$(document).ready(function(c) {
 						$('.close1').on('click', function(c) {
@@ -137,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					
 					<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
-				</script> 
+				</script>
 				<div class="cart-header">
 					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
