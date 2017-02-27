@@ -19,11 +19,11 @@ public class RemoveProductServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = null;
-		
-		Product product=new Product();
+
+		Product product = new Product();
 		int pID = (Integer.parseInt(request.getParameter("pid")));
-		
-		AdminBL adminBl= new AdminBL();
+
+		AdminBL adminBl = new AdminBL();
 		try {
 			adminBl.deleteProduct(pID);
 		} catch (ClassNotFoundException | SQLException e) {

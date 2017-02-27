@@ -35,7 +35,7 @@ public class AddProductServlet extends HttpServlet {
 		int discount = (Integer.parseInt(request.getParameter("pdiscount")));
 		product.setDiscount(discount);
 		
-		AdminBL adminBl= new AdminBL();
+		AdminBL adminBl = new AdminBL();
 		try {
 			adminBl.addProduct(product);
 		} catch (ClassNotFoundException | SQLException e) {
