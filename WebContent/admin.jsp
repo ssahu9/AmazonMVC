@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
 	pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -59,15 +60,16 @@
 		<tr height="700px" width="1500px">
 			<td height="700px" width="300px">
 				<form action="">
-					<input type="button" id="vc" value="View Category"><br>
-					<input type="button" id="ap" value="Add Product"><br>
-					<input type="button" id="ac" value="Add Category"><br>
-					<input type="button" id="rc" value="Remove Category"><br>
-					<input type="button" id="rp" value="Remove Product"><br>
-					<input type="button" id="bh" value="Bill History"><br>
-					<input type="button" id="up" value="Update Product"><br>
-					<input type="button" id="vp" value="View Products"><br>
-					<input type="button" id="upwd" value="Update Password">
+					<input type="button" name="button" id="vc" value="View Category"><br>
+					<input type="button" name="button" id="ap" value="Add Product"><br>
+					<input type="button" name="button" id="ac" value="Add Category"><br>
+					<input type="button" name="button" id="rc" value="Remove Category"><br>
+					<input type="button" name="button" id="rp" value="Remove Product"><br>
+					<input type="button" name="button" id="bh" value="Bill History"><br>
+					<input type="button" name="button" id="up" value="Update Product"><br>
+					<input type="button" name="button" id="vp" value="View Products"><br>
+					<input type="button" name="button" id="upwd"
+						value="Update Password">
 					<!--  
 <a href="viewcategory">VIEW CATEGORIES</a>
 <a href="addproduct.JSP" onclick="">ADD PRODUCT</a><br>
