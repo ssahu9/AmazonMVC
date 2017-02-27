@@ -119,12 +119,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				<div class="clearfix"></div>
-				<a class="order" href="#">Place Order</a>
+				<a class="order" href=" ">Place Order</a>
 				<div class="total-item">
 				</div>
 			</div>
 			<div class="col-md-9 cart-items">
-				<h1>My Shopping Bag (2)</h1>
+				<h1>My Shopping Bag</h1>
+				
 				<script>
 					$(document).ready(function(c) {
 						$('.close1').on('click', function(c) {
@@ -133,7 +134,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});
 						});
 					});
-				</script>
+					
+					
+					<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
+				</script> 
 				<div class="cart-header">
 					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
@@ -142,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="cart-item-info">
 							<h3>
-								<a href="">Mountain Hopper(XS R034)</a><span>Model No:
+								<a href=" ">Mountain Hopper(XS R034)</a><span>Model No:
 									3578</span>
 							</h3>
 							<ul class="qty">
