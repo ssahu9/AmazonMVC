@@ -37,6 +37,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
+
+
+<!-- Load category list from database -->
+<jsp:include page="/AvailableCategory.jsp" />
+
+
 <!-- header_top -->
 <div class="top_bg">
 	<div class="container">
@@ -131,8 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"> </div>
 	</div>
 		<!-- start header menu -->
-			<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+			
 			
 			<!-- getting category name from list and displaying it in list -->
 		<%-- 	
@@ -143,8 +148,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
 				</li>	
 		<% } %>
-		 --%>	
-			
+		 --%>
+
+				<!-- start header menu -->
+				<ul class="megamenu skyblue">
+					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+
+					<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<form action="#">
+							<div class="item_add">
+								<span class="item_price"><h6>
+										<c:out value="${product.price}"></c:out>
+									</h6></span>
+							</div>
+
+							<li><input type="submit" class="color2"
+								name="selectedCategory" value="${category.CategoryName}">
+							</li>
+
+						</form>
+					</c:forEach>
+
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+				<ul class="megamenu skyblue">
+				<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
 			<li class="grid"><a class="color2" href="#">Category</a>				
 				</li>				
 				<li><a class="color5" href="#">Category3</a>
@@ -162,6 +201,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 				</li>
 		 </ul> 
+	
+	
+	
 	</div>
 </div>
 </div>
@@ -180,6 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- Getting the list of product in particular category -->
 	<%-- 		<% ArrayList<Product> productList = (ArrayList) request.getAttribute("productList"); %> <%=productList.size() %>--%>
 			<!-- <a href="#"><h4><%= request.getAttribute("SelectedCategory") %> - <span></span> </h4></a> -->
+			
 			<ul class="w_nav">
 						<li>Sort : </li>
 		     		
@@ -207,39 +250,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="item_add"><span class="item_price"><h6>ONLY $99.00</h6></span></div>
 	<div class="item_add"><span class="item_price"><h6>ONLY $99.00</h6></span></div>
 	<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-					
-	
 	</div>
-	
 	</div>
-	
 	
 	
 	<div style="width: 100%;">
 	<!-- Run loop to display the products  -->
 	<!-- Used jstl tag for loop and printing the object values -->
-	
-	
 	<c:forEach items="${requestScope.productList}" var="product">
 		  <div class="grid1_of_4"style="margin-left: 8px;">
-				<div class="content_box"><a href="details.jsp">
-			   	   	<img src="images/w${i}.jpg" class="img-responsive" alt=""/>
-				   	</a>  
+				<!-- div for product image -->
+				<div class="content_box">
+			   	   	<img src="images/w.jpg" class="img-responsive" alt=""/>
 				    <h4><a href="details.jsp"><c:out value="${product.name}"></c:out></a></h4>
 				    <p></p><!--  display the discription of item-->
 				    <div class="grid_1 simpleCart_shelfItem">
-     				<div class="item_add"><span class="item_price"><h6><c:out value="${product.price}"></c:out></h6></span></div>
+     				<div class="item_add"><span class="item_price"><h6> <strike> <c:out value="${product.price}"></c:out></strike></h6></span></div>
 					<div class="item_add"><span class="item_price"><h6> discount <c:out value="${product.discount}"></c:out></h6></span></div>
-					<div class="item_add"><span class="item_price"><h6> final price</h6></span></div>
+					<div class="item_add"><span class="item_price"><h6> final price <c:out value="${product.price * (100-product.discount)/100}"></c:out> </h6></span></div>
 					<div class="item_add"><span class="item_price"><h6> available quantity<c:out value="${product.quantity}"></c:out></h6></span></div>
 					<div class="item_add">
-					 <form action="#">
-		    	<input type="" value= "<c:out value="${product.productId}"></c:out>"   name="pId">
-				<input type="submit" value="" >
-			</form>
-		</div>
-					
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
+					<!-- Creating form to take input quantity and send the value to controller -->
+					<form action="#">
+		    		<input  class="item_add" type="text"  value= "<c:out value="${product.productId}"></c:out>"  name="pId"  readonly>
+		    		<input  class="item_add" type="text"  value= "<c:out value="${product.quantity}"></c:out>"  name="originalQuantity"  readonly>
+					<input type="text" name="quantity" placeholder="Enter Quantity">
+					<input type="submit" value="Add to Cart" >
+					</form>
+					</div>
 					</div>
 			   	</div>
 			</div>

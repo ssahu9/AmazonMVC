@@ -13,10 +13,30 @@ public class AdminEntry extends HttpServlet {
 		String str = request.getParameter("button");
 		
 		switch (str) {
-		case ":
-			
+		case "View Category":
+			request.getRequestDispatcher("index.jsp").include(request, response);
 			break;
-
+		case "Add Product":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "Add Category":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "Remove Category":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "Remove Product":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "Bill History":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "Update Product":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
+		case "View Products":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
 		default:
 			break;
 		}
