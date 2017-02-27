@@ -54,9 +54,7 @@
     <display-name>AdminEntry</display-name>
     <servlet-name>AdminEntry</servlet-name>
     <servlet-class>com.project.controller.AdminEntry</servlet-class>
-  </servlet>
-  
-  
+  </servlet> 
   <servlet-mapping>
     <servlet-name>AdminEntry</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -97,5 +95,25 @@
   <servlet-mapping>
     <servlet-name>GetProducts</servlet-name>
     <url-pattern>/GetProducts</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveCategoryServlet</display-name>
+    <servlet-name>RemoveCategoryServlet</servlet-name>
+    <servlet-class>com.project.controller.RemoveCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveCategoryServlet</servlet-name>
+    <url-pattern>/RemoveCategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveProductServlet</display-name>
+    <servlet-name>RemoveProductServlet</servlet-name>
+    <servlet-class>com.project.controller.RemoveProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveProductServlet</servlet-name>
+    <url-pattern>/RemoveProductServlet</url-pattern>
   </servlet-mapping>
 </web-app>
