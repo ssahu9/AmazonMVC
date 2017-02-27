@@ -83,8 +83,7 @@
   <servlet-mapping>
     <servlet-name>AddProductServlet</servlet-name>
     <url-pattern>/AddProductServlet</url-pattern>
-    <servlet-name>AdminEntry</servlet-name>
-    <url-pattern>/Admin</url-pattern>
+    
   </servlet-mapping>
   <servlet>
     <description></description>
