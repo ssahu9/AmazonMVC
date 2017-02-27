@@ -25,12 +25,13 @@ public class GetProducts extends HttpServlet {
 		try {
 		String	pcategory =request.getParameter("selectedCategory");
 			proList = (ArrayList<Product>)customerBl.viewProduct(pcategory);
+			System.out.println(proList);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		request.setAttribute("productList",proList);
-		request.getRequestDispatcher("index.jsp").include(request, response);
+		request.getRequestDispatcher("women.jsp").include(request, response);
 
 		
 		

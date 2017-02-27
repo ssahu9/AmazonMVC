@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- Load category list from database -->
-	<jsp:include page="/AvailableCategory.jsp" />
+	<jsp:include page="/AvailableCategory" />
 
 	<!-- header_top -->
 	<div class="top_bg">
@@ -156,65 +156,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 
-				<!-- start header menu -->
+					<!-- start header menu -->
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="./GetProducts">
-							
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
-						</form>
-					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
-				
-				
-				<!-- start header menu -->
-				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
-						var="category">
-						<form action="./GetProducts">
-							
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
-
-						</form>
-					</c:forEach>
-
-				</ul>
-
-				<!-- start header menu -->
-				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<!-- getting category name from list and displaying it in list -->
-
-					<%--	<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
-
-		<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-			--%>
-
-
-					<li><a class="color2" href="#">Category</a></li>
-					<li><a class="color5" href="#">Category3</a></li>
-					<li><a class="color6" href="#">Category4</a></li>
-
-					<li><a class="color8" href="#">categor6y</a></li>
-					<li><a class="color9" href="#">Category7</a></li>
-				</ul>
 			</div>
 		</div>
 	</div>
@@ -275,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form" action="contact.php" method="post">
+						<form id="registration_form" action="Register" method="post">
 							<div>
 								<label> <input placeholder="first name:" type="text"
 									pattern=^[a-zA-Z]{1,20}$ tabindex="1" name="fname" required
@@ -298,25 +252,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									name="phone" pattern=^[7-9][0-9]{9}$ tabindex="3" required>
 								</label>
 							</div>
-							<!-- 		<div class="sky-form">
-					<div class="sky_form1">
-						<ul>
-							<li><label class="radio left"><input type="radio" name="radio" checked=""><i></i>Male</label></li>
-							<li><label class="radio"><input type="radio" name="radio"><i></i>Female</label></li>
-							<div class="clearfix"></div>
-						</ul>
-					</div>
-				</div>
-			 -->
+						
 							<div>
 								<label> <input placeholder="password" type="password"
-									pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$ name="pwd" tabindex="4"
+									pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$ name="pwd" tabindex="4"
 									required>
 								</label>
 							</div>
 							<div>
 								<label> <input placeholder="retype password"
-									type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$
+									type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$
 									name="rpwd" tabindex="4" required>
 								</label>
 							</div>
@@ -324,11 +269,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<input type="submit" value="create an account"
 									id="register-submit">
 							</div>
-							<!-- 
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
-				 -->
 						</form>
 						<!-- /Form -->
 					</div>

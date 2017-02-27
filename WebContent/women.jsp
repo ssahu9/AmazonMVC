@@ -160,59 +160,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<!-- start header menu -->
-
-
-				<!-- getting category name from list and displaying it in list -->
-				<%-- 	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)request.getAttribute("categoryList"); %>
-
-		<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-		 --%>
-
-				<!-- start header menu -->
+	<!-- start header menu -->
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="./GetProducts">
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
-
-						</form>
-					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
-
-
-
-
-
-
-
-
-
-
-
-				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color2" href="#">Category</a></li>
-					<li><a class="color5" href="#">Category3</a></li>
-					<li><a class="color6" href="#">Category4</a></li>
-
-					<li><a class="color8" href="#">categor6y</a></li>
-					<li><a class="color9" href="#">Category7</a></li>
-				</ul>
-
-
 
 			</div>
 		</div>
@@ -247,32 +207,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- grids_of_4 -->
 				<!-- 	<div class="grids_of_4"> -->
 
+				
 				<div class="items">
-
-					<!-- div for product image -->
-					<div style="width: 30%; height: 170px; float: left;">
-						<img alt="" style="width: 100%; height: 100%" src="./images/1.jpg">
-					</div>
-					<div style="width: 70%; height: 170px; float: left;">
-
-						<h4>
-							<a href="details.jsp"> Duis autem</a>
-						</h4>
-						<p>It is a long established fact that</p>
-
-						<div class="item_add">
-							<span class="item_price"><h6>ONLY $99.00</h6></span>
-						</div>
-						<div class="item_add">
-							<span class="item_price"><h6>ONLY $99.00</h6></span>
-						</div>
-						<div class="item_add">
-							<span class="item_price"><a href="#">add to cart</a></span>
-						</div>
-					</div>
-				</div>
-
-
 				<div style="width: 100%;">
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
@@ -280,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="grid1_of_4" style="margin-left: 8px;">
 							<!-- div for product image -->
 							<div class="content_box">
-								<img src="images/w.jpg" class="img-responsive" alt="" />
+								<img src="images/1.jpg" class="img-responsive" alt="" />
 								<h4>
 									<a href="details.jsp"><c:out value="${product.name}"></c:out></a>
 								</h4>
@@ -316,17 +252,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<input class="item_add" type="text"
 												value="<c:out value="${product.productId}"></c:out>"
 												name="pId" readonly> <input class="item_add"
-												type="text"
-												value="<c:out value="${product.quantity}"></c:out>"
-												name="originalQuantity" readonly> <input type="text"
-												name="quantity" placeholder="Enter Quantity"> <input
-												type="submit" value="Add to Cart">
+												type="hidden"
+												value="<c:out value="${product.quantity}" ></c:out>"
+												name="originalQuantity" readonly> Enter Quantity<input type="number"
+												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="${product.quantity}"> <input
+												type="submit" class="item_price" value="Add to Cart">
 										</form>
 									</div>
 								</div>
 							</div>
 						</div>
 					</c:forEach>
+				</div>
 				</div>
 			</div>
 
