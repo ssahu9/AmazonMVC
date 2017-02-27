@@ -284,15 +284,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
-				<li><i class="phone"> </i>025-2839341</li>
+				<li><i class="add"> </i>Sapient Consulting Pvt Ltd.</li>
+				<li><i class="phone"> </i>0124-2839341</li>
 				<li><a href="mailto:info@example.com"><i class="mail">
-					</i>info@sitename.com </a></li>
+					</i>sapient@sitename.com </a></li>
 
 			</div>
 			<div class="clearfix"></div>
 			<p>
-				Copyrights © 2015 Gretong. All rights reserved | Template by <a
+				Copyrights © 2015 Gretong. All rights reserved <a
 					href="http://w3layouts.com/">W3layouts</a>
 			</p>
 		</div>
