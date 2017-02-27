@@ -51,23 +51,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>addCategory</display-name>
-    <servlet-name>addCategory</servlet-name>
-    <servlet-class>com.project.controller.addCategory</servlet-class>
+    <display-name>AdminEntry</display-name>
+    <servlet-name>AdminEntry</servlet-name>
+    <servlet-class>com.project.controller.AdminEntry</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>addCategory</servlet-name>
-    <url-pattern>/addCategory</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddProductServlet</display-name>
-    <servlet-name>AddProductServlet</servlet-name>
-    <servlet-class>com.project.controller.AddProductServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddProductServlet</servlet-name>
-    <url-pattern>/AddProductServlet</url-pattern>
+    <servlet-name>AdminEntry</servlet-name>
+    <url-pattern>/Admin</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

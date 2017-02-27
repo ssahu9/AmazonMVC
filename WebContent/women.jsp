@@ -148,34 +148,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
 				</li>	
 		<% } %>
-		 --%>	
-		 
-		 		<!-- start header menu -->
+		 --%>
+
+				<!-- start header menu -->
 				<ul class="megamenu skyblue">
-				<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-			
-				<c:forEach items="${applicationScope['categoryList']}" var="category">
-				<form action="#">
-				<div class="item_add"><span class="item_price"><h6><c:out value="${product.price}"></c:out></h6></span></div>
-				
-				<li> <input type="submit"  class="color2" name="selectedCategory" value="${category.CategoryName}"> </li>
-				
-				</form>
-				</c:forEach>
-			
-			 	</ul> 
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<ul class="megamenu skyblue">
+					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+
+					<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<form action="#">
+							<div class="item_add">
+								<span class="item_price"><h6>
+										<c:out value="${product.price}"></c:out>
+									</h6></span>
+							</div>
+
+							<li><input type="submit" class="color2"
+								name="selectedCategory" value="${category.CategoryName}">
+							</li>
+
+						</form>
+					</c:forEach>
+
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+				<ul class="megamenu skyblue">
 				<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
 			<li class="grid"><a class="color2" href="#">Category</a>				
 				</li>				

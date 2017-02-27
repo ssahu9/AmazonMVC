@@ -27,7 +27,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -149,6 +151,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="clearfix"></div>
 				</div>
+
+
+
+				<!-- start header menu -->
+				<ul class="megamenu skyblue">
+					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+
+					<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<form action="#">
+							<div class="item_add">
+								<span class="item_price"><h6>
+										<c:out value="${product.price}"></c:out>
+									</h6></span>
+							</div>
+
+							<li><input type="submit" class="color2"
+								name="selectedCategory" value="${category.CategoryName}">
+							</li>
+
+						</form>
+					</c:forEach>
+
+				</ul>
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
