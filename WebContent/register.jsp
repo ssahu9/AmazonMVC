@@ -249,12 +249,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 -->
 				<div>
 					<label>
-						<input placeholder="password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$  nanme="pwd" tabindex="4" required>
+						<input placeholder="password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$  name="pwd" tabindex="4" required>
 					</label>
 				</div>						
 				<div>
 					<label>
-						<input placeholder="retype password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$ nanme="rpwd" tabindex="4" required>
+						<input placeholder="retype password" type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$ name="rpwd" tabindex="4" required>
 					</label>
 				</div>	
 				<div>
