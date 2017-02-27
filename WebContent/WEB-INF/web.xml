@@ -69,4 +69,24 @@
     <servlet-name>AddProductServlet</servlet-name>
     <url-pattern>/AddProductServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveCategoryServlet</display-name>
+    <servlet-name>RemoveCategoryServlet</servlet-name>
+    <servlet-class>com.project.controller.RemoveCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveCategoryServlet</servlet-name>
+    <url-pattern>/RemoveCategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveProductServlet</display-name>
+    <servlet-name>RemoveProductServlet</servlet-name>
+    <servlet-class>com.project.controller.RemoveProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveProductServlet</servlet-name>
+    <url-pattern>/RemoveProductServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
