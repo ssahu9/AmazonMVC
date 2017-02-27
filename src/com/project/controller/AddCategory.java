@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.project.bean.Category;
 import com.project.bl.AdminBL;
 
-public class addCategory extends HttpServlet {
+public class AddCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
