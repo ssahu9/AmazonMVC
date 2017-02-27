@@ -39,4 +39,14 @@
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminEntry</display-name>
+    <servlet-name>AdminEntry</servlet-name>
+    <servlet-class>com.project.controller.AdminEntry</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminEntry</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
 </web-app>
