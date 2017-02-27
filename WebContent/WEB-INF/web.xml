@@ -31,6 +31,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>UpdateCustomerDetails</display-name>
+    <servlet-name>UpdateCustomerDetails</servlet-name>
+    <servlet-class>com.project.controller.UpdateCustomerDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerDetails</servlet-name>
+    <url-pattern>/UpdateCustomerDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>Register</display-name>
     <servlet-name>Register</servlet-name>
     <servlet-class>com.project.controller.Register</servlet-class>
@@ -38,5 +48,15 @@
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AvailableCategory</display-name>
+    <servlet-name>AvailableCategory</servlet-name>
+    <servlet-class>com.project.controller.AvailableCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AvailableCategory</servlet-name>
+    <url-pattern>/AvailableCategory</url-pattern>
   </servlet-mapping>
 </web-app>
