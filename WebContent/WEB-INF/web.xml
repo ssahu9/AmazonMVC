@@ -51,10 +51,17 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AvailableCategory</display-name>
-    <servlet-name>AvailableCategory</servlet-name>
-    <servlet-class>com.project.controller.AvailableCategory</servlet-class>
+    <display-name>AdminEntry</display-name>
+    <servlet-name>AdminEntry</servlet-name>
+    <servlet-class>com.project.controller.AdminEntry</servlet-class>
   </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>AdminEntry</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>AvailableCategory</servlet-name>
     <url-pattern>/AvailableCategory.jsp</url-pattern>
@@ -78,6 +85,8 @@
   <servlet-mapping>
     <servlet-name>AddProductServlet</servlet-name>
     <url-pattern>/AddProductServlet</url-pattern>
+    <servlet-name>AdminEntry</servlet-name>
+    <url-pattern>/Admin</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
