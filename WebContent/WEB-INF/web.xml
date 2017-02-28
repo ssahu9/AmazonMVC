@@ -219,4 +219,24 @@
     <servlet-name>CallErrorPageServlet</servlet-name>
     <url-pattern>/CallErrorPageServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveFromCart</display-name>
+    <servlet-name>RemoveFromCart</servlet-name>
+    <servlet-class>com.project.controller.RemoveFromCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFromCart</servlet-name>
+    <url-pattern>/RemoveFromCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveFromCart2</display-name>
+    <servlet-name>RemoveFromCart2</servlet-name>
+    <servlet-class>com.project.controller.RemoveFromCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFromCart2</servlet-name>
+    <url-pattern>/RemoveFromCart2</url-pattern>
+  </servlet-mapping>
 </web-app>

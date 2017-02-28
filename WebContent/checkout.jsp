@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="com.project.bean.Product"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.project.bean.CartDetails"%>
@@ -31,7 +32,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 </script>
@@ -100,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		double sum = 0;
 		for (CartDetails cart : cartDetails) {
-			System.out.println(cart);
+
 			sum = sum + cart.getTotalPrice();
 		}
 	%>
@@ -116,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="price-details">
 					<h3>Price Details</h3>
 					<span>Total</span> <span class="total1" style="color: black;"><%=sum%></span>
-					<span>Discount</span>
+					<!-- 	<span>Discount</span> -->
 					<!--  <span class="total1">---</span> <span>Delivery Charges</span> <span
 						class="total1">150.00</span>-->
 					<div class="clearfix"></div>
@@ -141,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$(document).ready(function(c) {
 						$('.close1').on('click', function(c) {
 							$('.cart-header').fadeOut('slow', function(c) {
-								$('.cart-header').remove();
+								//$('.cart-header').remove();
 							});
 						});
 					});
@@ -155,7 +160,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				%>
 
 				<div class="cart-header">
-					<div class="close1"></div>
+					<div class="close1">
+						<form action="RemoveFromCart2">
+							<input class="item_add" type="hidden"
+								value="<%=cart.getProductId()%>" name="pId"> <input
+								type="submit" class="item_price" value="Remove From Cart">
+						</form>
+					</div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="images/8.jpg" class="img-responsive" alt="" />
