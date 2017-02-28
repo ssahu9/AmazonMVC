@@ -16,28 +16,36 @@ import com.project.bl.AdminBL;
 public class AddProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out = null;
+		PrintWriter out = response.getWriter();
+		Product product = new Product();
 		
-		Product product=new Product();
 		int pID = (Integer.parseInt(request.getParameter("pid")));
 		product.setProductId(pID);
+		
 		String name = (request.getParameter("pname"));
 		product.setName(name);
+		
 		String category = (request.getParameter("cname"));
 		product.setCategory(category);
+		
 		double price = (Double.parseDouble(request.getParameter("prodprice")));
 		product.setPrice(price);
+		
 		int quantity = (Integer.parseInt(request.getParameter("prodquantity")));
 		product.setQuantity(quantity);
+		
 		int discount = (Integer.parseInt(request.getParameter("pdiscount")));
 		product.setDiscount(discount);
 		
 		AdminBL adminBl = new AdminBL();
+		
 		try {
-			adminBl.addProduct(product);
+			if(!adminBl.addProduct(product)) {
+				out.println("Sorry, not inserted!");
+				request.getRequestDispatcher("admin.jsp").include(request, response);
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
