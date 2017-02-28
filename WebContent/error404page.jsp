@@ -175,8 +175,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<tbody>
 				<tr>
 					<td><img src="404.jpg" alt=""></td></tr><tr>
-					<td><p style="margin-left: 6px;"><strong><br><br><h3>Unfortunately, we have recived an error</h3></strong></p>
+					<td><p style="margin-left: 6px;"><strong><br><br><h3>Unfortunately, Page requested is not found</h3></strong></p>
 <p>What Happened??</p>
+<p style="color:red;"> ${requestScope.errorMessage} <p>
 <a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
 			</tbody></table>
 		</td>

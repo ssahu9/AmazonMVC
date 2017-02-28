@@ -239,4 +239,24 @@
     <servlet-name>RemoveFromCart2</servlet-name>
     <url-pattern>/RemoveFromCart2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Placeorder</display-name>
+    <servlet-name>Placeorder</servlet-name>
+    <servlet-class>com.project.controller.Placeorder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Placeorder</servlet-name>
+    <url-pattern>/Placeorder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchProductServlet</display-name>
+    <servlet-name>SearchProductServlet</servlet-name>
+    <servlet-class>com.project.controller.SearchProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchProductServlet</servlet-name>
+    <url-pattern>/SearchProductServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

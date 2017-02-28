@@ -3,6 +3,7 @@ package com.project.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.project.bean.Product;
 import com.project.bl.CustomerBl;
 
 public class SearchProductServlet extends HttpServlet{
@@ -20,28 +22,31 @@ public class SearchProductServlet extends HttpServlet{
 		
 		response.setContentType("text/html");
 		PrintWriter out = null;
-		
+		Product product = null;
 		HttpSession session = request.getSession(false);
 		
 		
 		if (session != null){
 			
-		String productName = request.getParameter("name");
+		String productName = request.getParameter("searchProduct");
 		
 		 pName=productName.toUpperCase();
 		
 		CustomerBl customerBl = new CustomerBl();
 		try{
-	      customerBl.searchProductByName(productName);
+	     product= customerBl.searchProductByName(pName);
+		System.out.println("productttt"+product);
 		}
 		catch (ClassNotFoundException | SQLException e) {
 				
 				e.printStackTrace();
 			}
 		}
-		
-		request.setAttribute("productName",pName);
-		request.getRequestDispatcher("SearchProduct.jsp").include(request, response);
+		ArrayList<Product> pList = new ArrayList<Product>();
+		pList.add(product);
+		request.setAttribute("productObject", pList);
+		System.out.println(pList);
+		request.getRequestDispatcher("SearchResult.jsp").include(request, response);
 		}
 	
 	
