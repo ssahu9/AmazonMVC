@@ -16,36 +16,35 @@ import com.project.bean.Category;
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
 
-
 public class CheckoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession(false); 
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+
 		response.setContentType("text/html");
 		CustomerBl customerBl = new CustomerBl();
-			LinkedList<CartDetails> cartDetails = null;
-		Customer customer=(Customer)session.getAttribute("customerObject");
+		LinkedList<CartDetails> cartDetails = null;
+		Customer customer = (Customer) session.getAttribute("customerObject");
 		try {
 			cartDetails = (LinkedList<CartDetails>) customerBl.viewCart(customer.getCustomerId());
 			System.out.println(cartDetails);
 
-		} catch (ClassNotFoundException | SQLException |NullPointerException e) {
+		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			// TODO Auto-generated catch block
 			System.out.println("null pointer error");
 			e.printStackTrace();
 		}
-		
-		session.setAttribute("cartList",cartDetails);
+
+		session.setAttribute("cartList", cartDetails);
 
 		response.sendRedirect("checkout.jsp");
 
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

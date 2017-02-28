@@ -30,7 +30,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <link
@@ -76,35 +78,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- start header menu -->
-	
+
 
 	<!-- header -->
 	<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
-				<c:forEach items="${applicationScope['categoryList']}"
-						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
-						</c:forEach>
+		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+		<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
+		<c:forEach items="${applicationScope['categoryList']}" var="category">
+			<li class="grid"><a class="color6"
+				href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+		</c:forEach>
 
 
-				</ul>
+	</ul>
 	</div>
 	</div>
 	</div>
 
-	<% 
-	LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>)session.getAttribute("cartList"); 
-	
-	double sum=0;
-	for(CartDetails cart:cartDetails){
-    System.out.println(cart);
-		sum=sum + cart.getTotalPrice(); 
-	}
-  %>
-	
+	<%
+		LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) session.getAttribute("cartList");
 
-	
+		double sum = 0;
+		for (CartDetails cart : cartDetails) {
+			System.out.println(cart);
+			sum = sum + cart.getTotalPrice();
+		}
+	%>
+
+
+
 	<div class="container">
 		<div class="check">
 			<div class="col-md-3 cart-total">
@@ -113,7 +115,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="price-details">
 					<h3>Price Details</h3>
-					<span>Total</span> <span class="total1" style="color: black;"><%= sum %></span> <span>Discount</span>
+					<span>Total</span> <span class="total1" style="color: black;"><%=sum%></span>
+					<span>Discount</span>
 					<!--  <span class="total1">---</span> <span>Delivery Charges</span> <span
 						class="total1">150.00</span>-->
 					<div class="clearfix"></div>
@@ -122,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="last_price">
 						<h4>TOTAL</h4>
 					</li>
-					<li class="last_price"><span><%= sum %></span></li>
+					<li class="last_price"><span><%=sum%></span></li>
 					<div class="clearfix"></div>
 				</ul>
 
@@ -142,43 +145,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});
 						});
 					});
+				<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
 					
-					
-					<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
 				</script>
-											<% 
-	LinkedList<CartDetails> cartDetails2 = (LinkedList<CartDetails>)session.getAttribute("cartList"); 
+				<%
+					LinkedList<CartDetails> cartDetails2 = (LinkedList<CartDetails>) session.getAttribute("cartList");
 
-	for(CartDetails cart:cartDetails2){
-   %>
-				
+					for (CartDetails cart : cartDetails2) {
+				%>
+
 				<div class="cart-header">
 					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="images/8.jpg" class="img-responsive" alt="" />
 						</div>
-						<div class="cart-item-info">							
+						<div class="cart-item-info">
 							<h3>
-								<a href=" "><%= cart.getProductName() %></a>
-							</h3>Quantity:
+								<a href=" "><%=cart.getProductName()%></a>
+							</h3>
+							Quantity:
 							<ul class="qty">
-								<li><p><%= cart.getQuantity()%></p></li>
+								<li><p><%=cart.getQuantity()%></p></li>
 							</ul>
 
 							<div class="delivery">
-								
+
 								<span>Delivered in 2-3 bussiness days</span>
 								<div class="clearfix"></div>
 							</div>
 						</div>
-					
+
 						<div class="clearfix"></div>
 
 					</div>
 				</div>
-					<%} %>
-		<!-- 		<script>
+				<%
+					}
+				%>
+				<!-- 		<script>
 					$(document).ready(function(c) {
 						$('.close2').on('click', function(c) {
 							$('.cart-header2').fadeOut('slow', function(c) {
@@ -209,15 +214,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="clearfix"></div>
 							</div>
 						</div>
- -->						<div class="clearfix"></div>
+ -->
+				<div class="clearfix"></div>
 
-					</div>
-				</div>
 			</div>
-
-
-			<div class="clearfix"></div>
 		</div>
+	</div>
+
+
+	<div class="clearfix"></div>
+	</div>
 	</div>
 	<div class="foot-top">
 		<div class="container">
