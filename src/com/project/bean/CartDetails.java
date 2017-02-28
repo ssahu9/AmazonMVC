@@ -3,15 +3,17 @@ package com.project.bean;
 import java.sql.Date;
 
 public class CartDetails {
-	private int productId;
-	private String productName;
-	private double price;
-	private int quantity;
-	private int discount;
-	private double totalPrice;
-	private String category;
-	private Date date;
+	private int productId;			//to store product_id of the products of the cart
+	private String productName;		//to store the product_name of the products in the cart
+	private double price;			//to store the price of the products in the cart
+	private int quantity;			//to store the quantity of the products in the cart
+	private int discount;			//to store the discount given on the products in the cart
+	private double totalPrice;		//to store the total_price of all the products stored in the cart
+	private String category;		//to store the category of each product in the cart to which they belong 
+	private Date date;				//to store the date when the cart was created
 
+	
+	//constructors made to be used for further processing
 	public CartDetails() {
 
 	}
@@ -29,6 +31,17 @@ public class CartDetails {
 		this.date = date;
 	}
 
+	//toString() method used to return the values od above mentioned parameters:
+	@Override
+	public String toString() {
+		return "CartDetails [productId=" + productId + ", productName=" + productName + ", price=" + price
+				+ ", quantity=" + quantity + ", discount=" + discount + ", totalPrice=" + totalPrice + ", category="
+				+ category + ", date=" + date + "]";
+	}
+
+	
+	
+	//setters and getters for the above mentioned parameters:
 	public int getProductId() {
 		return productId;
 	}
@@ -37,13 +50,7 @@ public class CartDetails {
 		this.productId = productId;
 	}
 
-	@Override
-	public String toString() {
-		return "CartDetails [productId=" + productId + ", productName=" + productName + ", price=" + price
-				+ ", quantity=" + quantity + ", discount=" + discount + ", totalPrice=" + totalPrice + ", category="
-				+ category + ", date=" + date + "]";
-	}
-
+	
 	public String getProductName() {
 		return productName;
 	}

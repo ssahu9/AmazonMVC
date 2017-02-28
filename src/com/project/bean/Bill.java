@@ -3,10 +3,12 @@ package com.project.bean;
 import java.sql.Date;
 
 public class Bill {
-	private int customerId;
-	private int billId;
-	private Date billDate;
+	private int customerId;  //store customer_id to generate bill details
+	private int billId;      //to store bill_id
+	private Date billDate;   //to generate and store the date of bill creation
 
+	
+	//constructors of the above mentioned class to be used for further processing
 	public Bill() {
 
 	}
@@ -17,6 +19,8 @@ public class Bill {
 		this.billDate = billDate;
 	}
 
+	
+	//setters and getters for above mentioned fields:
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -37,12 +41,15 @@ public class Bill {
 		return billDate;
 	}
 
+	
+	public void setBillDate(Date billDate) {
+		this.billDate = billDate;
+	}
+	
+	
+	//toString() method used to return the input values of above mentioned fields:
 	@Override
 	public String toString() {
 		return "Bill [customerId=" + customerId + ", billId=" + billId + ", billDate=" + billDate + "]";
-	}
-
-	public void setBillDate(Date billDate) {
-		this.billDate = billDate;
 	}
 }
