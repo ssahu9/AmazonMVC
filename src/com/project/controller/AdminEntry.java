@@ -37,6 +37,9 @@ public class AdminEntry extends HttpServlet {
 		case "View Products":
 			request.getRequestDispatcher("index.jsp").include(request, response);
 			break;
+		case "Update Password":
+			request.getRequestDispatcher("index.jsp").include(request, response);
+			break;
 		default:
 			break;
 		}
