@@ -199,4 +199,14 @@
     <servlet-name>AddCategory</servlet-name>
     <url-pattern>/AddCategory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertIntoCart</display-name>
+    <servlet-name>InsertIntoCart</servlet-name>
+    <servlet-class>com.project.controller.InsertIntoCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertIntoCart</servlet-name>
+    <url-pattern>/InsertIntoCart</url-pattern>
+  </servlet-mapping>
 </web-app>

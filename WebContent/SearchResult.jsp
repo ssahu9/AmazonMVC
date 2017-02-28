@@ -212,10 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div style="width: 100%;">
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
-					
-					<!-- Using table for formating display structure -->
-					<table>
-					<c:forEach items="${requestScope.productList}" var="product">
+					<c:forEach items="${requestScope.SProduct}" var="product">
 						<div class="grid1_of_4" style="margin-left: 8px;">
 							<!-- div for product image -->
 							<div class="content_box">
@@ -224,29 +221,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="details.jsp"><c:out value="${product.name}"></c:out></a>
 								</h4>
 								<p></p>
-								
-								
 								<!--  display the discription of item-->
-								
 								<div class="grid_1 simpleCart_shelfItem">
-								Product Price
 									<div class="item_add">
 										<span class="item_price"><h6>
 												<strike> <c:out value="${product.price}"></c:out></strike>
 											</h6></span>
 									</div>
-								
 									<div class="item_add">
 										<span class="item_price"><h6>
 												discount
 												<c:out value="${product.discount}"></c:out>
 											</h6></span>
 									</div>
-									
-									
 									<div class="item_add">
 										<span class="item_price"><h6>
-											
+												final price
 												<c:out value="${product.price * (100-product.discount)/100}"></c:out>
 											</h6></span>
 									</div>
@@ -272,10 +262,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 						</div>
-						
 					</c:forEach>
 				</div>
-				
 				</div>
 			</div>
 
