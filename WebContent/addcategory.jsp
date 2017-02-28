@@ -9,7 +9,7 @@
 <body>
 <table border="1">
 
-<form action="">
+<form action="AddCategoryServlet">
 <tr>
 <td>
 Enter Category Name:
