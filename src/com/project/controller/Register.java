@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
 
-import javafx.scene.control.Alert;
+
 
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;

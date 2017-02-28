@@ -60,9 +60,15 @@
     <url-pattern>/Admin</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>AvailableCategory</display-name>
+    <servlet-name>AvailableCategory</servlet-name>
+    <servlet-class>com.project.controller.AvailableCategory</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>AvailableCategory</servlet-name>
-    <url-pattern>/AvailableCategory.jsp</url-pattern>
+    <url-pattern>/AvailableCategory</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

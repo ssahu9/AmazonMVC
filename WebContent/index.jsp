@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 	<!-- Load category list from database -->
-<jsp:include page="/AvailableCategory.jsp" />
+<!--<jsp:include page="/AvailableCategory" />-->
 
 	<!-- header_top -->
 	<div class="top_bg">
@@ -163,48 +163,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				<!-- start header menu -->
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="./GetProducts">
-							
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
-						</form>
-					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
 				
-				<!-- start header menu -->
-				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<!-- getting category name from list and displaying it in list -->
-					<%--  	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); --%>
-
-					<%--	<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-		 --%>
-					<li class="grid"><a class="color2" name="category" href="#">Category</a>
-					</li>
-					<li><a class="color5" href="women.jsp" name="category">Category3</a>
-
-					</li>
-					<li><a class="color6" href="#">Category4</a></li>
-
-					<li><a class="color8" href="#">categor6y</a></li>
-					<li><a class="color9" href="#">Category7</a></li>
-				</ul>
-			</div>
+				</div>
 		</div>
 	</div>
 	<div class="arriv">
