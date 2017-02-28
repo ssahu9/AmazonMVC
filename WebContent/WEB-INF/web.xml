@@ -159,7 +159,7 @@
     <servlet-name>BillHistory</servlet-name>
     <url-pattern>/BillHistory</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>UpdatePasswordServlet</display-name>
     <servlet-name>UpdatePasswordServlet</servlet-name>
@@ -188,5 +188,15 @@
   <servlet-mapping>
     <servlet-name>AddCategory</servlet-name>
     <url-pattern>/AddCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CallErrorPageServlet</display-name>
+    <servlet-name>CallErrorPageServlet</servlet-name>
+    <servlet-class>com.project.controller.CallErrorPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CallErrorPageServlet</servlet-name>
+    <url-pattern>/CallErrorPageServlet</url-pattern>
   </servlet-mapping>
 </web-app>
