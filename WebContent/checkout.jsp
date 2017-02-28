@@ -4,6 +4,8 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.project.bean.CartDetails"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -73,52 +75,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- start header menu -->
-	<ul class="megamenu skyblue">
-		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-		<c:forEach items="${applicationScope['categoryList']}" var="category">
-			<form action="#">
-				<div class="item_add">
-					<span class="item_price"><h6>
-							<c:out value="${product.price}"></c:out>
-						</h6></span>
-				</div>
-
-				<li><input type="submit" class="color2" name="selectedCategory"
-					value="${category.CategoryName}"></li>
-
-			</form>
-		</c:forEach>
-
-	</ul>
+	
 
 	<!-- header -->
 	<ul class="megamenu skyblue">
-		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-		<!-- getting category name from list and displaying it in list -->
-		<%--	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
-
-		<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-		  --%>
+					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
 
-
-		<li class="grid"><a class="color2" href="#">Category</a></li>
-		<li><a class="color5" href="#">Category3</a></li>
-		<li><a class="color6" href="#">Category4</a></li>
-
-		<li><a class="color8" href="#">categor6y</a></li>
-		<li><a class="color9" href="#">Category7</a></li>
-	</ul>
+				</ul>
 	</div>
 	</div>
 	</div>
+
+	<% 
+	ArrayList<CartDetails> cartDetails = (ArrayList<CartDetails>)session.getAttribute("cartDetails"); 
+	double sum=0;
+	for(CartDetails cart:cartDetails){
+    sum=sum + cart.getTotalPrice(); 
+	}
+  %>
+	
+
+	
 	<div class="container">
 		<div class="check">
 			<div class="col-md-3 cart-total">
@@ -127,16 +110,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="price-details">
 					<h3>Price Details</h3>
-					<span>Total</span> <span class="total1">6200.00</span> <span>Discount</span>
-					<span class="total1">---</span> <span>Delivery Charges</span> <span
-						class="total1">150.00</span>
+					<span>Total</span> <span class="total1">value="{sum}"</span> <span>Discount</span>
+					<!--  <span class="total1">---</span> <span>Delivery Charges</span> <span
+						class="total1">150.00</span>-->
 					<div class="clearfix"></div>
 				</div>
 				<ul class="total_price">
 					<li class="last_price">
 						<h4>TOTAL</h4>
 					</li>
-					<li class="last_price"><span>6350.00</span></li>
+					<li class="last_price"><span>value="{sum}"</span></li>
 					<div class="clearfix"></div>
 				</ul>
 
@@ -160,33 +143,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
 				</script>
+											<% 
+	ArrayList<CartDetails> cartDetails2 = (ArrayList<CartDetails>)session.getAttribute("cartDetails"); 
+
+	for(CartDetails cart:cartDetails){
+   %>
+				
 				<div class="cart-header">
 					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="images/8.jpg" class="img-responsive" alt="" />
 						</div>
-						<div class="cart-item-info">
+						<div class="cart-item-info">							
 							<h3>
-								<a href=" ">Mountain Hopper(XS R034)</a><span>Model No:
-									3578</span>
+								<a href=" "><c:out value="${cart.getProductName();}"></c:out></a>
 							</h3>
 							<ul class="qty">
-								<li><p>Size : 5</p></li>
-								<li><p>Qty : 1</p></li>
+								<li><p><c:out value="${cart.getQuantity();}"></c:out></p></li>
 							</ul>
 
 							<div class="delivery">
-								<p>Service Charges : Rs.100.00</p>
+								
 								<span>Delivered in 2-3 bussiness days</span>
 								<div class="clearfix"></div>
 							</div>
 						</div>
+					
 						<div class="clearfix"></div>
 
 					</div>
 				</div>
-				<script>
+					<%} %>
+		<!-- 		<script>
 					$(document).ready(function(c) {
 						$('.close2').on('click', function(c) {
 							$('.cart-header2').fadeOut('slow', function(c) {
@@ -202,6 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<img src="images/11.jpg" class="img-responsive" alt="" />
 						</div>
 						<div class="cart-item-info">
+							
 							<h3>
 								<a href="#">Mountain Hopper(XS R034)</a><span>Model No:
 									3578</span>
@@ -216,7 +206,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="clearfix"></div>
 							</div>
 						</div>
-						<div class="clearfix"></div>
+ -->						<div class="clearfix"></div>
 
 					</div>
 				</div>

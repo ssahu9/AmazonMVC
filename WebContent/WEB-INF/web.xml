@@ -169,4 +169,14 @@
     <servlet-name>UpdatePasswordServlet</servlet-name>
     <url-pattern>/UpdatePasswordServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckoutServlet</display-name>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <servlet-class>com.project.controller.CheckoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <url-pattern>/CheckoutServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
