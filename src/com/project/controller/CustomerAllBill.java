@@ -2,43 +2,36 @@ package com.project.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.project.bean.Category;
-import com.project.bean.Product;
+import com.project.bean.BillDetails;
+import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
-
-
-public class GetProducts extends HttpServlet {
+public class CustomerAllBill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-	
+
 		CustomerBl customerBl = new CustomerBl();
-		ArrayList<Product> proList =null;
+		HttpSession session = request.getSession(false);
+		Customer customer = (Customer) session.getAttribute("customerObject");
 		try {
-		String	pcategory =request.getParameter("selectedCategory");
-			proList = (ArrayList<Product>)customerBl.viewProduct(pcategory);
-			System.out.println(proList);
+			System.out.println("test test"+customer);
+			LinkedList<BillDetails> billList = (LinkedList<BillDetails>)customerBl.getBillDetails(customer.getCustomerId());
+			session.setAttribute("allBill", billList);
+			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("productList",proList);
-		request.getRequestDispatcher("women.jsp").include(request, response);
-
 		
-		
-	}
-
 	
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

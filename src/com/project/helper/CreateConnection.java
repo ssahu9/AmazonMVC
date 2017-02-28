@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+
+
+
 // this is a  helper class for creating database connection
 public final class CreateConnection {
 private static  Connection connection =null ;
@@ -31,23 +34,34 @@ public static Connection getCon() throws SQLException
 //	String url = p.getProperty("url");
 //	String user = p.getProperty("user");
 //	String pwd = p.getProperty("pwd");
-//	
+
+	
+	
 	// making sure that only one connection object exist 
 	// create object only when connection is closed or does not exist. 
 	if(connection==null || connection.isClosed()== true){
 		try {
+			
 	// Registering or loading  oracle driver	
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			
 		//	Class.forName(driver);
+			
+			
 	// calling for database Connection object
 			//connection=DriverManager.getConnection(url, user, pwd);
 			//connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521", "system", "system");
+			
+			
 			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521", "system", "sapient@123");
 		} catch (ClassNotFoundException | SQLException e) {
+			
 	// handling exception 
 			e.printStackTrace();
 		}	
 	}
+	
 	// returning database connection object
 	return connection;
 }

@@ -125,6 +125,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="log">
 									<a href="./Logout">LOGOUT</a>
 								</div>
+								<div class="log">
+									<a href="./CustomerAllBill">BILL DETAILS</a>
+								</div>
+								
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
 									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>

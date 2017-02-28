@@ -40,194 +40,152 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!-- Load category list from database -->
-	<!-- header_top -->
-	<div class="top_bg">
-		<div class="container">
-			<div class="header_top">
-				<div class="top_right">
-					<ul>
-						<li><a href="#">help</a></li>|
-						<li><a href="#">Contact</a></li>|
-						<li><a href="#">Delivery information</a></li>
-					</ul>
-				</div>
-				<div class="top_left">
-					<h2>
-						<span></span> Call us : 032 2352 782
-					</h2>
-				</div>
-				<div class="clearfix"></div>
+ 
+  
+
+<!-- header_top -->
+<div class="top_bg">
+	<div class="container">
+		<div class="header_top">
+			<div class="top_right">
+				<ul>
+					<li><a href="#">help</a></li>|
+					<li><a href="contact.jsp">Contact</a></li>|
+					<li><a href="#">Delivery information</a></li>
+				</ul>
 			</div>
+			<div class="top_left">
+				<h2><span></span> Call us : 032 2352 782</h2>
+			</div>
+				<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- header -->
-	<div class="header_bg">
-		<div class="container">
-			<div class="header">
-				<div class="head-t">
-					<div class="logo">
-						<a href="index.jsp"><img src="images/logo.png"
-							class="img-responsive" alt="" /> </a>
-					</div>
-					<!-- start header_right -->
-					<div class="header_right">
-						<div class="rgt-bottom">
-							<!-- Session check -->
-							<!-- Providing login and register option  only if user variable is exit in session scope -->
-							<c:if test="${sessionScope.email == null}">
-
-								<div class="log">
-									<div class="login">
-										<div id="loginContainer">
-											<a href="#" id="loginButton"><span>Login</span></a>
-											<div id="loginBox">
-												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
-													<fieldset id="body">
-														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
-														</fieldset>
-														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
-														</fieldset>
-														<input type="submit" id="login" value="Sign in"> <label
-															for="checkbox"><input type="checkbox"
-															id="checkbox"> <i>Remember me</i></label>
-													</fieldset>
-													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="reg">
-									<a href="register.jsp">REGISTER</a>
-								</div>
-							</c:if>
-							<!--  Link for signout  only if user variable is not exit in session scope -->
-							<c:if test="${sessionScope.email != null}">
-								<div class="log">
-									<a href="./Logout">LOGOUT</a>
-								</div>
-								<!--  Link for profile information updation  -->
-								<div class="log" style="margin-left: 0px;">
-									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
-								</div>
-							</c:if>
-							<div class="create_btn">
-								<a href="checkout.jsp" style="margin-left: 50px;">CHECKOUT</a>
+</div>
+<!-- header -->
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+	<div class="head-t">
+		<div class="logo">
+			<a href="index.jsp"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
+		</div>
+		<!-- start header_right -->
+		<div class="header_right">
+			<div class="rgt-bottom">
+			<!-- Session check -->
+			<!-- Providing login and register option  only if user variable is exit in session scope -->
+			<c:if test="${sessionScope.email == null}">  
+				
+				<div class="log">
+					<div class="login" >
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+						    <div id="loginBox">         
+						    <!-- Insert target jsp page -->       
+						        <form id="loginForm" action=".\login">
+						                <fieldset id="body" >
+						                	<fieldset>
+						                          <label for="email">Email Address</label>
+						                          <input type="text" name="email" id="email">
+						                    </fieldset>
+						                    <fieldset>
+						                            <label for="password">Password</label>
+						                            <input type="password" name="password" id="password">
+						                     </fieldset>
+						                    <input type="submit" id="login" value="Sign in">
+						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+						            	</fieldset>
+						           <!-- <span><a href="#">Forgot your password?</a></span>-->
+								</form>
 							</div>
-							<div class="clearfix"></div>
 						</div>
-
-						<div class="cart box_1">
-							<a href="checkout.jsp">
-								<h3>
-									<span></span>
-								</h3>
-							</a>
-							<p>
-								<a href="javascript:;" class="simpleCart_empty"></a>
-							</p>
-							<div class="clearfix"></div>
-						</div>
-
-
-
-						<div class="search">
-							<form action="#">
-								<input type="text" value="" placeholder="search by product name"
-									name="searchProduct"> <input type="submit" value="">
-							</form>
-						</div>
-						<div class="clearfix"></div>
 					</div>
-					<div class="clearfix"></div>
 				</div>
-
+				<div class="reg">
+					<a href="register.jsp">REGISTER</a>
+				</div>
+		 	</c:if>	
+				<!--  Link for signout  only if user variable is not exit in session scope -->
+				<c:if test="${sessionScope.email != null}">  
+				<div class="reg">
+					<a href="register.jsp">LOGOUT</a>
+				</div>
+				 </c:if> 	
+				 <div class="create_btn">
+				<a href="checkout.jsp">CHECKOUT</a>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+				
+			<div class="cart box_1">
+				<a href="checkout.jsp">
+					<h3><span></span></h3>
+				</a>	
+				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
+				<div class="clearfix"> </div>
+			</div>
+			
+		
+	
+		<div class="search">
+		    <form>
+		    	<input type="text" value="" placeholder="search...">
+				<input type="submit" value="">
+			</form>
+		</div>
+		<div class="clearfix"> </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+		
 
 				<!-- start header menu -->
-				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
-				<c:forEach items="${applicationScope['categoryList']}"
-						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
-						</c:forEach>
 
+					<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<form action="./GetProducts">
+							
+							<li><input type="submit" class="color2"
+								name="selectedCategory" value="${category.CategoryName}">
+							</li>
+
+						</form>
+					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
-				
-				</div>
-		</div>
 	</div>
-
+</div>
+</div>
 <!-- *************************************************************************************************** -->
 <!-- -->
 <!-- content -->
-<div class="container" style="margin-left: 130px;">
-<div class="women_main"style="margin-left: 50px;">
+<div class="container" style="margin-left: 130px;"></div>
+<div class="women_main"style="margin-left: 50px;"></div>
    <!-- *********************************************************************************************** -->
-	private int customerId;
-	private int billId;
-	private int productId;
-	private double price;
-	private int discount;
-	private int quantity;
-	private double totalPrice;
-	private Date date;
 
 
 	<!-- start content -->
-	
-		<div class="items">
-				<div style="width: 100%;">
-					<!-- Run loop to display the products  -->
-					<!-- Used jstl tag for loop and printing the object values -->
-					<table>
-					<c:forEach items="${requestScope.currentBillList}" var="bill">
-								<tr> 
-								<td><h4>DATE</h4></td>
-								<td><h4><c:out value="${bill.date}"></c:out></h4></td>
-								</tr>
-								<tr> 
-								<td><h4>BILL ID</h4></td>
-								<td><h4><c:out value="${bill.billId}"></c:out></h4></td>
-								</tr>
-								
-								<tr> 
-								<td><h4>PRODUCT ID</h4></td>
-								<td><h4><c:out value="${bill.productId}"></c:out></h4></td>
-								</tr>
-								<tr> 
-								<td><h4>PRODUCT PRICE</h4></td>
-								<td><h4><c:out value="${bill.price}"></c:out></h4></td>
-								</tr>
-								<tr> 
-								<td><h4>PRODUCT QUANTITY</h4></td>
-								<td><h4><c:out value="${bill.quantity}"></c:out></h4></td>
-								</tr>
-								<tr> 
-								<td><h4>DISCOUNT</h4></td>
-								<td><h4><c:out value="${bill.discount}"></c:out></h4></td>
-								</tr>
-								<tr> 
-								<td><h4>TOTAL PRICE</h4></td>
-								<td><h4><c:out value="${bill.totalPrice}"></c:out></h4></td>
-								</tr>
-					</c:forEach>
-					</table>
-				</div>
-				</div>
-			</div>
-
+	<div>
+	<table align="center" cellpadding="0" cellspacing="0" height="100%">
+	<tbody><tr>
+		<td height="100%">
+			<table align="center" cellpadding="0" cellspacing="0">
+				<tbody>
+				<tr>
+					<td><img src="underconstruction.jpg" alt=""></td></tr><tr>
+					<td><p style="margin-left: 6px;"><strong><br><br><h3>Unfortunately, we have recived an error</h3></strong></p>
+<p>What Happened??</p>
+<p> print error here...</p> <br>
+<a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
+			</tbody></table>
+		</td>
+	</tr></tbody>
+	</table></div>
 	<!-- end content -->
-</div>
-</div>
+
+
 <div class="foot-top">
 	<div class="container">
 		<div class="col-md-6 s-c">

@@ -179,4 +179,24 @@
     <servlet-name>CheckoutServlet</servlet-name>
     <url-pattern>/CheckoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CustomerAllBill</display-name>
+    <servlet-name>CustomerAllBill</servlet-name>
+    <servlet-class>com.project.controller.CustomerAllBill</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerAllBill</servlet-name>
+    <url-pattern>/CustomerAllBill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCategory</display-name>
+    <servlet-name>AddCategory</servlet-name>
+    <servlet-class>com.project.controller.AddCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCategory</servlet-name>
+    <url-pattern>/AddCategory</url-pattern>
+  </servlet-mapping>
 </web-app>

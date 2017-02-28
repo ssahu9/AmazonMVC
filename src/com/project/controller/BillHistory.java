@@ -15,10 +15,11 @@ import com.project.bl.AdminBL;
 public class BillHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AdminBL adminBL = new AdminBL();
-	List<BillDetails> billHistory;
+	List<BillDetails> billHistory = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/html");
+
 		try {
 			if(adminBL.getAllBillDetails() != null) {
 				billHistory = adminBL.getAllBillDetails();

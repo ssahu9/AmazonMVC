@@ -14,31 +14,31 @@ public class AdminEntry extends HttpServlet {
 		
 		switch (str) {
 		case "View Category":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("ViewCategory.java").include(request, response);
 			break;
 		case "Add Product":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("AddProductServlet.java").include(request, response);
 			break;
 		case "Add Category":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("AddCategoryServlet.java").include(request, response);
 			break;
 		case "Remove Category":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("RemoveCategoryServlet.java").include(request, response);
 			break;
 		case "Remove Product":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("RemoveProductServlet.java").include(request, response);
 			break;
 		case "Bill History":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("BillHistory.java").include(request, response);
 			break;
 		case "Update Product":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("UpdateProductServlet.java").include(request, response);
 			break;
 		case "View Products":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("ViewProducts.java").include(request, response);
 			break;
 		case "Update Password":
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("UpdatePasswordServlet.java").include(request, response);
 			break;
 		default:
 			break;

@@ -53,7 +53,9 @@ package com.project.controller;
   			}
   			else if(customer.getEmail().equals("admin") || customer.getPassword().equals("admin123")) {
   				HttpSession session = request.getSession(); // creating session
-  				session.setAttribute("email", email); // setting session attribute
+  				session.setAttribute("email", email);
+  				session.setAttribute("customerObject", customer);
+  				// setting session attribute
   				try {
 					request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting to admin.jsp
 				} catch (ServletException | IOException e) {
@@ -63,6 +65,7 @@ package com.project.controller;
   			else { // customer login successful
   				HttpSession session = request.getSession(); // creating session
   				session.setAttribute("email", email); // setting session attribute
+  				session.setAttribute("customerObject", customer); // setting customer object in session scope
   				try {
 					request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting to index.jsp
 				} catch (ServletException | IOException e) {
