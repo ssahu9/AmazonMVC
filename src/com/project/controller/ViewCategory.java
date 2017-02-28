@@ -21,7 +21,7 @@ public class ViewCategory extends HttpServlet {
 		response.setContentType("text/html");
 		
 		if(categoryList == null) {
-			request.getRequestDispatcher("index.jsp").include(request, response);
+			request.getRequestDispatcher("admin.jsp").include(request, response);
 		}
 		else {
 			request.getRequestDispatcher("index.jsp").forward(request, response);

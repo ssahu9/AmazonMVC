@@ -39,7 +39,6 @@ public class AddProductServlet extends HttpServlet {
 		try {
 			adminBl.addProduct(product);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -25,25 +25,14 @@ public class Register extends HttpServlet {
 		
 		String password1 = request.getParameter("pwd");
 		String password2 = request.getParameter("rpwd");
-		int customer2 = 0;
 		
-		try {
-			customer2 = customerBL.signUp(customer);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-		
-		if(customer2 == 0) {
-			out.print("Sorry, you could not be registered!");
-			request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
-		}
-		else if(password1.equals(password2)) {
-			out.println("You have registered successfully, "+customer.getFirstName()+"!");
-			request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting to index.jsp
-		}
-		else if(!password1.equals(password2)) {
-			out.println("Passwords do not match!"); // password mismatch
-			request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
+			if(password1.equals(password2)) { // passwords match 
+				customer.setFirstName(request.getParameter("fname"));
+				customer.setLastName(request.getParameter("lname"));
+				customer.setEmail(request.getParameter("email"));
+				customer.setPhoneNumber(request.getParameter("phone"));
+				customer.setPassword(request.getParameter("pwd"));
+				request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
 		}
 	}
 
