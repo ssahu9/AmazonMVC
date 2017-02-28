@@ -15,13 +15,19 @@ import com.project.bl.AdminBL;
 public class ViewProducts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AdminBL adminBL = new AdminBL();
-	List<Product> viewProduct = null;
+	List<Product> viewProducts = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
 		try {
-			viewProduct = adminBL.viewProduct(null);
+			if(adminBL.viewProduct(null) != null) {
+				viewProducts = adminBL.viewProduct(null);
+				getServletContext().setAttribute("viewProducts", viewProducts);
+			}
+			else {
+				request.getRequestDispatcher("admin.jsp").forward(request, response);
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
