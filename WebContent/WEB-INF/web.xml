@@ -159,7 +159,7 @@
     <servlet-name>BillHistory</servlet-name>
     <url-pattern>/BillHistory</url-pattern>
   </servlet-mapping>
-  <servlet>
+    <servlet>
     <description></description>
     <display-name>UpdatePasswordServlet</display-name>
     <servlet-name>UpdatePasswordServlet</servlet-name>
@@ -178,5 +178,15 @@
   <servlet-mapping>
     <servlet-name>CustomerAllBill</servlet-name>
     <url-pattern>/CustomerAllBill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCategory</display-name>
+    <servlet-name>AddCategory</servlet-name>
+    <servlet-class>com.project.controller.AddCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCategory</servlet-name>
+    <url-pattern>/AddCategory</url-pattern>
   </servlet-mapping>
 </web-app>

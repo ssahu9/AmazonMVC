@@ -19,6 +19,7 @@ public class GetProducts extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
 	
 		CustomerBl customerBl = new CustomerBl();
 		ArrayList<Product> proList =null;
