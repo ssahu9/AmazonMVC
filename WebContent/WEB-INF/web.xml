@@ -159,6 +159,16 @@
     <servlet-name>BillHistory</servlet-name>
     <url-pattern>/BillHistory</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>UpdatePasswordServlet</display-name>
+    <servlet-name>UpdatePasswordServlet</servlet-name>
+    <servlet-class>com.project.controller.UpdatePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePasswordServlet</servlet-name>
+    <url-pattern>/UpdatePasswordServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>AddCategory</display-name>

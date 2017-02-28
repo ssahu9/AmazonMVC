@@ -13,15 +13,21 @@
 <form action="">
 <tr>
 <td>
-Enter Email:
+Enter old password:
 </td>
-<td><input type="text" name="adminemail" ></td>
+<td><input type="text" name="opwd" ></td>
 </tr>
 <tr>
 <td>
 Enter New Password:
 </td>
-<td><input type="text" name="adminpwd" ></td>
+<td><input type="text" name="pwd" ></td>
+</tr>
+<tr>
+<td>
+Enter Retype New Password:
+</td>
+<td><input type="text" name="rpwd" ></td>
 </tr>
 <tr>
 <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
