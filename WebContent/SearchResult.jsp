@@ -212,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div style="width: 100%;">
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
-					<c:forEach items="${requestScope.SProduct}" var="product">
+					<c:forEach items="${requestScope.productObject}" var="product">
 						<div class="grid1_of_4" style="margin-left: 8px;">
 							<!-- div for product image -->
 							<div class="content_box">
