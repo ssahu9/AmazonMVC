@@ -26,30 +26,34 @@ public class Placeorder extends HttpServlet {
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		long millis=System.currentTimeMillis();  
 		java.sql.Date date=new java.sql.Date(millis);  
-		
+		System.out.println("placeorder");
 		
 		try {
 			LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) customerBL.viewCart(customer.getCustomerId());
 			if(cartDetails==null){
 				// bill will not generate as Cart is empty 
+				System.out.println("placeorder empty");
 				// call error message
 			}
 			else{
 				
 				Bill bill = null;
+				System.out.println("custpmer id"+customer.getCustomerId());
 				bill = customerBL.generateBill(customer.getCustomerId());
 				if(bill == null){
 					// something went wrong
 					// call error message
-					List<BillDetails> list = customerBL.getCurrentBill(bill);
-					session.setAttribute("allBill", list);
-					request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
+					System.out.println("placeorderhhhhhh");
 					
 					
 				}
 				else{
 					// bill generated successful 
 					// display current bill
+					System.out.println("billllll"+bill);
+					List<BillDetails> list = customerBL.getCurrentBill(bill);
+					session.setAttribute("allBill", list);
+					request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 					
 					
 					

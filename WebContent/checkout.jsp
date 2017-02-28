@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				<div class="clearfix"></div>
-				<a class="order" href=" ">Place Order</a>
+				<a class="order" href="Placeorder">Place Order</a>
 				<div class="total-item"></div>
 			</div>
 			<div class="col-md-9 cart-items">
