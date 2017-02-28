@@ -131,4 +131,24 @@
     <servlet-name>UpdateProductServlet</servlet-name>
     <url-pattern>/UpdateProductServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewCategory</display-name>
+    <servlet-name>ViewCategory</servlet-name>
+    <servlet-class>com.project.controller.ViewCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCategory</servlet-name>
+    <url-pattern>/ViewCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewProducts</display-name>
+    <servlet-name>ViewProducts</servlet-name>
+    <servlet-class>com.project.controller.ViewProducts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewProducts</servlet-name>
+    <url-pattern>/ViewProducts</url-pattern>
+  </servlet-mapping>
 </web-app>
