@@ -2,7 +2,7 @@ package com.project.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +21,8 @@ public class CustomerAllBill extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		try {
-			ArrayList<BillDetails> billList = (ArrayList<BillDetails>)customerBl.getBillDetails(customer.getCustomerId());
+			System.out.println("test test"+customer);
+			LinkedList<BillDetails> billList = (LinkedList<BillDetails>)customerBl.getBillDetails(customer.getCustomerId());
 			session.setAttribute("allBill", billList);
 			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {

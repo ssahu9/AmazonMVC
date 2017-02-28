@@ -172,16 +172,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container" style="margin-left: 130px;">
 <div class="women_main"style="margin-left: 50px;">
    <!-- *********************************************************************************************** -->
-	private int customerId;
-	private int billId;
-	private int productId;
-	private double price;
-	private int discount;
-	private int quantity;
-	private double totalPrice;
-	private Date date;
-
-
 	<!-- start content -->
 	
 		<div class="items">
@@ -189,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
 					<table>
-					<c:forEach items="${requestScope.allBill}" var="bill">
+					<c:forEach items="${sessionScope.allBill}" var="bill">
 								<tr> 
 								<td><h4>DATE</h4></td>
 								<td><h4><c:out value="${bill.date}"></c:out></h4></td>
