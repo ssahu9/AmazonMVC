@@ -1,7 +1,6 @@
 package com.project.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -16,13 +15,11 @@ import com.project.bl.CustomerBl;
 
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Customer customer = new Customer();
-	CustomerBl customerBL = new CustomerBl();
+	Customer customer = null;
+	CustomerBl customerBL = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
 		String password1 = request.getParameter("pwd");
 		String password2 = request.getParameter("rpwd");
 		
@@ -32,8 +29,16 @@ public class Register extends HttpServlet {
 				customer.setEmail(request.getParameter("email"));
 				customer.setPhoneNumber(request.getParameter("phone"));
 				customer.setPassword(request.getParameter("pwd"));
-				request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
-		}
+				customer = new Customer();
+				try {
+					if(customerBL.signUp(customer)>0) {
+						request.getRequestDispatcher("index.jsp").include(request, response); // redirecting to index.jsp
+					}
+				} catch (ClassNotFoundException | SQLException e) {
+					e.printStackTrace();
+				}
+			}
+				else request.getRequestDispatcher("register.jsp").include(request, response); // redirecting to register.jsp
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
