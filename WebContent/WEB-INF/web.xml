@@ -54,12 +54,11 @@
     <display-name>AdminEntry</display-name>
     <servlet-name>AdminEntry</servlet-name>
     <servlet-class>com.project.controller.AdminEntry</servlet-class>
-  </servlet> 
+  </servlet>
   <servlet-mapping>
     <servlet-name>AdminEntry</servlet-name>
     <url-pattern>/Admin</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AvailableCategory</display-name>
@@ -89,7 +88,6 @@
   <servlet-mapping>
     <servlet-name>AddProductServlet</servlet-name>
     <url-pattern>/AddProductServlet</url-pattern>
-    
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -150,5 +148,15 @@
   <servlet-mapping>
     <servlet-name>ViewProducts</servlet-name>
     <url-pattern>/ViewProducts</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BillHistory</display-name>
+    <servlet-name>BillHistory</servlet-name>
+    <servlet-class>com.project.controller.BillHistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BillHistory</servlet-name>
+    <url-pattern>/BillHistory</url-pattern>
   </servlet-mapping>
 </web-app>
