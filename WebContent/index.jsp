@@ -135,13 +135,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</c:if>
 							<div class="create_btn">
-								<a href="checkout.jsp" style="margin-left: 50px;">CHECKOUT</a>
+								<a href="CheckoutServlet" style="margin-left: 50px;">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 
 						<div class="cart box_1">
-							<a href="checkout.jsp">
+							<a href="CheckoutServlet">
 								<h3>
 									<span></span>
 								</h3>

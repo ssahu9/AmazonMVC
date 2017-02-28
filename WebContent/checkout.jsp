@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="java.util.LinkedList"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.project.bean.CartDetails"%>
 <%@page import="com.project.bean.Category"%>
@@ -93,10 +94,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<% 
-	ArrayList<CartDetails> cartDetails = (ArrayList<CartDetails>)session.getAttribute("cartDetails"); 
+	LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>)session.getAttribute("cartList"); 
+	
 	double sum=0;
 	for(CartDetails cart:cartDetails){
-    sum=sum + cart.getTotalPrice(); 
+    System.out.println(cart);
+		sum=sum + cart.getTotalPrice(); 
 	}
   %>
 	
@@ -110,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="price-details">
 					<h3>Price Details</h3>
-					<span>Total</span> <span class="total1">value="{sum}"</span> <span>Discount</span>
+					<span>Total</span> <span class="total1" style="color: black;"><%= sum %></span> <span>Discount</span>
 					<!--  <span class="total1">---</span> <span>Delivery Charges</span> <span
 						class="total1">150.00</span>-->
 					<div class="clearfix"></div>
@@ -119,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="last_price">
 						<h4>TOTAL</h4>
 					</li>
-					<li class="last_price"><span>value="{sum}"</span></li>
+					<li class="last_price"><span><%= sum %></span></li>
 					<div class="clearfix"></div>
 				</ul>
 
@@ -144,9 +147,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<%--<% ArrayList<CartDetails> listOfItem=(ArrayList<CartDetails>)session.getAttribute("listOfItem"); %>--%>
 				</script>
 											<% 
-	ArrayList<CartDetails> cartDetails2 = (ArrayList<CartDetails>)session.getAttribute("cartDetails"); 
+	LinkedList<CartDetails> cartDetails2 = (LinkedList<CartDetails>)session.getAttribute("cartList"); 
 
-	for(CartDetails cart:cartDetails){
+	for(CartDetails cart:cartDetails2){
    %>
 				
 				<div class="cart-header">
@@ -157,10 +160,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="cart-item-info">							
 							<h3>
-								<a href=" "><c:out value="${cart.getProductName();}"></c:out></a>
-							</h3>
+								<a href=" "><%= cart.getProductName() %></a>
+							</h3>Quantity:
 							<ul class="qty">
-								<li><p><c:out value="${cart.getQuantity();}"></c:out></p></li>
+								<li><p><%= cart.getQuantity()%></p></li>
 							</ul>
 
 							<div class="delivery">
