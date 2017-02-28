@@ -40,169 +40,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!-- Load category list from database -->
- 
-  
-
-<!-- header_top -->
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top">
-			<div class="top_right">
-				<ul>
-					<li><a href="#">help</a></li>|
-					<li><a href="contact.jsp">Contact</a></li>|
-					<li><a href="#">Delivery information</a></li>
-				</ul>
+	<!-- header_top -->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top">
+				<div class="top_right">
+					<ul>
+						<li><a href="#">help</a></li>|
+						<li><a href="#">Contact</a></li>|
+						<li><a href="#">Delivery information</a></li>
+					</ul>
+				</div>
+				<div class="top_left">
+					<h2>
+						<span></span> Call us : 032 2352 782
+					</h2>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			<div class="top_left">
-				<h2><span></span> Call us : 032 2352 782</h2>
-			</div>
-				<div class="clearfix"> </div>
 		</div>
 	</div>
-</div>
-<!-- header -->
-<div class="header_bg">
-<div class="container">
-	<div class="header">
-	<div class="head-t">
-		<div class="logo">
-			<a href="index.jsp"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
-		</div>
-		<!-- start header_right -->
-		<div class="header_right">
-			<div class="rgt-bottom">
-			<!-- Session check -->
-			<!-- Providing login and register option  only if user variable is exit in session scope -->
-			<c:if test="${sessionScope.email == null}">  
-				
-				<div class="log">
-					<div class="login" >
-						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
-						    <div id="loginBox">         
-						    <!-- Insert target jsp page -->       
-						        <form id="loginForm" action=".\login">
-						                <fieldset id="body" >
-						                	<fieldset>
-						                          <label for="email">Email Address</label>
-						                          <input type="text" name="email" id="email">
-						                    </fieldset>
-						                    <fieldset>
-						                            <label for="password">Password</label>
-						                            <input type="password" name="password" id="password">
-						                     </fieldset>
-						                    <input type="submit" id="login" value="Sign in">
-						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-						            	</fieldset>
-						           <!-- <span><a href="#">Forgot your password?</a></span>-->
-								</form>
-							</div>
-						</div>
+	<!-- header -->
+	<div class="header_bg">
+		<div class="container">
+			<div class="header">
+				<div class="head-t">
+					<div class="logo">
+						<a href="index.jsp"><img src="images/logo.png"
+							class="img-responsive" alt="" /> </a>
 					</div>
-				</div>
-				<div class="reg">
-					<a href="register.jsp">REGISTER</a>
-				</div>
-		 	</c:if>	
-				<!--  Link for signout  only if user variable is not exit in session scope -->
-				<c:if test="${sessionScope.email != null}">  
-				<div class="reg">
-					<a href="register.jsp">LOGOUT</a>
-				</div>
-				 </c:if> 	
-				 <div class="create_btn">
-				<a href="checkout.jsp">CHECKOUT</a>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-				
-			<div class="cart box_1">
-				<a href="checkout.jsp">
-					<h3><span></span></h3>
-				</a>	
-				<p><a href="javascript:;" class="simpleCart_empty"></a></p>
-				<div class="clearfix"> </div>
-			</div>
-			
-		
-	
-		<div class="search">
-		    <form>
-		    	<input type="text" value="" placeholder="search...">
-				<input type="submit" value="">
-			</form>
-		</div>
-		<div class="clearfix"> </div>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-		<!-- start header menu -->
-			
-			
-			<!-- getting category name from list and displaying it in list -->
-		<%-- 	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)request.getAttribute("categoryList"); %>
+					<!-- start header_right -->
+					<div class="header_right">
+						<div class="rgt-bottom">
+							<!-- Session check -->
+							<!-- Providing login and register option  only if user variable is exit in session scope -->
+							<c:if test="${sessionScope.email == null}">
 
-		<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-		 --%>
+								<div class="log">
+									<div class="login">
+										<div id="loginContainer">
+											<a href="#" id="loginButton"><span>Login</span></a>
+											<div id="loginBox">
+												<!-- Insert target jsp page -->
+												<form id="loginForm" action=".\LoginServlet">
+													<fieldset id="body">
+														<fieldset>
+															<label for="email">Email Address</label> <input
+																type="text" name="email" id="email">
+														</fieldset>
+														<fieldset>
+															<label for="password">Password</label> <input
+																type="password" name="password" id="password">
+														</fieldset>
+														<input type="submit" id="login" value="Sign in"> <label
+															for="checkbox"><input type="checkbox"
+															id="checkbox"> <i>Remember me</i></label>
+													</fieldset>
+													<!-- <span><a href="#">Forgot your password?</a></span>-->
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="reg">
+									<a href="register.jsp">REGISTER</a>
+								</div>
+							</c:if>
+							<!--  Link for signout  only if user variable is not exit in session scope -->
+							<c:if test="${sessionScope.email != null}">
+								<div class="log">
+									<a href="./Logout">LOGOUT</a>
+								</div>
+								<!--  Link for profile information updation  -->
+								<div class="log" style="margin-left: 0px;">
+									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
+								</div>
+							</c:if>
+							<div class="create_btn">
+								<a href="checkout.jsp" style="margin-left: 50px;">CHECKOUT</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="cart box_1">
+							<a href="checkout.jsp">
+								<h3>
+									<span></span>
+								</h3>
+							</a>
+							<p>
+								<a href="javascript:;" class="simpleCart_empty"></a>
+							</p>
+							<div class="clearfix"></div>
+						</div>
+
+
+
+						<div class="search">
+							<form action="#">
+								<input type="text" value="" placeholder="search by product name"
+									name="searchProduct"> <input type="submit" value="">
+							</form>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
 
 				<!-- start header menu -->
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="./GetProducts">
-							
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
-						</form>
-					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
-
-
-
-
-
-
-
-
-
-
-
-				<ul class="megamenu skyblue">
-				<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-			<li class="grid"><a class="color2" href="#">Category</a>				
-				</li>				
-				<li><a class="color5" href="#">Category3</a>
 				
-				</li>
-				<li><a class="color6" href="#">Category4</a>
-		
-				</li>				
-			
-				<li><a class="color8" href="#">categor6y</a>
-				
-				
-				</li>
-				<li><a class="color9" href="#">Category7</a>
-		
-				</li>
-		 </ul> 
-	
-	
-	
+				</div>
+		</div>
 	</div>
-</div>
-</div>
+
 <!-- *************************************************************************************************** -->
 <!-- -->
 <!-- content -->
@@ -212,6 +175,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- start content -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	<!-- end content -->
