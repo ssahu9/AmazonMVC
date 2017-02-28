@@ -58,7 +58,7 @@
 		</tr>
 		<tr height="700px" width="1500px">
 			<td height="700px" width="300px">
-				<form action="">
+				<form action="AdminEntry">
 					<input type="button" name="button" id="vc" value="View Category"><br>
 					<input type="button" name="button" id="ap" value="Add Product"><br>
 					<input type="button" name="button" id="ac" value="Add Category"><br>
@@ -69,17 +69,7 @@
 					<input type="button" name="button" id="vp" value="View Products"><br>
 					<input type="button" name="button" id="upwd"
 						value="Update Password">
-					<!--  
-<a href="viewcategory">VIEW CATEGORIES</a>
-<a href="addproduct.JSP" onclick="">ADD PRODUCT</a><br>
-<a href="addcategory.JSP">ADD CATEGORY</a><br>
-<a href="removecategory.JSP">REMOVE CATEGORY</a><br>
-<a href="removeproduct.JSP">REMOVE PRODUCT</a><br>
-<a href="billhistory.JSP">BILL HISTORY</a><br>
-<a href="updateproduct.JSP">UPDATE PRODUCT</a><br>
-<a href="viewproduct.JSP">VIEW PRODUCT</a><br>
-<a href="updatePassword.JSP">UPDATE PASSWORD</a>
--->
+
 
 
 				</form>

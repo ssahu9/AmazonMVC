@@ -1,14 +1,17 @@
 package com.project.bean;
 
 public class Customer {
-	private int customerId;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String password;
-	private String phoneNumber;
+	private int customerId;			//to store the customer_id (auto-generated)
+	private String firstName;		//to store the first name of the customer
+	private String lastName;		//to store the last name of the customer
+	private String email;			//to store the email address of customer(username==email)
+	private String password;		//to store the password which the customer has entered
+	private String phoneNumber;		//to store the phone number of the customer
 
+	
+	//constructors made to be used for further processing
 	public Customer() {
+		
 
 	}
 
@@ -22,6 +25,15 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
+	//toString() method used to return all the values of above mentioned parameters:
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", password=" + password + ", phoneNumber=" + phoneNumber + "]";
+	}
+	
+	
+	//setters and getters for above mentioned attributes:
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -70,10 +82,6 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", password=" + password + ", phoneNumber=" + phoneNumber + "]";
-	}
+	
 
 }

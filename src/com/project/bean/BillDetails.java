@@ -3,21 +3,24 @@ package com.project.bean;
 import java.sql.Date;
 
 public class BillDetails {
-	private int customerId;
-	private int billId;
-	private int productId;
-	private double price;
-	private int discount;
-	private int quantity;
-	private double totalPrice;
-	private Date date;
+	private int customerId;     //to store customer_id
+	private int billId;         //to store bill_id
+	private int productId;      //to store product_id
+	private double price;       //to store the price of the product
+	private int discount;       //to store the discount for each product
+	private int quantity;       //to store the quantity of the product purchased
+	private double totalPrice;  //to store the total price of all the products purchased
+	private Date date;          //to store the date on which bill is generated
 
+	//toString() method used to return the values of the above mentioned fields:
 	@Override
 	public String toString() {
 		return "BillDetails [customerId=" + customerId + ", billId=" + billId + ", productId=" + productId + ", price="
 				+ price + ", discount=" + discount + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", date="
 				+ date + "]";
 	}
+	
+	//setters and getters for the above mentioned fields:
 
 	public int getCustomerId() {
 		return customerId;

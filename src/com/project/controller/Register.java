@@ -38,10 +38,8 @@ public class Register extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
-		} else
-			request.getRequestDispatcher("register.jsp").include(request, response); // redirecting
-																						// to
-																						// register.jsp
+		}	// register.jsp
+				else request.getRequestDispatcher("register.jsp").include(request, response); // redirecting to registerz.jsp
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
