@@ -30,13 +30,13 @@
 			$("#div1").load("removeproduct.jsp");
 		});
 		$("#bh").click(function() {
-			$("#div1").load("viewbilldetails.jsp");
+			$("#div1").load("BillHistory");
 		});
 		$("#up").click(function() {
 			$("#div1").load("updateproduct.jsp");
 		});
 		$("#vp").click(function() {
-			$("#div1").load("viewproduct.jsp");
+			$("#div1").load("ViewProducts");
 		});
 		$("#upwd").click(function() {
 			$("#div1").load("updatepassword.jsp");
@@ -81,7 +81,7 @@ document.getElementById('div1').innerHTML.
 					<input type="button" name="button" id="ac" value="  Add  Category  "><br><br>
 					<input type="button" name="button" id="rc" value="Remove Category"><br><br>
 					<input type="button" name="button" id="rp" value="Remove Product "><br><br>
-					<input type="button" name="button" id="bh" value="   Bill    History   "><br><br>
+					<input type="button" name="button" id="bh" value="Bill History"><br><br>
 					<input type="button" name="button" id="up" value=" Update Product "><br><br>
 					<input type="button" name="button" id="vp" value=" View Products  "><br><br>
 					<input type="button" name="button" id="upwd"

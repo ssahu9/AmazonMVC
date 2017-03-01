@@ -26,6 +26,7 @@ public class ViewProducts extends HttpServlet {
 			//if(adminBL.viewProduct(null) != null) {
 				viewProducts = adminBL.viewProduct(null);
 				getServletContext().setAttribute("viewProducts", viewProducts);
+				response.sendRedirect("viewproduct.jsp");
 			//}
 		/*	else {request.setAttribute("errorMessage", "Unable to show products");
 			request.getRequestDispatcher("error404admin.jsp").include(request, response);

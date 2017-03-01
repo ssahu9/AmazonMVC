@@ -35,7 +35,8 @@ public class AdminEntry extends HttpServlet {
 			request.getRequestDispatcher("removeproduct.jsp").forward(request, response);
 			break;
 		case "Bill History":
-			request.getRequestDispatcher("BillHistory").forward(request, response);
+			System.out.println("testinggggggggggggggggggg");
+			request.getRequestDispatcher("./BillHistory").forward(request, response);
 			break;
 		case "Update Product":
 			request.getRequestDispatcher("updateproduct.jsp").forward(request, response);

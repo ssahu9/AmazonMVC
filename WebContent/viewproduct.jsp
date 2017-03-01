@@ -12,13 +12,13 @@
 	<%
 		ArrayList<Product> productList = (ArrayList<Product>)getServletContext().getAttribute("viewProducts");
 	%>
-	<table>
+	<table border="1">
 		<%
 			for (Product product : productList) {
 		%>
-		<tr>
+		<tr><td>
 			<%=product.getName()%>
-		</tr>
+		</td></tr>
 		<%
 			}
 		%>

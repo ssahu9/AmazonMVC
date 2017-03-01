@@ -17,10 +17,13 @@ public class BillHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AdminBL adminBL = new AdminBL();
 	List<BillDetails> billHistory = null;
+	
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession(false);
+		System.out.println("testtttt");
 		try {
 			if(adminBL.getAllBillDetails() != null) {
 				billHistory = adminBL.getAllBillDetails();
@@ -28,7 +31,7 @@ public class BillHistory extends HttpServlet {
 			}
 			else {
 				request.setAttribute("errorMessage", "Unable to Process bill");
-				request.getRequestDispatcher("error404admin.jsp").include(request, response);
+				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println(e);

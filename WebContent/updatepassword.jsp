@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="">
+<form action="UpdatePasswordServlet">
 <table border="1">
 
 

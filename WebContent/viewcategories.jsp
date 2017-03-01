@@ -12,7 +12,7 @@
 	<%
 		ArrayList<Category> categoryList = (ArrayList<Category>) getServletContext().getAttribute("categoryList");
 	%>
-	<table>
+	<table border="1">
 		<%
 			for (Category category : categoryList) {
 		%>
