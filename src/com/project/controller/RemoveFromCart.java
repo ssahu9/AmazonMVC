@@ -18,6 +18,11 @@ public class RemoveFromCart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		String mail = (String) request.getAttribute("mail");
+		if (mail == null) {
+			request.setAttribute("errorMessage", "Please Login ");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
+		}
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		response.setContentType("text/html");
 

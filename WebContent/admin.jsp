@@ -44,7 +44,7 @@
 <body>
 
 	<c:if test="${sessionScope.email != null}">
-		<div class="log">
+		<div class="log" style="background-color:black ; color:white ;font-size:30px; ">
 			<a href="./Logout">LOGOUT</a>
 		</div>
 	</c:if>
@@ -53,12 +53,12 @@
 
 		<tr height="50px" width="1500px" border="1" bordercolor="black">
 
-			<td colspan="2" style="background-color:#CCCCCC; color:black">
-				<center>ADMIN PANEL</center>
+			<td colspan="2" style="background-color:black ; color:white ; font-size:40px;">
+				<center><b>ADMIN PANEL</b></center>
 			</td>
 		</tr>
 		<tr height="700px" width="1500px">
-			<td height="700px" width="300px" style="background-color:#CCCCCC; color:black">
+			<td height="700px" width="300px" style="background-color:orange; color:black;font-size:30px; ">
 				<form action="AdminEntry" style="text-align:center;" >
 					<input type="button" name="button" id="vc" value="  View Category "><br><br>
 					<input type="button" name="button" id="ap" value="  Add  Product   "><br><br>
@@ -76,7 +76,7 @@
 				</form>
 
 			</td>
-			<td height="700px" width="1500px" style="background-color:#CCCCCC; color:black  ;text-align:center;"><c:if
+			<td height="700px" width="1500px" style="background-color:#FAEBD7; color:black  ;text-align:center;"><c:if
 					test="${sessionScope.email == null}">
 					<div id="div1" style="text-align:center;">
 						<p>Your Session has Failed!</p>

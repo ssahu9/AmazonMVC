@@ -94,38 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="rgt-bottom">
 							<!-- Session check -->
 							<!-- Providing login and register option  only if user variable is exit in session scope -->
-							<c:if test="${sessionScope.email == null}">
 
-								<div class="log">
-									<div class="login">
-										<div id="loginContainer">
-											<a href="#" id="loginButton"><span>Login</span></a>
-											<div id="loginBox">
-												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
-													<fieldset id="body">
-														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
-														</fieldset>
-														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
-														</fieldset>
-														<input type="submit" id="login" value="Sign in"> <label
-															for="checkbox"><input type="checkbox"
-															id="checkbox"> <i>Remember me</i></label>
-													</fieldset>
-													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="reg">
-									<a href="register.jsp">REGISTER</a>
-								</div>
-							</c:if>
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="log">

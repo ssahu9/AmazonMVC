@@ -22,24 +22,28 @@ public class CheckoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-
+		String mail = (String) request.getAttribute("mail");
+		if (mail == null) {
+			request.setAttribute("errorMessage", "Please Login ");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
+		}
 		response.setContentType("text/html");
 		CustomerBl customerBl = new CustomerBl();
 		LinkedList<CartDetails> cartDetails = null;
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		try {
 			cartDetails = (LinkedList<CartDetails>) customerBl.viewCart(customer.getCustomerId());
-		System.out.println(cartDetails);
+			session.setAttribute("cartList", cartDetails);
+			response.sendRedirect("checkout.jsp");
+
+			System.out.println(cartDetails);
 
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			request.setAttribute("errorMessage", "Unable to checkout");
 			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 
-		session.setAttribute("cartList", cartDetails);
-
-		response.sendRedirect("checkout.jsp");
-
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

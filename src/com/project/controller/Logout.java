@@ -20,8 +20,13 @@ package com.project.controller;
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  		response.setContentType("text/html");
  		
-
  		HttpSession session = request.getSession(false);
+		 String mail=(String)request.getAttribute("mail");
+			if(mail==null){
+				request.setAttribute("errorMessage", "Please Login ");
+				request.getRequestDispatcher("error404page.jsp").include(request, response);
+			}
+
  		session.invalidate();
  		
  		request.getRequestDispatcher("index.jsp").include(request, response);

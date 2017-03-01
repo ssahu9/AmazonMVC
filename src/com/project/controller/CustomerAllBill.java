@@ -13,26 +13,36 @@ import javax.servlet.http.HttpSession;
 import com.project.bean.BillDetails;
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
+
 public class CustomerAllBill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		CustomerBl customerBl = new CustomerBl();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(false);
+		String mail = (String) request.getAttribute("mail");
+		if (mail == null) {
+			request.setAttribute("errorMessage", "Please Login ");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
+		}
+		CustomerBl customerBl = new CustomerBl();
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		try {
-			System.out.println("test test"+customer);
-			LinkedList<BillDetails> billList = (LinkedList<BillDetails>)customerBl.getBillDetails(customer.getCustomerId());
+			System.out.println("test test" + customer);
+			LinkedList<BillDetails> billList = (LinkedList<BillDetails>) customerBl
+					.getBillDetails(customer.getCustomerId());
 			session.setAttribute("allBill", billList);
 			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Unable to Process");
 			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
-		
-	
+
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
