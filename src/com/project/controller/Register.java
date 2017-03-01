@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
@@ -19,6 +20,8 @@ public class Register extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+
+		
 		String password1 = request.getParameter("pwd");
 		String password2 = request.getParameter("rpwd");
 
@@ -39,11 +42,13 @@ public class Register extends HttpServlet {
 				request.setAttribute("errorMessage", "Invalid Entry, please retry again");
 				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			}
-		}	// register.jsp
-				else {
-					request.setAttribute("errorMessage", "Failed Registration.. go back to retry or go home");
-					request.getRequestDispatcher("error404page.jsp").include(request, response);// redirecting to registerz.jsp
-				}
+		} // register.jsp
+		else {
+			request.setAttribute("errorMessage", "Failed Registration.. go back to retry or go home");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);// redirecting
+																						// to
+																						// registerz.jsp
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

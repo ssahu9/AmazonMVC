@@ -153,23 +153,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 		
 
-				<!-- start header menu -->
+							<!-- start header menu -->
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-
-					<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<form action="./GetProducts">
-							
-							<li><input type="submit" class="color2"
-								name="selectedCategory" value="${category.CategoryName}">
-							</li>
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
-						</form>
-					</c:forEach>
 
 				</ul>
 				<!-- End of Header Menu -->
+				
 	</div>
 </div>
 </div>
@@ -178,10 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- content -->
 <div class="container" style="margin-left: 130px;"></div>
 <div class="women_main"style="margin-left: 50px;"></div>
-   <!-- *********************************************************************************************** -->
-
-
-	<!-- start content -->
+   <!-- *************************************************************************************************** -->
+   <!-- start content -->
 	<div>
 	<table align="center" cellpadding="0" cellspacing="0" height="100%">
 	<tbody><tr>
@@ -190,9 +185,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<tbody>
 				<tr>
 					<td><img src="404.jpg" alt=""></td></tr><tr>
-					<td><p style="margin-left: 6px;"><strong><br><br><h3>Unfortunately, Page requested is not found</h3></strong></p>
-<p>What Happened??</p>
-<p style="color:red;"> ${requestScope.errorMessage} <p>
+					
+<td><p>What Happened??</p></td>
+<td><p style="margin-left: 6px;"><strong><br><br><h3>${requestScope.errorMessage}</h3></strong></p></td>
+<p style="color:red;">  <p>
 <a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
 			</tbody></table>
 		</td>
