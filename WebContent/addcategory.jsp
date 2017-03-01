@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="./Testingadmin" style="text-align:center;">
 <table border="1">
-
-<form action="AddCategoryServlet" style="text-align:center;">
 <tr>
 <td>
 Enter Category Name:
@@ -19,7 +18,7 @@ Enter Category Name:
 <tr>
 <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
 </tr>
-</form>
 </table>
+</form>
 </body>
 </html>

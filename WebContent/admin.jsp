@@ -35,10 +35,26 @@
 		$("#up").click(function() {
 			$("#div1").load("updateproduct.jsp");
 		});
+		$("#vp").click(function() {
+			$("#div1").load("viewproduct.jsp");
+		});
 		$("#upwd").click(function() {
 			$("#div1").load("updatepassword.jsp");
 		});
-	});
+	}); 
+
+	/*
+function loadcategory(){
+
+document.getElementById('div1').innerHTML.
+
+
+
+		
+	}
+*/
+
+	
 </script>
 
 <body>

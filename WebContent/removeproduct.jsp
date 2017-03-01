@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="RemoveProductServlet">
 	<table border="1">
 
-		<form action="RemoveProductServlet">
+		
 			<tr>
 				<td>Enter Product id:</td>
 				<td><input type="text" name="pid"></td>
@@ -18,7 +19,8 @@
 				<td colspan="2"><input type="submit" name="submit"
 					value="Submit"></td>
 			</tr>
-		</form>
+	
 	</table>
+		</form>
 </body>
 </html>

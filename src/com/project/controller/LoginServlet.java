@@ -29,10 +29,11 @@ public class LoginServlet extends HttpServlet {
 			
 			// setting session attribute
 			try {
-				request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting
+				response.sendRedirect("admin.jsp");
+				//request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting
 																						// to
 																						// admin.jsp
-			} catch (ServletException | IOException e) {
+			} catch (IOException e) {
 				//request.setAttribute("errorMessage", "Unsuccessful Admin Sign in");
 				//request.getRequestDispatcher("error404admin.jsp").forward(request, response);
 			

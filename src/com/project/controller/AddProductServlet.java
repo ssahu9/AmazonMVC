@@ -41,13 +41,18 @@ public class AddProductServlet extends HttpServlet {
 		product.setDiscount(discount);
 		
 		AdminBL adminBl = new AdminBL();
+		//System.out.println(product);
 		
 		try {
-			if(!adminBl.addProduct(product)) {
+			boolean status=adminBl.addProduct(product);
+			if(!status)
+			{
 				//request.setAttribute("errorMessage", "Unable to Process bill");
 				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
+				System.out.println(product);
+					
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
@@ -56,5 +61,4 @@ public class AddProductServlet extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

@@ -279,4 +279,14 @@
     <servlet-name>EmailVerificationServlet</servlet-name>
     <url-pattern>/EmailVerification</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Testingadmin</display-name>
+    <servlet-name>Testingadmin</servlet-name>
+    <servlet-class>com.project.controller.Testingadmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Testingadmin</servlet-name>
+    <url-pattern>/Testingadmin</url-pattern>
+  </servlet-mapping>
 </web-app>

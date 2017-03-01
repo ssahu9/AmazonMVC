@@ -16,32 +16,35 @@ public class AdminEntry extends HttpServlet {
 		
 		switch (str) {
 		case "View Category":
+			//response.sendRedirect("ViewCategory");
 			
 			request.getRequestDispatcher("./ViewCategory").forward(request, response);
 			break;
 		case "Add Product":
+			
 			request.getRequestDispatcher("./AddProductServlet").forward(request, response);
 			break;
 		case "Add Category":
-			request.getRequestDispatcher("./AddCategory").forward(request, response);
+			response.sendRedirect("addcategory.jsp");
+			//request.getRequestDispatcher("addcategory.jsp").forward(request, response);
 			break;
 		case "Remove Category":
-			request.getRequestDispatcher("./RemoveCategoryServlet").forward(request, response);
+			request.getRequestDispatcher("removecategory.jsp").forward(request, response);
 			break;
 		case "Remove Product":
-			request.getRequestDispatcher("./RemoveProductServlet").forward(request, response);
+			request.getRequestDispatcher("removeproduct.jsp").forward(request, response);
 			break;
 		case "Bill History":
-			request.getRequestDispatcher("./BillHistory").forward(request, response);
+			request.getRequestDispatcher("BillHistory").forward(request, response);
 			break;
 		case "Update Product":
-			request.getRequestDispatcher("./UpdateProductServlet").forward(request, response);
+			request.getRequestDispatcher("updateproduct.jsp").forward(request, response);
 			break;
 		case "View Products":
 			request.getRequestDispatcher("./ViewProducts").forward(request, response);
 			break;
 		case "Update Password":
-			request.getRequestDispatcher("./UpdatePasswordServlet").forward(request, response);
+			request.getRequestDispatcher("updatepassword.jsp").forward(request, response);
 			break;
 		default:
 			break;

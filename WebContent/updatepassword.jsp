@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="">
 <table border="1">
 
-<form action="">
+
 <tr>
 <td>
 Enter old password:
@@ -32,8 +32,8 @@ Enter Retype New Password:
 <tr>
 <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
 </tr>
-</form>
-</table>
 
+</table>
+</form>
 </body>
 </html>

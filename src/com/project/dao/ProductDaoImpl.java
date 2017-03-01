@@ -40,7 +40,9 @@ public class ProductDaoImpl implements ProductDao {
 		pstmt.setDouble(4, product.getPrice());
 		pstmt.setInt(5, product.getQuantity());
 		pstmt.setInt(6, product.getDiscount());
+		
 		int rows = pstmt.executeUpdate(); // entering product details.
+		System.out.println(rows);
 		con.close();
 		if (rows > 0) {
 			return true;
