@@ -23,10 +23,10 @@ public class Placeorder extends HttpServlet {
 		CustomerBl customerBL = new CustomerBl();
 		
 		HttpSession session = request.getSession(false);
-		 String mail=(String)request.getAttribute("mail");
+		String mail=(String)session.getAttribute("email");
 			if(mail==null){
 				request.setAttribute("errorMessage", "Please Login ");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
+				request.getRequestDispatcher("error404page.jsp").forward(request, response);
 			}
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		long millis=System.currentTimeMillis();  
@@ -38,7 +38,7 @@ public class Placeorder extends HttpServlet {
 				// bill will not generate as Cart is empty 
 				// call error message
 				request.setAttribute("errorMessage", "Cart is empty");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
+				request.getRequestDispatcher("error404page.jsp").forward(request, response);
 			}
 			else{
 				
@@ -49,7 +49,7 @@ public class Placeorder extends HttpServlet {
 					// something went wrong
 					// call error message
 					request.setAttribute("errorMessage", "Unable to Process bill");
-					request.getRequestDispatcher("error404page.jsp").include(request, response);
+					request.getRequestDispatcher("error404page.jsp").forward(request, response);
 					
 					
 				}

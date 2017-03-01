@@ -21,10 +21,10 @@ public class CustomerAllBill extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
-		String mail = (String) request.getAttribute("mail");
+		String mail=(String)session.getAttribute("email");
 		if (mail == null) {
 			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
 		CustomerBl customerBl = new CustomerBl();
 		Customer customer = (Customer) session.getAttribute("customerObject");
@@ -36,7 +36,7 @@ public class CustomerAllBill extends HttpServlet {
 			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Unable to Process");
-			request.getRequestDispatcher("error404admin.jsp").include(request, response);
+			request.getRequestDispatcher("error404admin.jsp").forward(request, response);
 		}
 
 	}

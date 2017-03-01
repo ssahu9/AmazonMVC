@@ -21,16 +21,18 @@ package com.project.controller;
  		response.setContentType("text/html");
  		
  		HttpSession session = request.getSession(false);
-		 String mail=(String)request.getAttribute("mail");
-			if(mail==null){
-				request.setAttribute("errorMessage", "Please Login ");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
+		 String mail=(String)session.getAttribute("email");
+		System.out.println("MAIL\n\n\n\n\n"+mail);	
+		 if(mail==null){
+				request.setAttribute("errorMessage", "<a href=\"index.jsp\">Please Login</a> ");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+				
 			}
-
+		 else{
  		session.invalidate();
- 		
- 		request.getRequestDispatcher("index.jsp").include(request, response);
- 	}
+ 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		 }
+		 }
  		
  	@Override
  	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {

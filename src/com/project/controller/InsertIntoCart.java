@@ -25,10 +25,10 @@ public class InsertIntoCart extends HttpServlet {
 		
 		 
 		HttpSession session = request.getSession(false);
-		String mail = (String) request.getAttribute("mail");
+		String mail=(String)session.getAttribute("email");
 		if (mail == null) {
 			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		long millis=System.currentTimeMillis();  
@@ -57,7 +57,7 @@ public class InsertIntoCart extends HttpServlet {
 		
 		}
 		 if(status== true){
-			 request.getRequestDispatcher("GetProducts?selectedCategory=CLOTHINGS").include(request, response);
+			 request.getRequestDispatcher("GetProducts?selectedCategory=CLOTHINGS").forward(request, response);
 		 }
 		 else{
 			 // call error message 

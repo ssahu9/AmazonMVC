@@ -38,13 +38,13 @@ public class SearchProductServlet extends HttpServlet{
 		}
 		catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Unable to search");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 			}
 		}
 		ArrayList<Product> pList = new ArrayList<Product>();
 		pList.add(product);
 		request.setAttribute("productObject", pList);
-		request.getRequestDispatcher("SearchResult.jsp").include(request, response);
+		request.getRequestDispatcher("SearchResult.jsp").forward(request, response);
 		}
 	
 	

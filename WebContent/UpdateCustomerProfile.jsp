@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
+												<form id="loginForm" action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
 															<label for="email">Email Address</label> <input
@@ -182,14 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>
 						<span> update your profile </span>
 					</h2>
-					<!-- [if IE] 
-		    < link rel='stylesheet' type='text/css' href='ie.css'/>  
-		 [endif] -->
-
-					<!-- [if lt IE 7]>  
-		    < link rel='stylesheet' type='text/css' href='ie6.css'/>  
-		<! [endif] -->
-					<script>
+									<script>
 						(function() {
 
 							// Create input element for testing
@@ -230,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form" action="#" method="post">
+						<form id="registration_form" action="UpdateCustomerDetails" method="post">
 							<div>
 								<label> <input placeholder="New first name:" type="text"
 									pattern=^[a-zA-Z]{1,20}$ tabindex="1" name="fname" required
@@ -243,11 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									autofocus>
 								</label>
 							</div>
-							<!-- 				<div>
-					<label>
-						<input placeholder="email address:" type="email"  name="email" tabindex="3" required>
-					</label>
-				</div> -->
+						
 							<div>
 								<label> <input placeholder=" New number" type="tel"
 									name="phone" pattern=^[7-9][0-9]{9}$ tabindex="3" required>

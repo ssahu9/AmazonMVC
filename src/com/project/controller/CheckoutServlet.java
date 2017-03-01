@@ -22,10 +22,10 @@ public class CheckoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		String mail = (String) request.getAttribute("mail");
+		String mail=(String)session.getAttribute("email");
 		if (mail == null) {
-			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			request.setAttribute("errorMessage", "<a href=\"index.jsp\">Please Login</a> ");
+			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
 		response.setContentType("text/html");
 		CustomerBl customerBl = new CustomerBl();
@@ -40,7 +40,7 @@ public class CheckoutServlet extends HttpServlet {
 
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			request.setAttribute("errorMessage", "Unable to checkout");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
 
 		

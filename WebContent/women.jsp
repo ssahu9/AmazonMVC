@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\login">
+												<form id="loginForm" action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
 															<label for="email">Email Address</label> <input
@@ -263,7 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="item_add">
 										<!-- Creating form to take input quantity and send the value to controller -->
-										<form action="InsertIntoCart">
+										<form action="InsertIntoCart" method="post">
 											<input class="item_add" type="text"
 												value="<c:out value="${product.productId}"></c:out>"
 												name="pId" readonly> <input class="item_add"
@@ -284,14 +284,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 
-			<div class="item_add">
-				<form action="index.jsp">
-					<input type="hidden" value="sasa" name="searchProduct"> <input
-						type="submit" value=" add to cart">
-				</form>
-
-				<div class="clearfix"></div>
-
+			
 				<!-- end content -->
 			</div>
 		</div>

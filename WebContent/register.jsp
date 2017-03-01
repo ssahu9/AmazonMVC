@@ -93,7 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
+												<form id="loginForm" action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
 															<label for="email">Email Address</label> <input
@@ -289,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</label>
 							</div>
 							<div>
-								<label> <input placeholder="password" name="passsword"
+								<label> <input placeholder="password" name="password"
 									type="password" tabindex="4" required>
 								</label>
 							</div>

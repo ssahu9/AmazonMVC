@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\login">
+												<form id="loginForm" action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
 															<label for="email">Email Address</label> <input
