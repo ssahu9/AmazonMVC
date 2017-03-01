@@ -25,15 +25,17 @@ public class ViewCategory extends HttpServlet {
 		try {
 			if(adminBL.viewCategory() != null) {
 				categoryList = adminBL.viewCategory();
+				System.out.println(categoryList);
+				System.out.println("stestingghfghfghghghghghghghghghghghghghfdtukkkkkkkkkkkkkkkkkkkkkfggggggggggggggggggggggj;oufyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfyfys");
 				getServletContext().setAttribute("categoryList", categoryList);
 			}
 			else {
 				request.setAttribute("errorMessage", "Unable to Process request");
-				request.getRequestDispatcher("error404admin.jsp").include(request, response);
+				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Unable to Process bill");
-			request.getRequestDispatcher("error404admin.jsp").include(request, response);
+			//request.setAttribute("errorMessage", "Unable to Process bill");
+			//request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 	}
 

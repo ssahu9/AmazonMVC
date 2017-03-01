@@ -28,8 +28,8 @@ public class RemoveProductServlet extends HttpServlet {
 		try {
 			adminBl.deleteProduct(pID);
 		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Failed to remove product");
-			request.getRequestDispatcher("error404admin.jsp").include(request, response);
+			//request.setAttribute("errorMessage", "Failed to remove product");
+			//request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 	}
 

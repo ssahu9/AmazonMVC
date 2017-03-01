@@ -19,7 +19,7 @@ public class AddCategoryServlet extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession(false);
 		String category = request.getParameter("cname");
-		
+		System.out.println(category);
 		try {
 			if(adminBL.addCategory(category))
 				request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -22,14 +22,16 @@ public class ViewProducts extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession(false);
 		try {
-			if(adminBL.viewProduct(null) != null) {
+			
+			//if(adminBL.viewProduct(null) != null) {
 				viewProducts = adminBL.viewProduct(null);
 				getServletContext().setAttribute("viewProducts", viewProducts);
-			}
-			else {request.setAttribute("errorMessage", "Unable to show products");
+			//}
+		/*	else {request.setAttribute("errorMessage", "Unable to show products");
 			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+		}*/ 
+		}catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Unable to show products");
 			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}

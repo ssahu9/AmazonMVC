@@ -44,8 +44,8 @@ public class AddProductServlet extends HttpServlet {
 		
 		try {
 			if(!adminBl.addProduct(product)) {
-				request.setAttribute("errorMessage", "Unable to Process bill");
-				request.getRequestDispatcher("error404admin.jsp").include(request, response);
+				//request.setAttribute("errorMessage", "Unable to Process bill");
+				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

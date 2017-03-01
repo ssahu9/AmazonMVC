@@ -26,8 +26,8 @@ public class RemoveCategoryServlet extends HttpServlet {
 		try {
 			admin.deleteCategory(cName);
 		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "error deleting category");
-		request.getRequestDispatcher("error404error.jsp").include(request, response);
+			//request.setAttribute("errorMessage", "error deleting category");
+		//request.getRequestDispatcher("error404error.jsp").include(request, response);
 		}
 	}
 

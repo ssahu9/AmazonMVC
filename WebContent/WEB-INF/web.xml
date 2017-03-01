@@ -191,13 +191,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AddCategory</display-name>
-    <servlet-name>AddCategory</servlet-name>
-    <servlet-class>com.project.controller.AddCategory</servlet-class>
+    <display-name>AddCategoryServlet</display-name>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <servlet-class>com.project.controller.AddCategoryServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddCategory</servlet-name>
-    <url-pattern>/AddCategory</url-pattern>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <url-pattern>/AddCategoryServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

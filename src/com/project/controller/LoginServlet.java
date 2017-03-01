@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 																						// admin.jsp
 			} catch (ServletException | IOException e) {
 				//request.setAttribute("errorMessage", "Unsuccessful Admin Sign in");
-				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
+				//request.getRequestDispatcher("error404admin.jsp").forward(request, response);
 			
 			}}
 		Customer customer = null;
@@ -42,18 +42,13 @@ public class LoginServlet extends HttpServlet {
 			customer = customerBL.signIn(email, password);
 			System.out.println(customer);
 		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Unsuccessful Sign in");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			//request.setAttribute("errorMessage", "Unsuccessful Sign in");
+			//request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
 
 		if (customer == null) { // login failed
-			try {
-				request.setAttribute("errorMessage", "Invalid User, please retry again");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
-			} catch (ServletException | IOException e) {
-				request.setAttribute("errorMessage", "Invalid User");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
-			} // redirecting to index.jsp
+			request.setAttribute("errorMessage", "Invalid User, please retry again");
+			//request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		
 		} else { // customer login successful
 			HttpSession session = request.getSession(); // creating session
@@ -68,8 +63,8 @@ public class LoginServlet extends HttpServlet {
 																						// index.jsp
 			} catch (ServletException | IOException e) {
 				// TODO Auto-generated catch block
-				request.setAttribute("errorMessage", "Unexpected Error");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
+			//	request.setAttribute("errorMessage", "Unexpected Error");
+				//request.getRequestDispatcher("error404page.jsp").forward(request, response);
 			}
 
 		}
