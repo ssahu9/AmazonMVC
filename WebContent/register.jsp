@@ -19,6 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/table.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form>
+							<form action="SearchProductServlet">
 								<input type="text" value="" placeholder="search..."> <input
 									type="submit" value="">
 							</form>

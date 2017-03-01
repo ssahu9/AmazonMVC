@@ -45,12 +45,15 @@ public class AddProductServlet extends HttpServlet {
 		
 		try {
 			boolean status=adminBl.addProduct(product);
-			if(!status)
+			if(status)
 			{
+				response.sendRedirect("admin.jsp");
+					
+			}
+			else{
 				//request.setAttribute("errorMessage", "Unable to Process bill");
 				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
-				System.out.println(product);
-					
+				
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

@@ -24,7 +24,12 @@ public class RemoveCategoryServlet extends HttpServlet {
 		AdminBL admin=new AdminBL();
 		String cName = request.getParameter("cname");
 		try {
-			admin.deleteCategory(cName);
+		boolean status=	admin.deleteCategory(cName);
+		if(status){
+			response.sendRedirect("admin.jsp");
+		}else{
+			//Call Error Page
+		}
 		} catch (ClassNotFoundException | SQLException e) {
 			//request.setAttribute("errorMessage", "error deleting category");
 		//request.getRequestDispatcher("error404error.jsp").include(request, response);

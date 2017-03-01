@@ -21,6 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/table.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form>
+							<form action="SearchProductServlet">
 								<input type="text" value="" placeholder="search..."> <input
 									type="submit" value="">
 							</form>
@@ -271,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												value="<c:out value="${product.quantity}" ></c:out>"
 												name="originalQuantity" readonly> Enter Quantity<input type="number"
 												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="${product.quantity}"> <input
-												type="submit" class="item_price" value="Add to Cart">
+												type="submit" class="button button2" value="Add to Cart">
 										</form>
 									</div>
 								</div>
@@ -288,50 +289,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- end content -->
 			</div>
 		</div>
-<!-- Foot top section (Follow us on) -->
-	<div class="foot-top">
-		<div class="container">
-			<div class="col-md-6 s-c">
-				<li>
-					<div class="fooll">
-						<h5>follow us on</h5>
-					</div>
-				</li>
-				<li>
-					<div class="social-ic">
-						<ul>
-							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
-							<div class="clearfix"></div>
-						</ul>
-					</div>
-				</li>
-				<div class="clearfix"></div>
-			</div>
-			<div class="col-md-6 s-c">
-				<div class="stay">
-					<div class="stay-left">
-						<form>
-							<input type="text"
-								placeholder="Enter your email to join our newsletter"
-								required="">
-						</form>
-					</div>
-					<div class="btn-1">
-						<form>
-							<input type="submit" value="join">
-						</form>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	<!-- End of Foot top section (Follow us on) -->
 
 	<!-- Footer Section -->
 	<div class="footer">

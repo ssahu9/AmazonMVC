@@ -25,7 +25,7 @@ public class Testingadmin extends HttpServlet {
 			boolean status=adminBL.addCategory(category);
 			System.out.println(status);
 			if(status){
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				response.sendRedirect("admin.jsp");
 			}else request.getRequestDispatcher("admin.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println(e);
