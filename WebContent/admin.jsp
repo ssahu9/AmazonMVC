@@ -44,7 +44,7 @@
 <body>
 
 	<c:if test="${sessionScope.email != null}">
-		<div class="log" style="background-color:black ; color:white ">
+		<div class="log" style="background-color:black ; color:white ;font-size:30px; ">
 			<a href="./Logout">LOGOUT</a>
 		</div>
 	</c:if>
