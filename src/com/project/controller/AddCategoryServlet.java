@@ -22,7 +22,7 @@ public class AddCategoryServlet extends HttpServlet {
 		System.out.println(category);
 		try {
 			if(adminBL.addCategory(category))
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+		 		request.getRequestDispatcher("index.jsp").forward(request, response);
 			else request.getRequestDispatcher("admin.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Failed to add Category");

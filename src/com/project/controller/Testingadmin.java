@@ -2,7 +2,6 @@ package com.project.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,31 +9,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.project.bean.BillDetails;
 import com.project.bl.AdminBL;
 
-public class BillHistory extends HttpServlet {
+public class Testingadmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AdminBL adminBL = new AdminBL();
-	List<BillDetails> billHistory = null;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession(false);
+		String category = request.getParameter("cname");
+		System.out.println("hh");
+		System.out.println(category);
 		try {
-			if(adminBL.getAllBillDetails() != null) {
-				billHistory = adminBL.getAllBillDetails();
-				getServletContext().setAttribute("billHistory", billHistory);
-			}
-			else {
-				request.setAttribute("errorMessage", "Unable to Process bill");
-				request.getRequestDispatcher("error404admin.jsp").include(request, response);
-			}
+			boolean status=adminBL.addCategory(category);
+			System.out.println(status);
+			if(status){
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}else request.getRequestDispatcher("admin.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println(e);
-			//request.setAttribute("errorMessage", "Unable to Process bill");
-			//request.getRequestDispatcher("error404admin.jsp").include(request, response);
-			
+			//request.setAttribute("errorMessage", "Failed to add Category");
+			//request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 	}
 
