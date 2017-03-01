@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 		Customer customer = null;
 		try {
 			customer = customerBL.signIn(email, password);
+			System.out.println(customer);
 		} catch (ClassNotFoundException | SQLException e) {
 			request.setAttribute("errorMessage", "Unsuccessful Sign in");
 			request.getRequestDispatcher("error404page.jsp").include(request, response);
@@ -39,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("errorMessage", "Invalid User");
 				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			} // redirecting to index.jsp
-		} else if (customer.getEmail().equals("admin") || customer.getPassword().equals("admin123")) {
+		} else if (email.equals("admin@admin.com") || password.equals("admin123")) {
 			HttpSession session = request.getSession(); // creating session
 			session.setAttribute("email", email);
 			session.setAttribute("customerObject", customer);
