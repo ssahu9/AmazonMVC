@@ -29,7 +29,7 @@ public class InsertIntoCart extends HttpServlet {
 		long millis=System.currentTimeMillis();  
 		java.sql.Date date=new java.sql.Date(millis);  
 		String pid = request.getParameter("pId");
-  		String quantity = request.getParameter("quantity");
+		String quantity = request.getParameter("quantity");
   		Cart cart= new Cart();
 		cart.setCartDate(date);
 		cart.setCustomerId(customer.getCustomerId());
@@ -38,7 +38,11 @@ public class InsertIntoCart extends HttpServlet {
 		
 		ArrayList<Cart> cartList= new ArrayList<Cart>();
 		cartList.add(cart);
-		
+		if(Integer.parseInt(quantity)==0){
+			// selected quantity is 0
+			//call error page
+		}
+		else{
 		boolean status= false;
 		try {
 			 status=customerBL.addToCart(cartList);
@@ -53,7 +57,10 @@ public class InsertIntoCart extends HttpServlet {
 		 else{
 			 // call error message 
 		 }
-	}
+		}
+		}
+		
+		
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

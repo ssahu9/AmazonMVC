@@ -269,4 +269,14 @@
     <servlet-name>ForgotPasswordServlet</servlet-name>
     <url-pattern>/ForgotPassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmailVerificationServlet</display-name>
+    <servlet-name>EmailVerificationServlet</servlet-name>
+    <servlet-class>com.project.controller.EmailVerificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmailVerificationServlet</servlet-name>
+    <url-pattern>/EmailVerification</url-pattern>
+  </servlet-mapping>
 </web-app>

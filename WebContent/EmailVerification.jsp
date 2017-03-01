@@ -47,22 +47,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="forgot_password" action="ForgotPassword" method="post">
+						<form id="email_verification" action="EmailVerification" method="post">
 							<div>
-								<label> <input placeholder="password" type="password"
-									pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$ name="pwd" tabindex="4"
+								<label> <input placeholder="Email id" type="text" name="email" tabindex="4"
 									required>
 								</label>
 							</div>
 							<div>
-								<label> <input placeholder="retype password"
-									type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$
-									name="rpwd" tabindex="4" required>
+								<label> <input placeholder="Phone number"
+									type="text" name="phone" tabindex="4" required>
 								</label>
 							</div>
 							<div>
-								<input type="submit" value="Confirm"
-									id="password-submit">
+								<input type="submit" value="Proceed"
+									id="email-submit">
 							</div>
 						</form>
 

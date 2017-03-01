@@ -21,7 +21,7 @@ package com.project.controller;
  		response.setContentType("text/html");
  		PrintWriter out = response.getWriter();
 
- 		HttpSession session = request.getSession();
+ 		HttpSession session = request.getSession(false);
  		session.invalidate();
  		
  		request.getRequestDispatcher("index.jsp").include(request, response);
