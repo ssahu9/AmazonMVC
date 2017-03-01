@@ -77,13 +77,13 @@
 
 			</td>
 			<td height="700px" width="1500px" style="background-color:#CCCCCC; color:black  ;text-align:center;"><c:if
-					test="${sessionScope.adminemail == null}">
+					test="${sessionScope.email == null}">
 					<div id="div1" style="text-align:center;">
 						<p>Your Session has Failed!</p>
 					</div>
 				</c:if> <c:if test="${sessionScope.email != null}">
 					<div id="div1" style="text-align:center;">
-						<p>Your Session has Failed!</p>
+						<p>Your Session has Started!</p>
 					</div>
 				</c:if></td>
 		</tr>

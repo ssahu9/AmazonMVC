@@ -10,20 +10,20 @@
 </head>
 <body>
 	<%
-		ArrayList<Category> categoryList = (ArrayList<Category>) getServletContext().getAttribute("catgoriesList");
+		ArrayList<Category> categoryList = (ArrayList<Category>) getServletContext().getAttribute("categoryList");
 	%>
 	<table>
 		<%
 			for (Category category : categoryList) {
 		%>
 		<tr>
-			<%=category.getCategoryName()%>
+			<td><%=category.getCategoryName()%></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
 
-	sdfhsdufhsdjfhsdfhsdjhffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+
 </body>
 </html>

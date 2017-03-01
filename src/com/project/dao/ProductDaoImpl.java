@@ -114,7 +114,9 @@ public class ProductDaoImpl implements ProductDao {
 			product.setPrice(productprice);
 			product.setQuantity(productquantity);
 			prodList.add(product); // generating list of product.
+			System.out.println(product);
 		}
+		
 		con.close();
 		return prodList; // returning back product list to Business Logic layer.
 

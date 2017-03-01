@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.project.bean.Category;
 import com.project.bean.Product;
@@ -20,7 +21,7 @@ public class AddProductServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		Product product = new Product();
-		
+		HttpSession session=request.getSession(false);
 		int pID = (Integer.parseInt(request.getParameter("pid")));
 		product.setProductId(pID);
 		

@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.project.bean.Category;
 import com.project.bl.AdminBL;
@@ -19,6 +20,7 @@ public class RemoveCategoryServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = null;
+		HttpSession session=request.getSession(false);
 		AdminBL admin=new AdminBL();
 		String cName = request.getParameter("cname");
 		try {

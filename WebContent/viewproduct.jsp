@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-		ArrayList<Product> productList = (ArrayList<Product>)getServletContext().getAttribute("viewProduct");
+		ArrayList<Product> productList = (ArrayList<Product>)getServletContext().getAttribute("viewProducts");
 	%>
 	<table>
 		<%

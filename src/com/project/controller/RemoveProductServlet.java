@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.project.bean.Product;
 import com.project.bl.AdminBL;
@@ -19,7 +20,7 @@ public class RemoveProductServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = null;
-
+		HttpSession session=request.getSession(false);
 		Product product = new Product();
 		int pID = (Integer.parseInt(request.getParameter("pid")));
 

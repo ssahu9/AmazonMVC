@@ -23,6 +23,20 @@ public class LoginServlet extends HttpServlet {
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		if (email.equals("admin@admin.com") || password.equals("admin123")) {
+			HttpSession session = request.getSession(); // creating session
+			session.setAttribute("email", email);
+			
+			// setting session attribute
+			try {
+				request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting
+																						// to
+																						// admin.jsp
+			} catch (ServletException | IOException e) {
+				//request.setAttribute("errorMessage", "Unsuccessful Admin Sign in");
+				//request.getRequestDispatcher("error404admin.jsp").include(request, response);
+			
+			}}
 		Customer customer = null;
 		try {
 			customer = customerBL.signIn(email, password);
@@ -40,19 +54,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("errorMessage", "Invalid User");
 				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			} // redirecting to index.jsp
-		} else if (email.equals("admin@admin.com") || password.equals("admin123")) {
-			HttpSession session = request.getSession(); // creating session
-			session.setAttribute("email", email);
-			session.setAttribute("customerObject", customer);
-			// setting session attribute
-			try {
-				request.getRequestDispatcher("admin.jsp").forward(request, response); // redirecting
-																						// to
-																						// admin.jsp
-			} catch (ServletException | IOException e) {
-				request.setAttribute("errorMessage", "Unsuccessful Admin Sign in");
-				request.getRequestDispatcher("error404page.jsp").include(request, response);
-			}
+		
 		} else { // customer login successful
 			HttpSession session = request.getSession(); // creating session
 			session.setAttribute("email", email); // setting session attribute
