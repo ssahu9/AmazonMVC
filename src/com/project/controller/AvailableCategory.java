@@ -22,10 +22,9 @@ public class AvailableCategory extends HttpServlet {
 		ArrayList<Category> category = null;
 		try {
 			category = (ArrayList<Category>) customerBl.viewCategory();
-			System.out.println(category);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "request failed");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 		getServletContext().setAttribute("categoryList", category);
 

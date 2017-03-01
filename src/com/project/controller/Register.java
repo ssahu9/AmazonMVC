@@ -36,10 +36,14 @@ public class Register extends HttpServlet {
 																							// index.jsp
 				}
 			} catch (ClassNotFoundException | SQLException e) {
-				e.printStackTrace();
+				request.setAttribute("errorMessage", "Invalid Entry, please retry again");
+				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			}
 		}	// register.jsp
-				else request.getRequestDispatcher("register.jsp").include(request, response); // redirecting to registerz.jsp
+				else {
+					request.setAttribute("errorMessage", "Failed Registration.. go back to retry or go home");
+					request.getRequestDispatcher("error404page.jsp").include(request, response);// redirecting to registerz.jsp
+				}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

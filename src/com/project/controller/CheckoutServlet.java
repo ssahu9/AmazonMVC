@@ -32,9 +32,8 @@ public class CheckoutServlet extends HttpServlet {
 		System.out.println(cartDetails);
 
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
-			// TODO Auto-generated catch block
-
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to checkout");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 
 		session.setAttribute("cartList", cartDetails);

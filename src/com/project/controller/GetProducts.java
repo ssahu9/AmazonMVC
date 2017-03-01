@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.project.bean.Category;
 import com.project.bean.Product;
 import com.project.bl.CustomerBl;
 
@@ -28,8 +27,8 @@ public class GetProducts extends HttpServlet {
 			proList = (ArrayList<Product>)customerBl.viewProduct(pcategory);
 			System.out.println(proList);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to Get Product");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 		request.setAttribute("productList",proList);
 		request.getRequestDispatcher("women.jsp").include(request, response);

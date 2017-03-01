@@ -19,16 +19,12 @@ package com.project.controller;
  
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  		response.setContentType("text/html");
- 		PrintWriter out = response.getWriter();
+ 		
 
  		HttpSession session = request.getSession();
  		session.invalidate();
  		
  		request.getRequestDispatcher("index.jsp").include(request, response);
- 		
- 		
- 		
- 	//	out.print("You have successfully logged out, "session.getAttribute("email"));
  	}
  		
  	@Override

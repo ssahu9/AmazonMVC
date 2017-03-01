@@ -33,7 +33,8 @@ public class LoginServlet extends HttpServlet {
 
 		if (customer == null) { // login failed
 			try {
-				request.getRequestDispatcher("index.jsp").include(request, response);
+				request.setAttribute("errorMessage", "Invalid User, please retry again");
+				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			} catch (ServletException | IOException e) {
 				request.setAttribute("errorMessage", "Invalid User");
 				request.getRequestDispatcher("error404page.jsp").include(request, response);

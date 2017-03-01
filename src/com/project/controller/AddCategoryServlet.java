@@ -24,7 +24,8 @@ public class AddCategoryServlet extends HttpServlet {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			else request.getRequestDispatcher("admin.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Failed to add Category");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 	}
 

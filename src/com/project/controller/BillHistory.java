@@ -25,9 +25,13 @@ public class BillHistory extends HttpServlet {
 				billHistory = adminBL.getAllBillDetails();
 				getServletContext().setAttribute("billHistory", billHistory);
 			}
-			else request.getRequestDispatcher("admin.jsp").include(request, response);
+			else {
+				request.setAttribute("errorMessage", "Unable to Process bill");
+				request.getRequestDispatcher("error404admin.jsp").include(request, response);
+			}
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to Process bill");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 	}
 
