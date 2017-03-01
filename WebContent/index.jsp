@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="top_right">
 					<ul>
 						<li><a href="#">help</a></li>|
-						<li><a href="contact.jsp">Contact</a></li>|
+						<li><a href="#">Contact</a></li>|
 						<li><a href="#">Delivery information</a></li>
 					</ul>
 				</div>
@@ -80,8 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><img src="images/logo.png"
-							class="img-responsive" alt="" /> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -313,6 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+	<!-- Foot top section (Follow us on) -->
 	<div class="foot-top">
 		<div class="container">
 			<div class="col-md-6 s-c">
@@ -324,11 +324,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<div class="social-ic">
 						<ul>
-							<li><a href="#"><i class="facebok"> </i></a></li>
-							<li><a href="#"><i class="twiter"> </i></a></li>
-							<li><a href="#"><i class="goog"> </i></a></li>
-							<li><a href="#"><i class="be"> </i></a></li>
-							<li><a href="#"><i class="pp"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
 							<div class="clearfix"></div>
 						</ul>
 					</div>
@@ -355,49 +355,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<!-- End of Foot top section (Follow us on) -->
+	<!-- Footer Section -->
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 cust">
 				<h4>CUSTOMER CARE</h4>
-				<li><a href="#">Help Center</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="buy.jsp">How To Buy</a></li>
-				<li><a href="#">Delivery</a></li>
+				<li><a href="CallErrorPageServlet">Help Center</a></li>
+				<li><a href="CallErrorPageServlet">FAQ</a></li>
+				<li><a href="CallErrorPageServlet">How To Buy</a></li>
+				<li><a href="CallErrorPageServlet">Delivery</a></li>
 			</div>
 			<div class="col-md-2 abt">
 				<h4>ABOUT US</h4>
-				<li><a href="#">Our Stories</a></li>
-				<li><a href="#">Press</a></li>
-				<li><a href="#">Career</a></li>
-				<li><a href="contact.jsp">Contact</a></li>
+				<li><a href="CallErrorPageServlet">Our Stories</a></li>
+				<li><a href="CallErrorPageServlet">Press</a></li>
+				<li><a href="CallErrorPageServlet">Career</a></li>
+				<li><a href="CallErrorPageServlet">Contact</a></li>
 			</div>
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
 				<li><a href="register.jsp">Register</a></li>
-				<li><a href="#">My Cart</a></li>
-				<li><a href="#">Order History</a></li>
-				<li><a href="buy.jsp">Payment</a></li>
+				<li><a href="CheckoutServlet">My Cart</a></li>
+				<li><a href="./CustomerAllBill">Bill History</a></li>
+				<li><a href="CheckoutServlet">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">
 					<h4>OUR STORES</h4>
 				</div>
-				<div class="our-left1">
-					<div class="cr_btn">
-						<a href="#">SOLO</a>
-					</div>
-				</div>
-				<div class="our-left1">
-					<div class="cr_btn1">
-						<a href="#">BOGOR</a>
-					</div>
-				</div>
 				<div class="clearfix"></div>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
-				<li><a href="mailto:info@example.com"><i class="mail">
-					</i>info@sitename.com </a></li>
-
+				
 			</div>
 			<div class="clearfix"></div>
 			<p>
@@ -406,5 +396,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</p>
 		</div>
 	</div>
+	<!-- End of Footer section -->
 </body>
 </html>

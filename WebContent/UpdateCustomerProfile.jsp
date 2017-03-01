@@ -56,8 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="top_right">
 					<ul>
 						<li><a href="#">help</a></li>|
-						<li><a href="contact.jsp">Contact</a></li>|
-						<li><a href="#">Delivery information</a></li>
+						<li><a href="#">Contact</a></li>|
+						<li><a href="CallErrorPageServlet">Delivery information</a></li>
 					</ul>
 				</div>
 				<div class="top_left">
@@ -75,8 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><img src="images/logo.png"
-							class="img-responsive" alt="" /> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -120,9 +119,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="reg">
 									<a href="Logout.jsp">LOGOUT</a>
 								</div>
+								
+								<!--  Link for profile information updation  -->
+								<div class="log" style="margin-left: 0px;">
+									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
+								</div>
+								
 							</c:if>
 							<div class="create_btn">
-								<a href="checkout.jsp">CHECKOUT</a>
+								<a href="CheckoutServlet">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -271,98 +276,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- end profile Updation -->
 			</div>
 		</div>
-		<div class="foot-top">
-			<div class="container">
-				<div class="col-md-6 s-c">
-					<li>
-						<div class="fooll">
-							<h5>follow us on</h5>
-						</div>
-					</li>
-					<li>
-						<div class="social-ic">
-							<ul>
-								<li><a href="#"><i class="facebok"> </i></a></li>
-								<li><a href="#"><i class="twiter"> </i></a></li>
-								<li><a href="#"><i class="goog"> </i></a></li>
-								<li><a href="#"><i class="be"> </i></a></li>
-								<li><a href="#"><i class="pp"> </i></a></li>
-								<div class="clearfix"></div>
-							</ul>
-						</div>
-					</li>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-6 s-c">
-					<div class="stay">
-						<div class="stay-left">
-							<form>
-								<input type="text"
-									placeholder="Enter your email to join our newsletter"
-									required="">
-							</form>
-						</div>
-						<div class="btn-1">
-							<form>
-								<input type="submit" value="join">
-							</form>
-						</div>
-						<div class="clearfix"></div>
+<!-- Foot top section (Follow us on) -->
+	<div class="foot-top">
+		<div class="container">
+			<div class="col-md-6 s-c">
+				<li>
+					<div class="fooll">
+						<h5>follow us on</h5>
 					</div>
-				</div>
+				</li>
+				<li>
+					<div class="social-ic">
+						<ul>
+							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
 				<div class="clearfix"></div>
 			</div>
-		</div>
-		<div class="footer">
-			<div class="container">
-				<div class="col-md-3 cust">
-					<h4>CUSTOMER CARE</h4>
-					<li><a href="#">Help Center</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="buy.jsp">How To Buy</a></li>
-					<li><a href="#">Delivery</a></li>
-				</div>
-				<div class="col-md-2 abt">
-					<h4>ABOUT US</h4>
-					<li><a href="#">Our Stories</a></li>
-					<li><a href="#">Press</a></li>
-					<li><a href="#">Career</a></li>
-					<li><a href="contact.jsp">Contact</a></li>
-				</div>
-				<div class="col-md-2 myac">
-					<h4>MY ACCOUNT</h4>
-					<li><a href="register.jsp">Register</a></li>
-					<li><a href="#">My Cart</a></li>
-					<li><a href="#">Order History</a></li>
-					<li><a href="buy.jsp">Payment</a></li>
-				</div>
-				<div class="col-md-5 our-st">
-					<div class="our-left">
-						<h4>OUR STORES</h4>
+			<div class="col-md-6 s-c">
+				<div class="stay">
+					<div class="stay-left">
+						<form>
+							<input type="text"
+								placeholder="Enter your email to join our newsletter"
+								required="">
+						</form>
 					</div>
-					<div class="our-left1">
-						<div class="cr_btn">
-							<a href="#">SOLO</a>
-						</div>
-					</div>
-					<div class="our-left1">
-						<div class="cr_btn1">
-							<a href="#">BOGOR</a>
-						</div>
+					<div class="btn-1">
+						<form>
+							<input type="submit" value="join">
+						</form>
 					</div>
 					<div class="clearfix"></div>
-					<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
-					<li><i class="phone"> </i>025-2839341</li>
-					<li><a href="mailto:info@example.com"><i class="mail">
-						</i>info@sitename.com </a></li>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- End of Foot top section (Follow us on) -->
 
+	<!-- Footer Section -->
+	<div class="footer">
+		<div class="container">
+			<div class="col-md-3 cust">
+				<h4>CUSTOMER CARE</h4>
+				<li><a href="CallErrorPageServlet">Help Center</a></li>
+				<li><a href="CallErrorPageServlet">FAQ</a></li>
+				<li><a href="CallErrorPageServlet">How To Buy</a></li>
+				<li><a href="CallErrorPageServlet">Delivery</a></li>
+			</div>
+			<div class="col-md-2 abt">
+				<h4>ABOUT US</h4>
+				<li><a href="CallErrorPageServlet">Our Stories</a></li>
+				<li><a href="CallErrorPageServlet">Press</a></li>
+				<li><a href="CallErrorPageServlet">Career</a></li>
+				<li><a href="CallErrorPageServlet">Contact</a></li>
+			</div>
+			<div class="col-md-2 myac">
+				<h4>MY ACCOUNT</h4>
+				<li><a href="register.jsp">Register</a></li>
+				<li><a href="CheckoutServlet">My Cart</a></li>
+				<li><a href="./CustomerAllBill">Bill History</a></li>
+				<li><a href="CheckoutServlet">Payment</a></li>
+			</div>
+			<div class="col-md-5 our-st">
+				<div class="our-left">
+					<h4>OUR STORES</h4>
 				</div>
 				<div class="clearfix"></div>
-				<p>
-					Copyrights © 2015 Gretong. All rights reserved | Template by <a
-						href="http://w3layouts.com/">W3layouts</a>
-				</p>
+				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
+				<li><i class="phone"> </i>025-2839341</li>
+				
 			</div>
+			<div class="clearfix"></div>
+			<p>
+				Copyrights © 2015 Gretong. All rights reserved | Template by <a
+					href="http://w3layouts.com/">W3layouts</a>
+			</p>
 		</div>
+	</div>
+	<!-- End of Footer section -->
 </body>
 </html>
