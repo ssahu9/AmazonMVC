@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="email_verification" action="EmailVerification" method="post">
+						<form id="email_verification" action="./EmailVerification" method="post">
 							<div>
 								<label> <input placeholder="Email id" type="text" name="email" tabindex="4"
 									required>
