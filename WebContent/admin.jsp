@@ -48,25 +48,25 @@
 		</div>
 	</c:if>
 
-	<table border="2">
+	<table border="2" >
 
 		<tr height="50px" width="1500px" border="1" bordercolor="black">
 
-			<td colspan="2">
+			<td colspan="2" style="background-color:#CCCCCC; color:black">
 				<center>ADMIN PANEL</center>
 			</td>
 		</tr>
 		<tr height="700px" width="1500px">
-			<td height="700px" width="300px">
-				<form action="AdminEntry">
-					<input type="button" name="button" id="vc" value="View Category"><br>
-					<input type="button" name="button" id="ap" value="Add Product"><br>
-					<input type="button" name="button" id="ac" value="Add Category"><br>
-					<input type="button" name="button" id="rc" value="Remove Category"><br>
-					<input type="button" name="button" id="rp" value="Remove Product"><br>
-					<input type="button" name="button" id="bh" value="Bill History"><br>
-					<input type="button" name="button" id="up" value="Update Product"><br>
-					<input type="button" name="button" id="vp" value="View Products"><br>
+			<td height="700px" width="300px" style="background-color:#CCCCCC; color:black">
+				<form action="AdminEntry" style="text-align:center;" >
+					<input type="button" name="button" id="vc" value="  View Category "><br><br>
+					<input type="button" name="button" id="ap" value="  Add  Product   "><br><br>
+					<input type="button" name="button" id="ac" value="  Add  Category  "><br><br>
+					<input type="button" name="button" id="rc" value="Remove Category"><br><br>
+					<input type="button" name="button" id="rp" value="Remove Product "><br><br>
+					<input type="button" name="button" id="bh" value="   Bill    History   "><br><br>
+					<input type="button" name="button" id="up" value=" Update Product "><br><br>
+					<input type="button" name="button" id="vp" value=" View Products  "><br><br>
 					<input type="button" name="button" id="upwd"
 						value="Update Password">
 
@@ -75,13 +75,13 @@
 				</form>
 
 			</td>
-			<td height="700px" width="1500px"><c:if
+			<td height="700px" width="1500px" style="background-color:#CCCCCC; color:black  ;text-align:center;"><c:if
 					test="${sessionScope.adminemail == null}">
-					<div id="div1">
+					<div id="div1" style="text-align:center;">
 						<p>Your Session has Failed!</p>
 					</div>
 				</c:if> <c:if test="${sessionScope.email != null}">
-					<div id="div1">
+					<div id="div1" style="text-align:center;">
 						<p>Your Session has Failed!</p>
 					</div>
 				</c:if></td>

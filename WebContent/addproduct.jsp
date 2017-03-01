@@ -9,7 +9,7 @@
 <body>
 	<table border="1">
 
-		<form action="AddProductServlet">
+		<form action="AddProductServlet" style="text-align:center;">
 			<tr>
 				<td>Enter Product id:</td>
 				<td><input type="text" name="pid"></td>
