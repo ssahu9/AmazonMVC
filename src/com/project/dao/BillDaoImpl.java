@@ -34,11 +34,11 @@ public class BillDaoImpl implements BillDao {
 		pstmt.setInt(1, customerId);
 		rs = pstmt.executeQuery();
 		
-		int productId = 0;
-		int productQuantity = 0;
-		int productDiscount = 0;
-		double productPrice = 0;
-		int productQuantityOriginal = 0;
+		int productId = 0;            		//to store the product id
+		int productQuantity = 0;	  		//to store the quantity of product selected
+		int productDiscount = 0;			//to store the discount given on the product
+		double productPrice = 0;			//to store the price of the product
+		int productQuantityOriginal = 0;	//to store the original total quantity of products
 		int rows = 0;
 		while (rs.next()) {
 			productId = rs.getInt("PRODUCT_ID");
@@ -158,6 +158,7 @@ public class BillDaoImpl implements BillDao {
 		return billList;
 	}
 
+	//function to retrieve all the bill details 
 	@Override
 	public List<BillDetails> getAllBillDetails() throws SQLException, ClassNotFoundException {
 		List<BillDetails> billList = new LinkedList<BillDetails>();
@@ -190,6 +191,8 @@ public class BillDaoImpl implements BillDao {
 		return billList;
 	}
 
+	
+	//function to generate current bill details for the customer
 	@Override
 	public List<BillDetails> getCurrentBill(Bill bill) throws ClassNotFoundException, SQLException {
 

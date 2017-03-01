@@ -17,6 +17,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
 
+	//function to insert all customer details in database
 	@Override
 	public int insert(Customer customer) throws ClassNotFoundException, SQLException {
 		connection = CreateConnection.getCon();
@@ -46,6 +47,8 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
+	
+	//validation function for customer to check email and password
 	@Override
 	public Customer validation(String email, String password) throws ClassNotFoundException, SQLException {
 		connection = CreateConnection.getCon();
@@ -68,6 +71,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		return customer;
 	}
 
+	
+	//update function for customer to update details 
 	@Override
 	public boolean update(Customer customer) throws ClassNotFoundException, SQLException {
 		connection = CreateConnection.getCon();

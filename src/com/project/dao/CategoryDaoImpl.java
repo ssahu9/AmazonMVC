@@ -18,6 +18,8 @@ public class CategoryDaoImpl implements CategoryDao {
 	PreparedStatement pstmt = null;
 	Category category = null;
 
+	
+	//view category function made for customers to view all categories
 	public List<Category> viewCategory() throws SQLException, ClassNotFoundException {
 
 		List<Category> categoryList = new ArrayList<Category>();
@@ -36,6 +38,8 @@ public class CategoryDaoImpl implements CategoryDao {
 		return categoryList;
 	}
 
+	
+	//function to insert new category used by admin
 	@Override
 	public boolean insertCategory(String categoryname) throws SQLException, ClassNotFoundException {
 		con = CreateConnection.getCon();
@@ -50,6 +54,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		return false;
 	}
 
+	//function to delete pre-existing category used by admin
 	@Override
 	public boolean deleteCategory(String categoryname) throws SQLException, ClassNotFoundException {
 	

@@ -15,6 +15,7 @@ public class AdminDaoImpl implements AdminDao {
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
 
+	//validation function check for email and password used for admin sign-up 
 	@Override
 	public boolean validation(String email, String password) throws ClassNotFoundException, SQLException {
 		connection = CreateConnection.getCon();
@@ -31,6 +32,7 @@ public class AdminDaoImpl implements AdminDao {
 			return false;
 	}
 
+	//update function to update admin password
 	@Override
 	public boolean update(Admin admin) throws SQLException, ClassNotFoundException {
 		connection = CreateConnection.getCon();
