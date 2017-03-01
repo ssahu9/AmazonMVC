@@ -42,6 +42,7 @@
 </script>
 
 <body>
+
 	<c:if test="${sessionScope.email != null}">
 		<div class="log">
 			<a href="./Logout">LOGOUT</a>
