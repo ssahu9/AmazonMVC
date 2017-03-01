@@ -22,8 +22,10 @@ public class UpdateCustomerDetails extends HttpServlet {
 		PrintWriter out = null;
 
 		HttpSession session = request.getSession(false);
-		if (session == null)
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+		if (session == null){
+			request.setAttribute("errorMessage", "Sign in first");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
+		}
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		String password = request.getParameter("pwd");
 		String rpassword = request.getParameter("rpwd");
@@ -39,7 +41,8 @@ public class UpdateCustomerDetails extends HttpServlet {
 			try {
 				customerBl.updateDetails(customer);
 			} catch (ClassNotFoundException | SQLException e) {
-				e.printStackTrace();
+				request.setAttribute("errorMessage", "Unable to update");
+				request.getRequestDispatcher("error404page.jsp").include(request, response);
 			}
 		} else {
 			

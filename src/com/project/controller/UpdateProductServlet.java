@@ -37,7 +37,8 @@ public class UpdateProductServlet extends HttpServlet {
 		try {
 			adminBl.updateProduct(product);
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to update");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 	}
 

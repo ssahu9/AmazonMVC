@@ -29,8 +29,8 @@ public class RemoveFromCart extends HttpServlet {
 
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			// TODO Auto-generated catch block
-
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Failed to Remove the product from the cart");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
 		response.sendRedirect("CheckoutServlet");
 	}

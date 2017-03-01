@@ -26,8 +26,8 @@ public class CustomerAllBill extends HttpServlet {
 			session.setAttribute("allBill", billList);
 			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to Process");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 		
 	

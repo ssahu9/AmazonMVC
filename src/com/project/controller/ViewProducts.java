@@ -25,11 +25,12 @@ public class ViewProducts extends HttpServlet {
 				viewProducts = adminBL.viewProduct(null);
 				getServletContext().setAttribute("viewProducts", viewProducts);
 			}
-			else {
-				request.getRequestDispatcher("admin.jsp").forward(request, response);
+			else {request.setAttribute("errorMessage", "Unable to show products");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to show products");
+			request.getRequestDispatcher("error404admin.jsp").include(request, response);
 		}
 	}
 

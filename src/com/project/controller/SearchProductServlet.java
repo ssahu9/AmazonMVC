@@ -35,17 +35,15 @@ public class SearchProductServlet extends HttpServlet{
 		CustomerBl customerBl = new CustomerBl();
 		try{
 	     product= customerBl.searchProductByName(pName);
-		System.out.println("productttt"+product);
 		}
 		catch (ClassNotFoundException | SQLException e) {
-				
-				e.printStackTrace();
+			request.setAttribute("errorMessage", "Unable to search");
+			request.getRequestDispatcher("error404page.jsp").include(request, response);
 			}
 		}
 		ArrayList<Product> pList = new ArrayList<Product>();
 		pList.add(product);
 		request.setAttribute("productObject", pList);
-		System.out.println(pList);
 		request.getRequestDispatcher("SearchResult.jsp").include(request, response);
 		}
 	
