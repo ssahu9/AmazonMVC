@@ -199,15 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<%-- 		<% ArrayList<Product> productList = (ArrayList) request.getAttribute("productList"); %> <%=productList.size() %>--%>
 					<!-- <a href="#"><h4><%=request.getAttribute("SelectedCategory")%> - <span></span> </h4></a> -->
 
-					<ul class="w_nav">
-						<li>Sort :</li>
-
-						<li><a class="active" href="#">popular</a></li>
-						<li><a href="#">new </a></li>
-						<li><a href="#">discount</a></li>
-						<li><a href="#">price: Low High </a></li>
-						<div class="clear"></div>
-					</ul>
+					
 					<div class="clearfix"></div>
 				</div>
 				<!-- grids_of_4 -->
@@ -227,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="content_box">
 								<img src="images/1.jpg" class="img-responsive" alt="" />
 								<h4>
-									<a href="details.jsp"><c:out value="${product.name}"></c:out></a>
+									<c:out value="${product.name}"></c:out>
 								</h4>
 								<p></p>
 								

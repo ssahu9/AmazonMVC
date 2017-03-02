@@ -4,10 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<<<<<<< HEAD
+
 <%@page import="com.project.bean.Product"%>
-=======
->>>>>>> branch 'master' of https://github.com/ssahu9/AmazonWebApp.git
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -23,6 +22,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/table.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			.ready(
 					function($) {
 
-<<<<<<< HEAD
+
 				$('#etalage').etalage({
 					thumb_image_width: 300,
 					thumb_image_height: 400,
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
 					}
 				});
-=======
+
 						$('#etalage')
 								.etalage(
 										{
@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														+ instance_id + '")');
 											}
 										});
->>>>>>> branch 'master' of https://github.com/ssahu9/AmazonWebApp.git
+
 
 					});
 </script>
@@ -117,8 +117,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><img src="images/logo.png"
-							class="img-responsive" alt="" /> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span>
+						 </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -160,7 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="reg">
-									<a href="register.jsp">LOGOUT</a>
+									<a href="./Logout">LOGOUT</a>
 								</div>
 							</c:if>
 							<div class="create_btn">
@@ -184,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form>
+							<form action="SearchProductServlet">
 								<input type="text" value="" placeholder="search..."> <input
 									type="submit" value="">
 							</form>
@@ -196,38 +196,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+				<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						</c:forEach>
 
 
-					<!-- getting category name from list and displaying it in list -->
-					<%-- 	
-			<% ArrayList<Category> categoryList=(ArrayList<Category>)session.getAttribute("categoryList"); %>
-
-		<%for(Category category:categoryList){ %>
-		
-			<li><a class="color2" href="#" name=<%=category.getCategoryName()%>></a><%=category.getCategoryName()%></a>				
-				</li>	
-		<% } %>
-<<<<<<< HEAD
-		  --%>	
-			
-			
-			<li class="grid"><a class="color2" href="#">Category</a>				
-				</li>				
-				<li><a class="color5" href="#">Category3</a>
-				
-				</li>
-				<li><a class="color6" href="#">Category4</a>
-		
-				</li>				
-			
-				<li><a class="color8" href="#">categor6y</a>
-				
-				
-				</li>
-				<li><a class="color9" href="#">Category7</a>
-		
-				</li>
-		 </ul> 
+				</ul>
 	</div>
 </div>
 </div>
@@ -268,31 +244,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				product2=(Product)(request.getAttribute("pname")); %>
 				  <div class="desc1 span_3_of_2">
 					<h3><%=product2.getName() %></h3>
-					<span class="brand">Brand: <a href="#">Sed do eiusmod </a></span>
+					<span class="brand"> <a href="#"> </a></span>
 					<br>
-					<span class="code">Product Id:<%=product2.getProductId() %></span>
+					<span class="text">Product Id:</span>
+					<span class="price-new"><%=product2.getProductId() %></span>
 				
 						<div class="price">
 							<span class="text">Price:</span>
-							<span class="price-new"><%=product2.getPrice() %></span><span class="price-old">$100.00</span> 
-							<span class="price-tax">Ex Tax: $90.00</span><br>
+							<span class="price-new"><%=product2.getPrice() %></span> 
+							<%
+							double newPrice= product2.getPrice()-(product2.getDiscount()/100)*product2.getPrice();	
+							
+							%><br>
+							<span class="text">Discount:</span>
+							
+					 	<span class="price-new"><%=product2.getDiscount()%>%</span>  <br>
+							<span class="text">New Price:</span>
+							<span class="price-new"><%= newPrice%></span> 
+						
 				
 						</div>
-					<div class="det_nav1">
-						<h4>Select a size :</h4>
-							<div class=" sky-form col col-4">
-								<ul>
-									<li><label class="checkbox"><input type="checkbox" name="checkbox"><i></i>L</label></li>
-									<li><label class="checkbox"><input type="checkbox" name="checkbox"><i></i>S</label></li>
-									<li><label class="checkbox"><input type="checkbox" name="checkbox"><i></i>M</label></li>
-									<li><label class="checkbox"><input type="checkbox" name="checkbox"><i></i>XL</label></li>
-								</ul>
-							</div>
-					</div>
+				
 					<div class="btn_form">
-						<a href="checkout.jsp">buy</a>
+						
 						<form action="InsertIntoCart" >
-											<input class="item_add" type="text"
+											<input class="item_add" type="hidden"
 												value="<c:out value="<%=product2.getProductId() %>"></c:out>"
 												name="pId" readonly>
 <input class="item_add" type="hidden" value="<c:out value="<%=product2.getName() %>"></c:out>"
@@ -306,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						
 					</div>
-					<a href="#"><span>login to save in wishlist </span></a>
+					
 					
 			   	 </div>
           	    <div class="clearfix"></div>
@@ -315,151 +291,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h6>Details</h6>
 					<p class="prod-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option</p>
 				</div>
-				<div class="single-bottom2">
-					<h6>Related Products</h6>
-						<div class="product">
-						   <div class="product-desc">
-								<div class="product-img">
-		                           <img src="images/w8.jpg" class="img-responsive " alt=""/>
-		                       </div>
-		                       <div class="prod1-desc">
-		                           <h5><a class="product_link" href="#">Excepteur sint</a></h5>
-		                           <p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>									
-							   </div>
-							  <div class="clearfix"></div>
-					      </div>
-						  <div class="product_price">
-								<span class="price-access">$597.51</span>								
-								<button class="button1"><span>Add to cart</span></button>
-		                  </div>
-						 <div class="clearfix"></div>
-				     </div>
-				     <div class="product">
-						   <div class="product-desc">
-								<div class="product-img">
-		                           <img src="images/w10.jpg" class="img-responsive " alt=""/>
-		                       </div>
-		                       <div class="prod1-desc">
-		                           <h5><a class="product_link" href="#">Excepteur sint</a></h5>
-		                           <p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>									
-							   </div>
-							   <div class="clearfix"></div>
-					      </div>
-						  <div class="product_price">
-								<span class="price-access">$597.51</span>								
-								<button class="button1"><span>Add to cart</span></button>
-		                  </div>
-						 <div class="clearfix"></div>
-				     </div>
+			
 		   	  </div>
-	       </div>	
-	<div class="col-md-3">
-	  <div class="w_sidebar">
-		<div class="w_nav1">
-			<h4>All</h4>
-			<ul>
-				<li><a href="women.jsp">women</a></li>
-				<li><a href="#">new arrivals</a></li>
-				<li><a href="#">trends</a></li>
-				<li><a href="#">boys</a></li>
-				<li><a href="#">girls</a></li>
-				<li><a href="#">sale</a></li>
-			</ul>	
-		</div>
-		<h3>filter by</h3>
-		<section  class="sky-form">
-					<h4>catogories</h4>
-						<div class="row1 scroll-pane">
-							<div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>kurtas</label>
-							</div>
-							<div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>kutis</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>churidar kurta</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>salwar</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>printed sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>shree</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Anouk</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>biba</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>fashion sari</label>	
-							</div>
-						</div>
-		</section>
-		<section  class="sky-form">
-					<h4>brand</h4>
-						<div class="row1 scroll-pane">
-							<div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>shree</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Anouk</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>biba</label>
-							</div>
-							<div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>vishud</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>amari</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>shree</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Anouk</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>biba</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>shree</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Anouk</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>biba</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>shree</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Anouk</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>biba</label>																								
-							</div>
-						</div>
-		</section>
-		<section class="sky-form">
-			<h4>colour</h4>
-			<ul class="w_nav2">
-				<li><a class="color1" href="#"></a></li>
-				<li><a class="color2" href="#"></a></li>
-				<li><a class="color3" href="#"></a></li>
-				<li><a class="color4" href="#"></a></li>
-				<li><a class="color5" href="#"></a></li>
-				<li><a class="color6" href="#"></a></li>
-				<li><a class="color7" href="#"></a></li>
-				<li><a class="color8" href="#"></a></li>
-				<li><a class="color9" href="#"></a></li>
-				<li><a class="color10" href="#"></a></li>
-				<li><a class="color12" href="#"></a></li>
-				<li><a class="color13" href="#"></a></li>
-				<li><a class="color14" href="#"></a></li>
-				<li><a class="color15" href="#"></a></li>
-				<li><a class="color5" href="#"></a></li>
-				<li><a class="color6" href="#"></a></li>
-				<li><a class="color7" href="#"></a></li>
-				<li><a class="color8" href="#"></a></li>
-				<li><a class="color9" href="#"></a></li>
-				<li><a class="color10" href="#"></a></li>
-			</ul>
-		</section>
-		<section class="sky-form">
-						<h4>discount</h4>
-						<div class="row1 scroll-pane">
-							<div class="col col-4">
-								<label class="radio"><input type="radio" name="radio" checked=""><i></i>60 % and above</label>
-								<label class="radio"><input type="radio" name="radio"><i></i>50 % and above</label>
-								<label class="radio"><input type="radio" name="radio"><i></i>40 % and above</label>
-							</div>
-							<div class="col col-4">
-								<label class="radio"><input type="radio" name="radio"><i></i>30 % and above</label>
-								<label class="radio"><input type="radio" name="radio"><i></i>20 % and above</label>
-								<label class="radio"><input type="radio" name="radio"><i></i>10 % and above</label>
-							</div>
-						</div>						
-		</section>
-	</div>
-   </div>
-		   <div class="clearfix"></div>		
-	  </div>
-	<!-- end content -->
+	      
 </div>
 </div>
 <div class="foot-top">
@@ -497,322 +331,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</form>
 						</div>
 							<div class="clearfix"> </div>
-=======
-		  --%>
 
 
-					<li class="grid"><a class="color2" href="#">Category</a></li>
-					<li><a class="color5" href="#">Category3</a></li>
-					<li><a class="color6" href="#">Category4</a></li>
-
-					<li><a class="color8" href="#">categor6y</a></li>
-					<li><a class="color9" href="#">Category7</a></li>
-				</ul>
->>>>>>> branch 'master' of https://github.com/ssahu9/AmazonWebApp.git
-			</div>
-		</div>
-	</div>
-	<!-- content -->
-	<div class="container">
-		<div class="women_main">
-			<!-- start content -->
-			<div class="row single">
-				<div class="col-md-9 det">
-					<div class="single_left">
-						<div class="grid images_3_of_2">
-							<ul id="etalage">
-								<li><a href="optionallink.jsp"> <img
-										class="etalage_thumb_image" src="images/d1.jpg"
-										class="img-responsive" /> <img class="etalage_source_image"
-										src="images/d1.jpg" class="img-responsive" title="" />
-								</a></li>
-								<li><img class="etalage_thumb_image" src="images/d2.jpg"
-									class="img-responsive" /> <img class="etalage_source_image"
-									src="images/d2.jpg" class="img-responsive" title="" /></li>
-								<li><img class="etalage_thumb_image" src="images/d3.jpg"
-									class="img-responsive" /> <img class="etalage_source_image"
-									src="images/d3.jpg" class="img-responsive" /></li>
-								<li><img class="etalage_thumb_image" src="images/d4.jpg"
-									class="img-responsive" /> <img class="etalage_source_image"
-									src="images/d4.jpg" class="img-responsive" /></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="desc1 span_3_of_2">
-							<h3>soluta nobis eleifend option</h3>
-							<span class="brand">Brand: <a href="#">Sed do eiusmod
-							</a></span> <br> <span class="code">Product Code: Product 11</span>
-							<p>when an unknown printer took a galley of type and
-								scrambled it to make</p>
-							<div class="price">
-								<span class="text">Price:</span> <span class="price-new">$110.00</span><span
-									class="price-old">$100.00</span> <span class="price-tax">Ex
-									Tax: $90.00</span><br> <span class="points"><small>Price
-										in reward points: 400</small></span><br>
-							</div>
-							<div class="det_nav1">
-								<h4>Select a size :</h4>
-								<div class=" sky-form col col-4">
-									<ul>
-										<li><label class="checkbox"><input
-												type="checkbox" name="checkbox"><i></i>L</label></li>
-										<li><label class="checkbox"><input
-												type="checkbox" name="checkbox"><i></i>S</label></li>
-										<li><label class="checkbox"><input
-												type="checkbox" name="checkbox"><i></i>M</label></li>
-										<li><label class="checkbox"><input
-												type="checkbox" name="checkbox"><i></i>XL</label></li>
-									</ul>
-								</div>
-							</div>
-							<div class="btn_form">
-								<a href="checkout.jsp">buy</a>
-							</div>
-							<a href="#"><span>login to save in wishlist </span></a>
-
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="single-bottom1">
-						<h6>Details</h6>
-						<p class="prod-desc">Lorem ipsum dolor sit amet, consectetuer
-							adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-							laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
-							veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-							nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-							iriure dolor in hendrerit in vulputate velit esse molestie
-							consequat, vel illum dolore eu feugiat nulla facilisis at vero
-							eros et accumsan et iusto odio dignissim qui blandit praesent
-							luptatum zzril delenit augue duis dolore te feugait nulla
-							facilisi. Nam liber tempor cum soluta nobis eleifend option</p>
-					</div>
-					<div class="single-bottom2">
-						<h6>Related Products</h6>
-						<div class="product">
-							<div class="product-desc">
-								<div class="product-img">
-									<img src="images/w8.jpg" class="img-responsive " alt="" />
-								</div>
-								<div class="prod1-desc">
-									<h5>
-										<a class="product_link" href="#">Excepteur sint</a>
-									</h5>
-									<p class="product_descr">Vivamus ante lorem, eleifend nec
-										interdum non, ullamcorper et arcu. Class aptent taciti
-										sociosqu ad litora torquent per conubia nostra, per inceptos
-										himenaeos.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="product_price">
-								<span class="price-access">$597.51</span>
-								<button class="button1">
-									<span>Add to cart</span>
-								</button>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="product">
-							<div class="product-desc">
-								<div class="product-img">
-									<img src="images/w10.jpg" class="img-responsive " alt="" />
-								</div>
-								<div class="prod1-desc">
-									<h5>
-										<a class="product_link" href="#">Excepteur sint</a>
-									</h5>
-									<p class="product_descr">Vivamus ante lorem, eleifend nec
-										interdum non, ullamcorper et arcu. Class aptent taciti
-										sociosqu ad litora torquent per conubia nostra, per inceptos
-										himenaeos.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="product_price">
-								<span class="price-access">$597.51</span>
-								<button class="button1">
-									<span>Add to cart</span>
-								</button>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="w_sidebar">
-						<div class="w_nav1">
-							<h4>All</h4>
-							<ul>
-								<li><a href="women.jsp">women</a></li>
-								<li><a href="#">new arrivals</a></li>
-								<li><a href="#">trends</a></li>
-								<li><a href="#">boys</a></li>
-								<li><a href="#">girls</a></li>
-								<li><a href="#">sale</a></li>
-							</ul>
-						</div>
-						<h3>filter by</h3>
-						<section class="sky-form">
-							<h4>catogories</h4>
-							<div class="row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox" checked=""><i></i>kurtas</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>kutis</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>churidar kurta</label>
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>salwar</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>printed sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>shree</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Anouk</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>biba</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>fashion sari</label>
-								</div>
-							</div>
-						</section>
-						<section class="sky-form">
-							<h4>brand</h4>
-							<div class="row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox" checked=""><i></i>shree</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Anouk</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>biba</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>vishud</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>amari</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>shree</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Anouk</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>biba</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>shree</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Anouk</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>biba</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>shree</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Anouk</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>biba</label>
-								</div>
-							</div>
-						</section>
-						<section class="sky-form">
-							<h4>colour</h4>
-							<ul class="w_nav2">
-								<li><a class="color1" href="#"></a></li>
-								<li><a class="color2" href="#"></a></li>
-								<li><a class="color3" href="#"></a></li>
-								<li><a class="color4" href="#"></a></li>
-								<li><a class="color5" href="#"></a></li>
-								<li><a class="color6" href="#"></a></li>
-								<li><a class="color7" href="#"></a></li>
-								<li><a class="color8" href="#"></a></li>
-								<li><a class="color9" href="#"></a></li>
-								<li><a class="color10" href="#"></a></li>
-								<li><a class="color12" href="#"></a></li>
-								<li><a class="color13" href="#"></a></li>
-								<li><a class="color14" href="#"></a></li>
-								<li><a class="color15" href="#"></a></li>
-								<li><a class="color5" href="#"></a></li>
-								<li><a class="color6" href="#"></a></li>
-								<li><a class="color7" href="#"></a></li>
-								<li><a class="color8" href="#"></a></li>
-								<li><a class="color9" href="#"></a></li>
-								<li><a class="color10" href="#"></a></li>
-							</ul>
-						</section>
-						<section class="sky-form">
-							<h4>discount</h4>
-							<div class="row1 scroll-pane">
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"
-										checked=""><i></i>60 % and above</label> <label class="radio"><input
-										type="radio" name="radio"><i></i>50 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>40
-										% and above</label>
-								</div>
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"><i></i>30
-										% and above</label> <label class="radio"><input type="radio"
-										name="radio"><i></i>20 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>10
-										% and above</label>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<!-- end content -->
-		</div>
-	</div>
-	<div class="foot-top">
-		<div class="container">
-			<div class="col-md-6 s-c">
-				<li>
-					<div class="fooll">
-						<h5>follow us on</h5>
-					</div>
-				</li>
-				<li>
-					<div class="social-ic">
-						<ul>
-							<li><a href="#"><i class="facebok"> </i></a></li>
-							<li><a href="#"><i class="twiter"> </i></a></li>
-							<li><a href="#"><i class="goog"> </i></a></li>
-							<li><a href="#"><i class="be"> </i></a></li>
-							<li><a href="#"><i class="pp"> </i></a></li>
-							<div class="clearfix"></div>
-						</ul>
-					</div>
-				</li>
-				<div class="clearfix"></div>
-			</div>
-			<div class="col-md-6 s-c">
-				<div class="stay">
-					<div class="stay-left">
-						<form>
-							<input type="text"
-								placeholder="Enter your email to join our newsletter"
-								required="">
-						</form>
-					</div>
-					<div class="btn-1">
-						<form>
-							<input type="submit" value="join">
-						</form>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 cust">

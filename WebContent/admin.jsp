@@ -88,8 +88,7 @@
 						value="Remove Category"><br>
 					<br> <input type="button" name="button" id="rp"
 						value="Remove Product "><br>
-					<br> <input type="button" name="button" id="bh"
-						value="Bill History"><br>
+				
 					<br> <input type="button" name="button" id="up"
 						value=" Update Product "><br>
 					<br> <input type="button" name="button" id="vp"
