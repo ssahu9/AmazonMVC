@@ -63,7 +63,7 @@ public class MainMenu {
 			System.out.println("Enter your password : ");
 			password = sc.next();
 			try {
-				customerId = customerBl.signIn(email, password);
+				customerId = (customerBl.signIn(email, password)).getCustomerId();
 				if (customerId != 0) {
 					System.out.println("signed In");
 					CustomerFirstUI customerFUI = new CustomerFirstUI(customerId);
