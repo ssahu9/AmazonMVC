@@ -48,6 +48,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/simpleCart.min.js">
 	
 </script>
+<script>
+		var audio = new Audio('The Trip Song with Lyrics.mp3');
+		audio.play();
+		</script> 
 </head>
 <body>
 
