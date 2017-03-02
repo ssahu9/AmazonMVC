@@ -267,12 +267,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<form action="InsertIntoCart" method="post">
 											<input class="item_add" type="text"
 												value="<c:out value="${product.productId}"></c:out>"
-												name="pId" readonly> <input class="item_add"
+												name="pId" readonly>
+<input class="item_add" type="hidden" value="<c:out value="${product.name}"></c:out>"
+												name="pname" readonly><input class="item_add"
 												type="hidden"
 												value="<c:out value="${product.quantity}" ></c:out>"
 												name="originalQuantity" readonly> Enter Quantity<input type="number"
 												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="${product.quantity}"> <input
 												type="submit" class="button button2" value="Add to Cart">
+										</form>		
+										<form action="ProductDetails">
+											
+                                          <input class="item_add" type="hidden" value="<c:out value="${product.name}"></c:out>"
+												name="pname" readonly><input class="item_add"
+												type="hidden"
+												value="<c:out value="${product.quantity}" ></c:out>"
+												name="originalQuantity" readonly> <input
+												type="submit" class="button button2" value="ViewProduct">
+										
 										</form>
 									</div>
 								</div>
@@ -291,45 +303,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 
 	<!-- Footer Section -->
-	<div class="footer">
-		<div class="container">
-			<div class="col-md-3 cust">
-				<h4>CUSTOMER CARE</h4>
-				<li><a href="CallErrorPageServlet">Help Center</a></li>
-				<li><a href="CallErrorPageServlet">FAQ</a></li>
-				<li><a href="CallErrorPageServlet">How To Buy</a></li>
-				<li><a href="CallErrorPageServlet">Delivery</a></li>
-			</div>
-			<div class="col-md-2 abt">
-				<h4>ABOUT US</h4>
-				<li><a href="CallErrorPageServlet">Our Stories</a></li>
-				<li><a href="CallErrorPageServlet">Press</a></li>
-				<li><a href="CallErrorPageServlet">Career</a></li>
-				<li><a href="CallErrorPageServlet">Contact</a></li>
-			</div>
-			<div class="col-md-2 myac">
-				<h4>MY ACCOUNT</h4>
-				<li><a href="register.jsp">Register</a></li>
-				<li><a href="CheckoutServlet">My Cart</a></li>
-				<li><a href="./CustomerAllBill">Bill History</a></li>
-				<li><a href="CheckoutServlet">Payment</a></li>
-			</div>
-			<div class="col-md-5 our-st">
-				<div class="our-left">
-					<h4>OUR STORES</h4>
-				</div>
-				<div class="clearfix"></div>
-				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
-				<li><i class="phone"> </i>025-2839341</li>
-				
-			</div>
-			<div class="clearfix"></div>
-			<p>
-				Copyrights © 2015 Gretong. All rights reserved | Template by <a
-					href="http://w3layouts.com/">W3layouts</a>
-			</p>
-		</div>
-	</div>
+
 	<!-- End of Footer section -->
 </body>
 </html>

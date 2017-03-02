@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="com.project.bean.Product"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -213,17 +214,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 						 <div class="clearfix"></div>		
 				  </div>
+				  <% 
+				  
+				  Product product2=new Product();
+				  
+				product2=(Product)(request.getAttribute("pname")); %>
 				  <div class="desc1 span_3_of_2">
-					<h3>soluta nobis eleifend option</h3>
+					<h3><%=product2.getName() %></h3>
 					<span class="brand">Brand: <a href="#">Sed do eiusmod </a></span>
 					<br>
-					<span class="code">Product Code: Product 11</span>
-					<p>when an unknown printer took a galley of type and scrambled it to make</p>
+					<span class="code">Product Id:<%=product2.getProductId() %></span>
+				
 						<div class="price">
 							<span class="text">Price:</span>
-							<span class="price-new">$110.00</span><span class="price-old">$100.00</span> 
+							<span class="price-new"><%=product2.getPrice() %></span><span class="price-old">$100.00</span> 
 							<span class="price-tax">Ex Tax: $90.00</span><br>
-							<span class="points"><small>Price in reward points: 400</small></span><br>
+				
 						</div>
 					<div class="det_nav1">
 						<h4>Select a size :</h4>
@@ -238,6 +244,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="btn_form">
 						<a href="checkout.jsp">buy</a>
+						<form action="InsertIntoCart" >
+											<input class="item_add" type="text"
+												value="<c:out value="<%=product2.getProductId() %>"></c:out>"
+												name="pId" readonly>
+<input class="item_add" type="hidden" value="<c:out value="<%=product2.getName() %>"></c:out>"
+												name="pname" readonly><input class="item_add"
+												type="hidden"
+												value="<c:out value="<%=product2.getQuantity() %>" ></c:out>"
+												name="originalQuantity" readonly> Enter Quantity<input type="number"
+												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="<%=product2.getQuantity() %>"> <input
+												type="submit" class="button button2" value="Add to Cart">
+										</form>
+						
+						
 					</div>
 					<a href="#"><span>login to save in wishlist </span></a>
 					

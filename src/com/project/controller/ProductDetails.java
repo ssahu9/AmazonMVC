@@ -13,59 +13,61 @@ import javax.servlet.http.HttpSession;
 
 import com.project.bean.Cart;
 import com.project.bean.Customer;
+import com.project.bean.Product;
 import com.project.bl.CustomerBl;
 
 
-public class InsertIntoCart extends HttpServlet {
+public class ProductDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	CustomerBl customerBL = new CustomerBl();
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 
-		HttpSession session = request.getSession(false);
-		String mail=(String)session.getAttribute("email");
-		System.out.println(mail);
-		if (mail == null) {
-			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").forward(request, response);
-		}
-		Customer customer = (Customer) session.getAttribute("customerObject");
+//		 
+//		//HttpSession session = request.getSession(false);
+//		//String mail=(String)session.getAttribute("email");
+//		if (mail == null) {
+//			request.setAttribute("errorMessage", "Please Login ");
+//			request.getRequestDispatcher("error404page.jsp").forward(request, response);
+//		}
+//		Customer customer = (Customer) session.getAttribute("customerObject");
 		long millis=System.currentTimeMillis();  
 		java.sql.Date date=new java.sql.Date(millis);  
-		int pid = Integer.parseInt(request.getParameter("pId"));
-		System.out.println(pid);
-		String quantity = request.getParameter("quantity");
-  		Cart cart= new Cart();
-		cart.setCartDate(date);
-		cart.setCustomerId(customer.getCustomerId());
-		cart.setProductId(pid);
-		cart.setQuantity(Integer.parseInt(quantity));
-		
-		ArrayList<Cart> cartList= new ArrayList<Cart>();
-		cartList.add(cart);
-		if(Integer.parseInt(quantity)==0){
+		String pname = request.getParameter("pname");
+		//String quantity = request.getParameter("quantity");
+//  		Cart cart= new Cart();
+//		cart.setCartDate(date);
+//		cart.setCustomerId(customer.getCustomerId());
+//		cart.setProductId(Integer.parseInt(pid));
+//		cart.setQuantity(Integer.parseInt(quantity));
+//		
+//		ArrayList<Cart> cartList= new ArrayList<Cart>();
+//		cartList.add(cart);
+		//if(Integer.parseInt(quantity)==0){
 			// selected quantity is 0
 			//call error page
-		}
-		else{
-		boolean status= false;
+		//}
+//		else{
+		Product product=new Product();
+		//boolean status= false;
 		try {
-			 status=customerBL.addToCart(cartList);
+			product=customerBL.searchProductByName(pname);
+			
 		} catch (ClassNotFoundException | SQLException e) {
 		// call Error display View	
 		
 		
 		}
-		 if(status== true){
-			 request.getRequestDispatcher("GetProducts?selectedCategory=CLOTHINGS").forward(request, response);
+		 if(product!=null){
+			 request.setAttribute("pname", product);
+			 request.getRequestDispatcher("details.jsp").forward(request, response);
 		 }
 		 else{
 			 // call error message 
 		 }
 		}
-		}
+		
 		
 		
 

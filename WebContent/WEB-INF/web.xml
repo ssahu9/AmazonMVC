@@ -289,4 +289,14 @@
     <servlet-name>Testingadmin</servlet-name>
     <url-pattern>/Testingadmin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductDetails</display-name>
+    <servlet-name>ProductDetails</servlet-name>
+    <servlet-class>com.project.controller.ProductDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductDetails</servlet-name>
+    <url-pattern>/ProductDetails</url-pattern>
+  </servlet-mapping>
 </web-app>
