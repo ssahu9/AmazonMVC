@@ -109,14 +109,17 @@ public class ProductDaoImpl implements ProductDao {
 			String category = rs.getString("product_category");
 			int productprice = rs.getInt("product_price");
 			int productquantity = rs.getInt("product_quantity");
+			int productdiscount = rs.getInt("product_discount");
 			product = new Product();
 			product.setProductId(pid);
 			product.setName(productname);
 			product.setCategory(category);
 			product.setPrice(productprice);
 			product.setQuantity(productquantity);
+			product.setDiscount(productdiscount);
+			
 			prodList.add(product); // generating list of product.
-			System.out.println(product);
+			//System.out.println(product);
 		}
 		
 		con.close();

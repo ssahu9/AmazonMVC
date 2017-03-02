@@ -9,15 +9,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+	<% int i=1;
 		ArrayList<Category> categoryList = (ArrayList<Category>) getServletContext().getAttribute("categoryList");
 	%>
 	<table border="1">
+	<tr><th>S.No</th><th>Category Name</th></tr>
 		<%
 			for (Category category : categoryList) {
 		%>
 		<tr>
-			<td><%=category.getCategoryName()%></td>
+			<td><%= i++ %></td><td><%=category.getCategoryName()%></td>
 		</tr>
 		<%
 			}

@@ -9,16 +9,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+	<%int i=1;
 		ArrayList<Product> productList = (ArrayList<Product>)getServletContext().getAttribute("viewProducts");
 	%>
 	<table border="1">
+	<tr><th>S.No</th><th>Product Name</th><th>Category</th><th>Price</<th><th>Quantity</<th><th>Discount</th></tr>
 		<%
 			for (Product product : productList) {
 		%>
-		<tr><td>
+		
+		<tr>
+		<td><%= i++ %></td>
+		<td>
 			<%=product.getName()%>
-		</td></tr>
+		</td>
+		<td><%=product.getCategory()%></td>
+		<td><%=product.getPrice()%></td>
+		<td><%=product.getQuantity()%></td>
+		<td><%=product.getDiscount()%></td>
+		
+		</tr>
 		<%
 			}
 		%>
