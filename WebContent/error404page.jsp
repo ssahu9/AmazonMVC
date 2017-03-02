@@ -187,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<td><img src="404.jpg" alt=""></td></tr><tr>
 					
 <td><p>What Happened??</p></td>
-<td><p style="margin-left: 6px;"><strong><br><br><h3>${requestScope.errorMessage}</h3></strong></p></td>
+<td><p><strong><br><br><h3>${requestScope.errorMessage}</h3></strong></p></td>
 <p style="color:red;">  <p>
 <a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
 			</tbody></table>

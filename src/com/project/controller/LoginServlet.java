@@ -10,15 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger=Logger.getLogger(LoginServlet.class);
+	
 	CustomerBl customerBL = new CustomerBl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		BasicConfigurator.configure();
+ 	    logger.info("Login working!!");
+ 	    
 		response.setContentType("text/html");
 
 		String email = request.getParameter("email");

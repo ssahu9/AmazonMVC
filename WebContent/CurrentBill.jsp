@@ -6,15 +6,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@page import="com.project.bean.Product"%>
 <%@page import="javax.websocket.Session"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Women :: w3layouts</title>
+<title>Gretong a Ecommerce Category Flat Bootstarp Responsive
+	Website Template | Women :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
@@ -24,22 +25,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords"
+	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
+	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/megamenu.css" rel="stylesheet" type="text/css"
+	media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script>
+	$(document).ready(function() {
+		$(".megamenu").megamenu();
+	});
+</script>
 <script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
+<script src="js/simpleCart.min.js">
+	
+</script>
 </head>
 <body>
 
 
-<!-- Load category list from database -->
+	<!-- Load category list from database -->
 	<!-- header_top -->
 	<div class="top_bg">
 		<div class="container">
@@ -66,7 +81,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span>
+						</a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -151,83 +167,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
-				<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
+					<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
-						</c:forEach>
+						<li class="grid"><a class="color6"
+							href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+					</c:forEach>
 
 
 				</ul>
 				<!-- End of Header Menu -->
-				
-				</div>
+
+			</div>
 		</div>
 	</div>
 
-<!-- *************************************************************************************************** -->
-<!-- -->
-<!-- content -->
-<div class="container" style="margin-left: 130px;">
-<div class="women_main"style="margin-left: 50px;">
-   <!-- *********************************************************************************************** -->
-	private int customerId;
-	private int billId;
-	private int productId;
-	private double price;
-	private int discount;
-	private int quantity;
-	private double totalPrice;
-	private Date date;
+	<!-- *************************************************************************************************** -->
+	<!-- -->
+	<!-- content -->
+	<div class="container" style="margin-left: 130px;">
+		<div class="women_main" style="margin-left: 50px;">
+			<!-- *********************************************************************************************** -->
+			private int customerId; private int billId; private int productId;
+			private double price; private int discount; private int quantity;
+			private double totalPrice; private Date date;
 
 
-	<!-- start content -->
-	
-		<div class="items">
+			<!-- start content -->
+
+			<div class="items">
 				<div style="width: 100%;">
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
 					<table>
-					<c:forEach items="${requestScope.currentBillList}" var="bill">
-								<tr> 
+						<c:forEach items="${requestScope.currentBillList}" var="bill">
+							<tr>
 								<td><h4>DATE</h4></td>
-								<td><h4><c:out value="${bill.date}"></c:out></h4></td>
-								</tr>
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.date}"></c:out>
+									</h4></td>
+							</tr>
+							<tr>
 								<td><h4>BILL ID</h4></td>
-								<td><h4><c:out value="${bill.billId}"></c:out></h4></td>
-								</tr>
-								
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.billId}"></c:out>
+									</h4></td>
+							</tr>
+
+							<tr>
 								<td><h4>PRODUCT ID</h4></td>
-								<td><h4><c:out value="${bill.productId}"></c:out></h4></td>
-								</tr>
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.productId}"></c:out>
+									</h4></td>
+							</tr>
+							<tr>
 								<td><h4>PRODUCT PRICE</h4></td>
-								<td><h4><c:out value="${bill.price}"></c:out></h4></td>
-								</tr>
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.price}"></c:out>
+									</h4></td>
+							</tr>
+							<tr>
 								<td><h4>PRODUCT QUANTITY</h4></td>
-								<td><h4><c:out value="${bill.quantity}"></c:out></h4></td>
-								</tr>
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.quantity}"></c:out>
+									</h4></td>
+							</tr>
+							<tr>
 								<td><h4>DISCOUNT</h4></td>
-								<td><h4><c:out value="${bill.discount}"></c:out></h4></td>
-								</tr>
-								<tr> 
+								<td><h4>
+										<c:out value="${bill.discount}"></c:out>
+									</h4></td>
+							</tr>
+							<tr>
 								<td><h4>TOTAL PRICE</h4></td>
-								<td><h4><c:out value="${bill.totalPrice}"></c:out></h4></td>
-								</tr>
-					</c:forEach>
+								<td><h4>
+										<c:out value="${bill.totalPrice}"></c:out>
+									</h4></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</div>
-				</div>
 			</div>
+		</div>
 
-	<!-- end content -->
-</div>
-</div>
-<!-- Foot top section (Follow us on) -->
+		<!-- end content -->
+	</div>
+	</div>
+	<!-- Foot top section (Follow us on) -->
 	<div class="foot-top">
 		<div class="container">
 			<div class="col-md-6 s-c">
@@ -239,9 +265,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<div class="social-ic">
 						<ul>
-							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="facebok">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="twiter">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="goog">
+								</i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
 							<div class="clearfix"></div>
@@ -302,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
-				
+
 			</div>
 			<div class="clearfix"></div>
 			<p>

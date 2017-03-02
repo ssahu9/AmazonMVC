@@ -12,12 +12,20 @@ package com.project.controller;
  import javax.servlet.http.HttpServletRequest;
  import javax.servlet.http.HttpServletResponse;
  import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
  
  @WebFilter
  public class Logout extends HttpServlet implements Filter {
  	private static final long serialVersionUID = 1L;
+ 	private static Logger logger=Logger.getLogger(Logout.class);
  
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 		
+ 		BasicConfigurator.configure();
+ 	    logger.info("Logout working!!");
+ 		
  		response.setContentType("text/html");
  		
  		HttpSession session = request.getSession(false);

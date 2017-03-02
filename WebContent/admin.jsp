@@ -41,50 +41,60 @@
 		$("#upwd").click(function() {
 			$("#div1").load("updatepassword.jsp");
 		});
-	}); 
+	});
 
 	/*
-function loadcategory(){
+	function loadcategory(){
 
-document.getElementById('div1').innerHTML.
+	document.getElementById('div1').innerHTML.
 
 
 
 		
 	}
-*/
-
-	
+	 */
 </script>
 
 <body>
 
 	<c:if test="${sessionScope.email != null}">
-		<div class="log" style="background-color:black ; color:white ;font-size:30px; ">
+		<div class="log"
+			style="background-color: black; color: white; font-size: 30px;">
 			<a href="./Logout">LOGOUT</a>
 		</div>
 	</c:if>
 
-	<table border="2" >
+	<table border="2">
 
 		<tr height="50px" width="1500px" border="1" bordercolor="black">
 
-			<td colspan="2" style="background-color:black ; color:white ; font-size:40px;">
-				<center><b>ADMIN PANEL</b></center>
+			<td colspan="2"
+				style="background-color: black; color: white; font-size: 40px;">
+				<center>
+					<b>ADMIN PANEL</b>
+				</center>
 			</td>
 		</tr>
 		<tr height="700px" width="1500px">
-			<td height="700px" width="300px" style="background-color:orange; color:black;font-size:30px; ">
-				<form action="AdminEntry" style="text-align:center;" >
-					<input type="button" name="button" id="vc" value="  View Category "><br><br>
-					<input type="button" name="button" id="ap" value="  Add  Product   "><br><br>
-					<input type="button" name="button" id="ac" value="  Add  Category  "><br><br>
-					<input type="button" name="button" id="rc" value="Remove Category"><br><br>
-					<input type="button" name="button" id="rp" value="Remove Product "><br><br>
-					<input type="button" name="button" id="bh" value="Bill History"><br><br>
-					<input type="button" name="button" id="up" value=" Update Product "><br><br>
-					<input type="button" name="button" id="vp" value=" View Products  "><br><br>
-					<input type="button" name="button" id="upwd"
+			<td height="700px" width="300px"
+				style="background-color: orange; color: black; font-size: 30px;">
+				<form action="AdminEntry" style="text-align: center;">
+					<input type="button" name="button" id="vc" value="  View Category "><br>
+					<br> <input type="button" name="button" id="ap"
+						value="  Add  Product   "><br>
+					<br> <input type="button" name="button" id="ac"
+						value="  Add  Category  "><br>
+					<br> <input type="button" name="button" id="rc"
+						value="Remove Category"><br>
+					<br> <input type="button" name="button" id="rp"
+						value="Remove Product "><br>
+					<br> <input type="button" name="button" id="bh"
+						value="Bill History"><br>
+					<br> <input type="button" name="button" id="up"
+						value=" Update Product "><br>
+					<br> <input type="button" name="button" id="vp"
+						value=" View Products  "><br>
+					<br> <input type="button" name="button" id="upwd"
 						value="Update Password">
 
 
@@ -92,13 +102,14 @@ document.getElementById('div1').innerHTML.
 				</form>
 
 			</td>
-			<td height="700px" width="1500px" style="background-color:#FAEBD7; color:black  ;text-align:center;"><c:if
+			<td height="700px" width="1500px"
+				style="background-color: #FAEBD7; color: black; text-align: center;"><c:if
 					test="${sessionScope.email == null}">
-					<div id="div1" style="text-align:center;">
+					<div id="div1" style="text-align: center;">
 						<p>Your Session has Failed!</p>
 					</div>
 				</c:if> <c:if test="${sessionScope.email != null}">
-					<div id="div1" style="text-align:center;">
+					<div id="div1" style="text-align: center;">
 						<p>Your Session has Started!</p>
 					</div>
 				</c:if></td>

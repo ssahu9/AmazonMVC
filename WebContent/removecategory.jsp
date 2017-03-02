@@ -4,12 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script> function validateForm() {
+    var x = document.forms["removeCategory"]["cname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}</script>
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="RemoveCategoryServlet">
+	<form name="removeCategory" action="RemoveCategoryServlet" onsubmit="return validateForm()" method="post">
 	<table border="1">
-
 	
 			<tr>
 				<td>Enter Category Name:</td>
