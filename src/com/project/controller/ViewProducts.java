@@ -10,15 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 import com.project.bean.Product;
 import com.project.bl.AdminBL;
 
 public class ViewProducts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger=Logger.getLogger(ViewProducts.class);
+	
+	
 	AdminBL adminBL = new AdminBL();
 	List<Product> viewProducts = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		BasicConfigurator.configure();
+ 	    logger.info(" view product working!!");
+ 	    
 		response.setContentType("text/html");
 		HttpSession session=request.getSession(false);
 		try {

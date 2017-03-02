@@ -9,10 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 import com.project.bl.AdminBL;
 
 public class AddCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger logger=Logger.getLogger(AddCategoryServlet.class);
+	
 	AdminBL adminBL = new AdminBL();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,6 +34,9 @@ public class AddCategoryServlet extends HttpServlet {
 			request.setAttribute("errorMessage", "Failed to add Category");
 			request.getRequestDispatcher("error404page.jsp").include(request, response);
 		}
+		
+		BasicConfigurator.configure();
+ 	    logger.info("category added successfully!!");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

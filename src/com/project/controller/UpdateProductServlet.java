@@ -9,13 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 import com.project.bean.Product;
 import com.project.bl.AdminBL;
 
 public class UpdateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger=Logger.getLogger(UpdateProductServlet.class);
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		BasicConfigurator.configure();
+ 	    logger.info(" update productservlet working!!");
+		
 		response.setContentType("text/html");
 		PrintWriter out = null;
 		
