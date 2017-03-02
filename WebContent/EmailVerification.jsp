@@ -19,7 +19,9 @@
 	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -45,44 +47,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<jsp:include page="/AvailableCategory" />
 
 
-					<div class="registration_form">
-						<!-- Form -->
-						<form id="email_verification" action="./EmailVerification" method="post">
-							<div>
-								<label> <input placeholder="Email id" type="text" name="email" tabindex="4"
-									required>
-								</label>
-							</div>
-							<div>
-								<label> <input placeholder="Phone number"
-									type="text" name="phone" tabindex="4" required>
-								</label>
-							</div>
-							<div>
-								<input type="submit" value="Proceed"
-									id="email-submit">
-							</div>
-						</form>
+	<div class="registration_form">
+		<!-- Form -->
+		<form id="email_verification" action="./EmailVerification"
+			method="post">
+			<div>
+				<label> <input placeholder="Email id" type="text"
+					name="email" tabindex="4" required>
+				</label>
+			</div>
+			<div>
+				<label> <input placeholder="Phone number" type="text"
+					name="phone" tabindex="4" required>
+				</label>
+			</div>
+			<div>
+				<input type="submit" value="Proceed" id="email-submit">
+			</div>
+		</form>
 
-				<div class="clearfix"></div>
-			<!-- end registration -->
-		</div>
+		<div class="clearfix"></div>
+		<!-- end registration -->
+	</div>
 	<div class="foot-top">
 		<div class="container">
 			<div class="col-md-6 s-c">
-					<div class="fooll">
-						<h5>follow us on</h5>
-					</div>
-					<div class="social-ic">
-						<ul>
-							<li><a href="#"><i class="facebok"> </i></a></li>
-							<li><a href="#"><i class="twiter"> </i></a></li>
-							<li><a href="#"><i class="goog"> </i></a></li>
-							<li><a href="#"><i class="be"> </i></a></li>
-							<li><a href="#"><i class="pp"> </i></a></li>
+				<div class="fooll">
+					<h5>follow us on</h5>
+				</div>
+				<div class="social-ic">
+					<ul>
+						<li><a href="#"><i class="facebok"> </i></a></li>
+						<li><a href="#"><i class="twiter"> </i></a></li>
+						<li><a href="#"><i class="goog"> </i></a></li>
+						<li><a href="#"><i class="be"> </i></a></li>
+						<li><a href="#"><i class="pp"> </i></a></li>
 
-						</ul>
-					</div>
+					</ul>
+				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-6 s-c">
@@ -90,8 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="stay-left">
 						<form>
 							<input type="text"
-								placeholder="Enter your email to join our newsletter"
-								required>
+								placeholder="Enter your email to join our newsletter" required>
 						</form>
 					</div>
 					<div class="btn-1">

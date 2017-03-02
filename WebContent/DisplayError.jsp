@@ -6,15 +6,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@page import="com.project.bean.Product"%>
 <%@page import="javax.websocket.Session"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Women :: w3layouts</title>
+<title>Gretong a Ecommerce Category Flat Bootstarp Responsive
+	Website Template | Women :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
@@ -24,50 +25,67 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords"
+	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
+	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/megamenu.css" rel="stylesheet" type="text/css"
+	media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script>
+	$(document).ready(function() {
+		$(".megamenu").megamenu();
+	});
+</script>
 <script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
+<script src="js/simpleCart.min.js">
+	
+</script>
 </head>
 <body>
 
 
-<!-- Load category list from database -->
- 
-  
+	<!-- Load category list from database -->
 
-<!-- header_top -->
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top">
-			<div class="top_right">
-				<ul>
-					<li><a href="#">help</a></li>|
-					<li><a href="#">Contact</a></li>|
-					<li><a href="CallErrorPageServlet">Delivery information</a></li>
-				</ul>
+
+
+	<!-- header_top -->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top">
+				<div class="top_right">
+					<ul>
+						<li><a href="#">help</a></li>|
+						<li><a href="#">Contact</a></li>|
+						<li><a href="CallErrorPageServlet">Delivery information</a></li>
+					</ul>
+				</div>
+				<div class="top_left">
+					<h2>
+						<span></span> Call us : 032 2352 782
+					</h2>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			<div class="top_left">
-				<h2><span></span> Call us : 032 2352 782</h2>
-			</div>
-				<div class="clearfix"> </div>
 		</div>
 	</div>
-</div>
 	<!-- header -->
 	<div class="header_bg">
 		<div class="container">
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span>
+						</a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -114,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="log">
 									<a href="./CustomerAllBill">BILL DETAILS</a>
 								</div>
-								
+
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
 									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
@@ -150,51 +168,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="clearfix"></div>
 				</div>
-		
-	<!-- Category bar -->
+
+				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
-				<c:forEach items="${applicationScope['categoryList']}"
+					<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
+					<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
-						</c:forEach>
+						<li class="grid"><a class="color6"
+							href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+					</c:forEach>
 
 
 				</ul>
 				<!-- End of Header Menu -->
+			</div>
+		</div>
 	</div>
-</div>
-</div>
-<!-- *************************************************************************************************** -->
-<!-- -->
-<!-- content -->
-<div class="container" style="margin-left: 130px;"></div>
-<div class="women_main"style="margin-left: 50px;"></div>
-   <!-- *********************************************************************************************** -->
+	<!-- *************************************************************************************************** -->
+	<!-- -->
+	<!-- content -->
+	<div class="container" style="margin-left: 130px;"></div>
+	<div class="women_main" style="margin-left: 50px;"></div>
+	<!-- *********************************************************************************************** -->
 
 
 	<!-- start content -->
 	<div>
-	<table align="center" cellpadding="0" cellspacing="0" height="100%">
-	<tbody><tr>
-		<td height="100%">
-			<table align="center" cellpadding="0" cellspacing="0">
-				<tbody>
+		<table align="center" cellpadding="0" cellspacing="0" height="100%">
+			<tbody>
 				<tr>
-					<td><img src="underconstruction.jpg" alt=""></td></tr><tr>
-					<td><p style="margin-left: 6px;"><strong><br><br><h3>Unfortunately, we have recived an error</h3></strong></p>
-<p>What Happened??</p>
-<p> print error here...</p> <br>
-<a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
-			</tbody></table>
-		</td>
-	</tr></tbody>
-	</table></div>
+					<td height="100%">
+						<table align="center" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td><img src="underconstruction.jpg" alt=""></td>
+								</tr>
+								<tr>
+									<td><p style="margin-left: 6px;">
+											<strong><br>
+											<br>
+											<h3>Unfortunately, we have recived an error</h3></strong>
+										</p>
+										<p>What Happened??</p>
+										<p>print error here...</p> <br> <a href="index.jsp"><img
+											src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg"
+											alt="LETS GO BACK HOME"></a>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<!-- end content -->
 
 
-<!-- Foot top section (Follow us on) -->
+	<!-- Foot top section (Follow us on) -->
 	<div class="foot-top">
 		<div class="container">
 			<div class="col-md-6 s-c">
@@ -206,9 +236,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<div class="social-ic">
 						<ul>
-							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="facebok">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="twiter">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="goog">
+								</i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
 							<div class="clearfix"></div>
@@ -269,7 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
-				
+
 			</div>
 			<div class="clearfix"></div>
 			<p>

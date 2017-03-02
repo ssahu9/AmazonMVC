@@ -4,10 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script> function validateForm() {
+    var x = document.forms["removeProduct"]["pid"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+    if (isNaN(x)) {
+        alert("Input not valid");
+        return false; 
+        }
+}</script>
 <title>Insert title here</title>
 </head>
 <body>
-<form action="RemoveProductServlet">
+<form name="removeProduct" action="RemoveProductServlet" onsubmit="return validateForm()" method="post">
 	<table border="1">
 
 		

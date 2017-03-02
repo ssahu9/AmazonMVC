@@ -34,7 +34,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
 
 
 
@@ -87,7 +93,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
+						<a href="index.jsp"><span id="logo">Amazon Online Store</span>
+						</a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -103,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="log">
 									<a href="./CustomerAllBill">BILL DETAILS</a>
 								</div>
-								
+
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
 									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
@@ -140,22 +147,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"></div>
 				</div>
 
-	<!-- start header menu -->
+				<!-- start header menu -->
 
 
-	<!-- header -->
-	<ul class="megamenu skyblue">
-		<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-		<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
-		<c:forEach items="${applicationScope['categoryList']}" var="category">
-			<li class="grid"><a class="color6"
-				href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
-		</c:forEach>
+				<!-- header -->
+				<ul class="megamenu skyblue">
+					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+					<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
+					<c:forEach items="${applicationScope['categoryList']}"
+						var="category">
+						<li class="grid"><a class="color6"
+							href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+					</c:forEach>
 
 
-	</ul>
-	</div>
-	</div>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<%
@@ -294,7 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="clearfix"></div>
 	</div>
 	</div>
-<!-- Foot top section (Follow us on) -->
+	<!-- Foot top section (Follow us on) -->
 	<div class="foot-top">
 		<div class="container">
 			<div class="col-md-6 s-c">
@@ -306,9 +314,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<div class="social-ic">
 						<ul>
-							<li><a href="CallErrorPageServlet"><i class="facebok"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="twiter"> </i></a></li>
-							<li><a href="CallErrorPageServlet"><i class="goog"> </i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="facebok">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="twiter">
+								</i></a></li>
+							<li><a href="CallErrorPageServlet"><i class="goog">
+								</i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="be"> </i></a></li>
 							<li><a href="CallErrorPageServlet"><i class="pp"> </i></a></li>
 							<div class="clearfix"></div>
@@ -338,7 +349,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- End of Foot top section (Follow us on) -->
-	
+
 	<!-- Footer Section -->
 	<div class="footer">
 		<div class="container">
@@ -370,7 +381,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
-				
+
 			</div>
 			<div class="clearfix"></div>
 			<p>

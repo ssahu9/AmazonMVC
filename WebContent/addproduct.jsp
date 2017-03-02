@@ -4,13 +4,75 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script>
+	function validateForm() {
+		var x = document.forms["addProduct"]["pid"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+
+		var x = document.forms["addProduct"]["prodquantity"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+
+		var x = document.forms["addProduct"]["prodprice"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+		var x = document.forms["addProduct"]["pdiscount"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+		var x = document.forms["addProduct"]["pname"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (!isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+		var x = document.forms["addProduct"]["cname"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+		if (!isNaN(x)) {
+			alert("Input not valid");
+			return false;
+		}
+	}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="AddProductServlet" style="text-align:center;">
-	<table border="1">
+	<form name="addProduct" action="AddProductServlet"
+		onsubmit="return validateForm()" method="post"
+		style="text-align: center;">
+		<table border="1">
 
-	
+
 			<tr>
 				<td>Enter Product id:</td>
 				<td><input type="text" name="pid"></td>
@@ -41,9 +103,9 @@
 				<td colspan="2"><input type="submit" name="submit"
 					value="Submit"></td>
 			</tr>
-	
-	</table>
-		</form>
+
+		</table>
+	</form>
 
 </body>
 </html>
