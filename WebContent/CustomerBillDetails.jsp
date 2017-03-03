@@ -241,6 +241,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<c:out value="${bill.totalPrice}"></c:out>
 									</h4></td>
 							</tr>
+							<tr>
+								<td><h4><br></h4></td>
+								<td><h4>
+										<br> 	
+									</h4></td>
+							</tr>
 						</c:forEach>
 					</table>
 				</div>

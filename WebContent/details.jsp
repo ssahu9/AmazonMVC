@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="row single">
 				<div class="col-md-9 det">
 				  <div class="single_left">
-					<div class="grid images_3_of_2">
+				 	<div class="grid images_3_of_2"> -
 						<ul id="etalage">
 				  <% 
 				  
@@ -224,22 +224,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<li>
 								<a href="optionallink.jsp">
-									<img class="etalage_thumb_image" src="images/d1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/d1.jpg" class="img-responsive" title="" />
-								</a>
+									<img  class="etalage_source_image" style="width:150px" height="150px" src="<%=product2.getProductId() %>" class="img-responsive" alt="" />
+								<!-- 	<img class="etalage_source_image" src="images/d1.jpg" class="img-responsive" title="" />
+									 --><%--<img class="etalage_source_image" style="width:150px" height="150px" src="<%=product2.getProductId() %>" class="img-responsive" alt="" />
+						--%>	</a>
 							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/d2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/d2.jpg" class="img-responsive" title="" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/d3.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/d3.jpg"class="img-responsive"  />
-							</li>
-						    <li>
-								<img class="etalage_thumb_image" src="images/d4.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/d4.jpg"class="img-responsive"  />
-							</li>
+							
 						</ul>
 						 <div class="clearfix"></div>		
 				  </div>

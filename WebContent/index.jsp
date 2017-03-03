@@ -190,20 +190,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="arriv-top">
 				<div class="col-md-6 arriv-left">
-					<img src="images/CLOTHING.jpg" class="img-responsive" alt="">
+					<img style="width: 500px;height: 500px;" src="images/CLOTHING.jpg" class="img-responsive" alt="">
 					<div class="arriv-info">
-						<h3>NEW ARRIVALS</h3>
-						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
+		
+						
 						<div class="crt-btn">
 							<a href="GetProducts?selectedCategory=CLOTHING">CLOTHING</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6 arriv-right">
-					<a href="GetProducts?selectedCategory=BAGS"><img src="images/MOBILE.jpg" class="img-responsive" alt=""></a>
+					<a href="GetProducts?selectedCategory=BAGS"><img  style="width: 500px;height: 500px;" src="16" class="img-responsive" alt=""></a>
 					<div class="arriv-info">
-						<h3>BAGS</h3>
-						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
+						
+						
 						<div class="crt-btn">
 									<a href="GetProducts?selectedCategory=BAGS">BAGS</a>
 						</div>
@@ -213,48 +213,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="arriv-bottm">
 				<div class="col-md-8 arriv-left1">
-						<a href="GetProducts?selectedCategory=BOOKS"><img src="images/BOOK2.jpg" class="img-responsive" alt=""></a>	
-					<div class="arriv-info1">
-						<h3>BOOKS</h3>
-						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-						<div class="crt-btn">
+						<a href="GetProducts?selectedCategory=BOOKS"><img  style="width: 500px;height: 500px;" src="10" class="img-responsive" alt=""></a>	
+				<center>	<div class="arriv-info1">
+					<div class="crt-btn">
+					<a href="GetProducts?selectedCategory=BOOKS">BOOKS</a>
+							</div>
+						
 				
-						</div>
-					</div>
+					
+					</div></center>
 				</div>
 				
 				<div class="col-md-4 arriv-right1">
-				<a href="GetProducts?selectedCategory=SPORTS">	<img src="images/SPORT1.jpg" class="img-responsive" alt=""></a>
-					<div class="arriv-info2">
+				<a href="GetProducts?selectedCategory=SPORTS">	<img  style="width: 500px;height: 500px;" src="images/SPORT1.jpg" class="img-responsive" alt=""></a>
+				<center>	<div class="arriv-info2">
+						<div class="crt-btn">
 						<a href="GetProducts?selectedCategory=SPORTS">SPORTS</a>
-							</h3></a>
-					</div>
+							</a>
+							</div>
+					</div></center>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="arriv-las">
-				<div class="col-md-4 arriv-left2">
-					<img src="images/BOOK3.jpg" class="img-responsive" alt="">
-					<div class="arriv-info2">
-						<a href="GetProducts?selectedCategory=BOOKS">BOOKS</a>
-							</h3></a>
-					</div>
-				</div>
-				<div class="col-md-4 arriv-middle">
-					<img src="images/BOOK3.jpg" class="img-responsive" alt="">
-					<div class="arriv-info3">
-						<h3>FRESH LOOK T-SHIRT</h3>
-						<div class="crt-btn">
-							<a href="GetProducts?selectedCategory=BOOKS">BOOKS</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 arriv-right2">
-					<img src="images/SPORT4.jpg" class="img-responsive" alt="">
-					<div class="arriv-info2">
-			<a href="GetProducts?selectedCategory=SPORTS">SPORTS</a>				
-					</div>
-				</div>
+				
+			
+			
 				<div class="clearfix"></div>
 			</div>
 		</div>
