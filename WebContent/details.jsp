@@ -216,6 +216,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="single_left">
 					<div class="grid images_3_of_2">
 						<ul id="etalage">
+				  <% 
+				  
+				  Product product2=new Product();
+				  
+				product2=(Product)(request.getAttribute("pname")); %>
+
 							<li>
 								<a href="optionallink.jsp">
 									<img class="etalage_thumb_image" src="images/d1.jpg" class="img-responsive" />
@@ -237,11 +243,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 						 <div class="clearfix"></div>		
 				  </div>
-				  <% 
-				  
-				  Product product2=new Product();
-				  
-				product2=(Product)(request.getAttribute("pname")); %>
 				  <div class="desc1 span_3_of_2">
 					<h3><%=product2.getName() %></h3>
 					<span class="brand"> <a href="#"> </a></span>

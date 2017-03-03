@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="reg">
-									<a href="Logout.jsp">LOGOUT</a>
+									<a href="Logout">LOGOUT</a>
 								</div>
 								
 								<!--  Link for profile information updation  -->

@@ -51,17 +51,15 @@ tr:hover {
 }
 
 .mycss {
-	text-shadow: 1px 1px 0 rgba(NaN, NaN, NaN, 0.6);
-	font-weight: bold;
+	margin-top: 0px;
+	
 	color: #000000;
-	border: 4px inset #b5a759;
-	letter-spacing: 1pt;
+	
+	letter-spacing: opt;
 	word-spacing: 5pt;
 	font-size: 15px;
-	text-align: left;
-	font-family: comic sans, comic sans ms, cursive, verdana, arial,
-		sans-serif;
-	line-height: 2;
+	line-height: 1;
 	margin: 0px;
 	padding: 0px;
+	
 }

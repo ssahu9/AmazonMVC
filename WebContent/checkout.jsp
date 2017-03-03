@@ -56,6 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/megamenu.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
+<c:if test="${empty sessionScope.email}"></<c:redirect url="/index.jsp"></c:redirect></c:if>
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
@@ -235,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							<img src="images/8.jpg" class="img-responsive" alt="" />
+							<img src="<%=cart.getProductId()%>" class="img-responsive" alt="" />
 						</div>
 						<div class="cart-item-info">
 							<h3>

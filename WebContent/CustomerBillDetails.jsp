@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
-
+<c:if test="${empty sessionScope.email}"></<c:redirect url="/index.jsp"></c:redirect></c:if>
 	<!-- Load category list from database -->
 	<!-- header_top -->
 	<div class="top_bg">

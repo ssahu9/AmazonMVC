@@ -217,9 +217,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="grid1_of_4" style="margin-left: 8px;">
 							<!-- div for product image -->
 							<div class="content_box">
-								<img src="images/1.jpg" class="img-responsive" alt="" />
+							<%! String path= "images/"; %>
+							<%! String ext =".jpg"; %>
+								<img src="${product.productId}" class="img-responsive" alt="" />
 								<h4>
-									<c:out value="${product.name}"></c:out>
+								<span class="mycss"><c:out   value="${product.name}"></c:out></span>	
 								</h4>
 								<p></p>
 								
@@ -227,17 +229,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<!--  display the discription of item-->
 								
 								<div class="grid_1 simpleCart_shelfItem">
-								Product Price
+								<span class="mycss">Product Price</span>
 									<div class="item_add">
 										<span class="item_price"><h6>
-												<strike> <c:out value="${product.price}"></c:out></strike>
+												<span class="mycss"><strike> <c:out value="${product.price}"></c:out></strike></span>
 											</h6></span>
 									</div>
 								
 									<div class="item_add">
 										<span class="item_price"><h6>
-												discount
-												<c:out value="${product.discount}"></c:out>
+												<span class="mycss">discount</span>
+												<span class="mycss"><c:out value="${product.discount}"></c:out></span>
 											</h6></span>
 									</div>
 									
@@ -245,26 +247,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="item_add">
 										<span class="item_price"><h6>
 											
-												<c:out value="${product.price * (100-product.discount)/100}"></c:out>
+												<span class="mycss"><c:out value="${product.price * (100-product.discount)/100}"></c:out></span>
 											</h6></span>
 									</div>
 									<div class="item_add">
 										<span class="item_price"><h6>
-												available quantity
-												<c:out value="${product.quantity}"></c:out>
+											<span class="mycss">available quantity</span>
+												<span class="mycss"><c:out value="${product.quantity}"></c:out></span>
 											</h6></span>
 									</div>
 									<div class="item_add">
 										<!-- Creating form to take input quantity and send the value to controller -->
 										<form action="InsertIntoCart" method="post">
-											<input class="item_add" type="text"
+											<input class="item_add" type="hidden" 
 												value="<c:out value="${product.productId}"></c:out>"
 												name="pId" readonly>
 <input class="item_add" type="hidden" value="<c:out value="${product.name}"></c:out>"
 												name="pname" readonly><input class="item_add"
 												type="hidden"
 												value="<c:out value="${product.quantity}" ></c:out>"
-												name="originalQuantity" readonly> Enter Quantity<input type="number"
+												name="originalQuantity" readonly> 
+												<span class="mycss">Enter Quantity</span>
+												<input type="number"
 												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="${product.quantity}"> <input
 												type="submit" class="button button2" value="Add to Cart">
 										</form>		
