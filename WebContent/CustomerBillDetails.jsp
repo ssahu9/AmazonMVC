@@ -191,9 +191,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="women_main" style="margin-left: 50px;">
 			<!-- *********************************************************************************************** -->
 			<!-- start content -->
+		<script>
+ 
+			function printDiv(divName) {
+			     var printContents = document.getElementById(divName).innerHTML;
+			     var originalContents = document.body.innerHTML;
 
+			     document.body.innerHTML = printContents;
+
+			     window.print();
+
+			     document.body.innerHTML = originalContents;
+			} 
+						
+
+		</script>
 			<div class="items">
-				<div style="width: 100%;">
+				<div style="width: 100%;" id="divName">
 					<!-- Run loop to display the products  -->
 					<!-- Used jstl tag for loop and printing the object values -->
 					<table>
@@ -250,6 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</c:forEach>
 					</table>
 				</div>
+				<input type="button" onclick="printDiv(divName)">
 			</div>
 		</div>
 

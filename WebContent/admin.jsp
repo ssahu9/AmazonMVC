@@ -93,9 +93,7 @@
 						value=" Update Product "><br>
 					<br> <input type="button" name="button" id="vp"
 						value=" View Products  "><br>
-					<br> <input type="button" name="button" id="upwd"
-						value="Update Password">
-
+					<br>
 
 
 				</form>

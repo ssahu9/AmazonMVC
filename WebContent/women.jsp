@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="content_box">
 							<%! String path= "images/"; %>
 							<%! String ext =".jpg"; %>
-								<img style="width:150px" height="150px" src="${product.productId}" class="img-responsive" alt="" />
+								<img style="idth:"100px" height="100px" src="${product.productId}" class="img-responsive" alt="" />
 								<h4>
 								<span class="mycss"><c:out   value="${product.name}"></c:out></span>	
 								</h4>
