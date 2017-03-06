@@ -8,11 +8,11 @@
 	function validateForm() {
 		var x = document.forms["addCategory"]["cname"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Category can not be empty");
 			return false;
 		}
 		if (isNaN(x)) {
-			alert("Input not valid");
+			alert("Category should be a number");
 			return false;
 		}
 	}

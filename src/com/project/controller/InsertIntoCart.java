@@ -31,6 +31,7 @@ public class InsertIntoCart extends HttpServlet {
 			request.setAttribute("errorMessage", "Please Login ");
 			request.getRequestDispatcher("error404page.jsp").forward(request, response);
 		}
+	String	currentCategory=(String)session.getAttribute("currentCategory");
 		Customer customer = (Customer) session.getAttribute("customerObject");
 		long millis=System.currentTimeMillis();  
 		java.sql.Date date=new java.sql.Date(millis);  
@@ -53,13 +54,16 @@ public class InsertIntoCart extends HttpServlet {
 		boolean status= false;
 		try {
 			 status=customerBL.addToCart(cartList);
+			 System.out.println(status);
 		} catch (ClassNotFoundException | SQLException e) {
 		// call Error display View	
 		
-		
+	
 		}
 		 if(status== true){
-			 request.getRequestDispatcher("GetProducts?selectedCategory=CLOTHINGS").forward(request, response);
+			 response.sendRedirect("GetProducts?selectedCategory="+currentCategory);
+			// request.getRequestDispatcher("GetProducts?selectedCategory=CLOTHINGS").forward(request, response);
+			 System.out.println(status);
 		 }
 		 else{
 			 // call error message 

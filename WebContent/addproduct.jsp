@@ -8,58 +8,58 @@
 	function validateForm() {
 		var x = document.forms["addProduct"]["pid"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product ID can not be empty");
 			return false;
 		}
 		if (isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Id should be a number");
 			return false;
 		}
 
 		var x = document.forms["addProduct"]["prodquantity"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product Quantity can not be empty");
 			return false;
 		}
 		if (isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Quantity should be a number");
 			return false;
 		}
 
 		var x = document.forms["addProduct"]["prodprice"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product Price can not be empty");
 			return false;
 		}
 		if (isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Price should be a number");
 			return false;
 		}
 		var x = document.forms["addProduct"]["pdiscount"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product Discount can not be empty");
 			return false;
 		}
 		if (isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Discount should be a number");
 			return false;
 		}
 		var x = document.forms["addProduct"]["pname"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product Name can not be empty");
 			return false;
 		}
 		if (!isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Name should not be a number");
 			return false;
 		}
 		var x = document.forms["addProduct"]["cname"].value;
 		if (x == "") {
-			alert("Name must be filled out");
+			alert("Product Category can not be empty");
 			return false;
 		}
 		if (!isNaN(x)) {
-			alert("Input not valid");
+			alert("Product Category should not be a number");
 			return false;
 		}
 	}

@@ -7,11 +7,11 @@
 <script> function validateForm() {
     var x = document.forms["removeProduct"]["pid"].value;
     if (x == "") {
-        alert("Name must be filled out");
+        alert("Product Id should not be empty");
         return false;
     }
     if (isNaN(x)) {
-        alert("Input not valid");
+        alert("Product Id should be number");
         return false; 
         }
 }</script>
