@@ -264,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</c:forEach>
 					</table>
 				</div>
-				<input type="button" onclick="printDiv(divName)">
+				<input type="button" onclick="printDiv('divName')" value="SAVE">
 			</div>
 		</div>
 

@@ -27,12 +27,12 @@ public class LoginServlet extends HttpServlet {
 		
 		BasicConfigurator.configure();
  	    logger.info("Login working!!");
- 	    
+ 	   Customer customer = null;
 		response.setContentType("text/html");
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		if (email.equals("admin@admin.com") || password.equals("admin123")) {
+		if (email.equals("admin@admin.com") && password.equals("admin123")) {
 			HttpSession session = request.getSession(); // creating session
 			session.setAttribute("email", email);
 			
@@ -45,39 +45,47 @@ public class LoginServlet extends HttpServlet {
 			} catch (IOException e) {
 				//request.setAttribute("errorMessage", "Unsuccessful Admin Sign in");
 				//request.getRequestDispatcher("error404admin.jsp").forward(request, response);
-			
+				System.out.println(e);
 			}}
-		Customer customer = null;
-		try {
-			customer = customerBL.signIn(email, password);
-			System.out.println(customer);
-		} catch (ClassNotFoundException | SQLException e) {
-			//request.setAttribute("errorMessage", "Unsuccessful Sign in");
-			//request.getRequestDispatcher("error404page.jsp").forward(request, response);
-		}
-
-		if (customer == null) { // login failed
-			request.setAttribute("errorMessage", "Invalid User, please retry again");
-			//request.getRequestDispatcher("error404page.jsp").forward(request, response);
-		
-		} else { // customer login successful
-			HttpSession session = request.getSession(); // creating session
-			session.setAttribute("email", email); // setting session attribute
-			session.setAttribute("customerObject", customer); // setting
-																// customer
-																// object in
-																// session scope
+		else {
 			try {
-				request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting
-																						// to
-																						// index.jsp
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-			//	request.setAttribute("errorMessage", "Unexpected Error");
-				//request.getRequestDispatcher("error404page.jsp").forward(request, response);
+				customer = customerBL.signIn(email, password);
+				System.out.println(customer);
+			} catch (ClassNotFoundException | SQLException e) {
+				request.setAttribute("errorMessage", "<a href=\"index.jsp\">Invalid User, please retry again</a>");
+				response.sendRedirect("index.jsp");
+				System.out.println(e);
+			}
+			if (customer == null) { // login failed
+				
+				request.setAttribute("errorMessage", "<a href=\"index.jsp\">Invalid User, please retry again</a>");
+				request.getRequestDispatcher("error404page.jsp").include(request, response);
+			
+			} else { // customer login successful
+				HttpSession session = request.getSession(); // creating session
+				session.setAttribute("email", email); // setting session attribute
+			session.setAttribute("customerObject", customer); // setting
+																	// customer
+																	// object in
+																	// session scope
+				try {
+					request.getRequestDispatcher("index.jsp").forward(request, response); // redirecting
+																							// to
+																							// index.jsp
+				} catch (ServletException | IOException e) {
+					// TODO Auto-generated catch block
+				//	request.setAttribute("errorMessage", "Unexpected Error");
+					//request.getRequestDispatcher("error404page.jsp").forward(request, response);
+				}
+
 			}
 
 		}
+		
+		
+		
+		
+		
 
 	}
 
