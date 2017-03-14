@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -99,22 +100,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet" method="post">
+												<form:form  action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
+															<form:label path="email">="email">Email Address</form:label>
+															<form:input path="email"/>
 														</fieldset>
 														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
+															<form:label path="password">Password</form:label> 
+															<form:password path="password"/>
 														</fieldset>
 														<input type="submit" id="login" value="Sign in"> <label
 															for="checkbox"><input type="checkbox"
 															id="checkbox"> <i>Remember me</i></label>
 													</fieldset>
 													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
+												</form:form>
 											</div>
 										</div>
 									</div>
