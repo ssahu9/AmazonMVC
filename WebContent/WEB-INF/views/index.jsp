@@ -44,25 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
 
-		$(function() {
-		    var button = $('#loginButton');
-		    var box = $('#loginBox');
-		    var form = $('#loginForm');
-		    button.removeAttr('href');
-		    button.click(function(login) {
-		        box.toggle();
-		        button.toggleClass('active');
-		    });
-		    form.mouseup(function() { 
-		        return false;
-		    });
-		    $(this).mouseup(function(login) {
-		        if(!($(login.target).parent('#loginButton').length > 0)) {
-		            button.removeClass('active');
-		            box.hide();
-		        }
-		    });
-		});
+	
 	});
 </script>
 <script src="js/menu_jquery.js"></script>
@@ -118,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="login">
 										<div id="loginContainer">
 										<!--  <input  id="loginButton" type="button" value="Login" /> -->
-											 <a  id="loginButton"><span>Login</span></a> 
+											<a href="#" id="loginButton"><span>Login</span></a> 
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
 												<form:form  action="" method="post"  id="loginForm" commandName="customer">
