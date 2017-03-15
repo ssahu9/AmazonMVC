@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 	<!-- Load category list from database -->
-<!--<jsp:include page="/AvailableCategory" />-->
+ <%-- <jsp:include page="/AvailableCategory" /> --%> 
 
 	<!-- header_top -->
 	<div class="top_bg">
@@ -100,10 +100,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form:form  action=".\LoginServlet" method="post">
+												<form:form  action=".\LoginServlet" modelAttribute="student" method="POST">
 													<fieldset id="body">
 														<fieldset>
-															<form:label path="email">="email">Email Address</form:label>
+															<form:label path="email">Email Address</form:label>
 															<form:input path="email"/>
 														</fieldset>
 														<fieldset>

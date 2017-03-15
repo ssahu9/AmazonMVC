@@ -12,16 +12,32 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
 
+
+
+@Controller
+@RequestMapping("/")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger=Logger.getLogger(LoginServlet.class);
 	
 	CustomerBl customerBL = new CustomerBl();
 
+	@RequestMapping(method = RequestMethod.GET)
+	public String newRegistration(ModelMap model) {
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
+		return "women";
+	}
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -77,18 +93,13 @@ public class LoginServlet extends HttpServlet {
 				//	request.setAttribute("errorMessage", "Unexpected Error");
 					//request.getRequestDispatcher("error404page.jsp").forward(request, response);
 				}
-
 			}
-
 		}
-		
-		
-		
-		
-		
-
 	}
 
+	
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
