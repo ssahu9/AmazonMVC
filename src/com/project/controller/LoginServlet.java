@@ -1,32 +1,87 @@
 package com.project.controller;
 
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.ServletContextAware;
 
+import com.project.bean.Category;
 import com.project.bean.Customer;
+import com.project.bl.CustomerBl;
 
 
 
 
 @Controller
 @RequestMapping("/")
+
 public class LoginServlet{
 //	private static final long serialVersionUID = 1L;
 //	private static Logger logger=Logger.getLogger(LoginServlet.class);
 //	
 //	CustomerBl customerBL = new CustomerBl();
-
+	   private ServletContext servletContext;
 	@RequestMapping(method = RequestMethod.GET)
-	public String newLogin(ModelMap model) {
+	public String newLogin(ModelMap model,  HttpServletRequest request ) {
+		this.servletContext=request.getServletContext();
+		CustomerBl customerBl = new CustomerBl();
+		ArrayList<Category> category = new ArrayList<Category>();
+		Category category1 = new Category();
+		category1.setCategoryName("Sports");
+//		try {
+//			category = (ArrayList<Category>) customerBl.viewCategory();
+//		} catch (ClassNotFoundException | SQLException e) {
+//			
+//			return "error404admin";
+//		}
+		
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
+		category.add(category1);
+		servletContext.setAttribute("demo","demo apllcation scope");
+		servletContext.setAttribute("categoryList", category);
 		return "index";
 	}
 	
-	
+	       
+	    
+//public class LoginServlet  implements ServletContextAware{
+////	private static final long serialVersionUID = 1L;
+////	private static Logger logger=Logger.getLogger(LoginServlet.class);
+////	
+////	CustomerBl customerBL = new CustomerBl();
+//	   private ServletContext servletContext;
+//	@RequestMapping(method = RequestMethod.GET)
+//	public String newLogin(ModelMap model,ServletContext servletContext) {
+//		
+//		CustomerBl customerBl = new CustomerBl();
+//		ArrayList<Category> category = null;
+//		try {
+//			category = (ArrayList<Category>) customerBl.viewCategory();
+//		} catch (ClassNotFoundException | SQLException e) {
+//			model.addAttribute("error", "No Category");
+//			return "error404admin";
+//		}
+//		Customer customer = new Customer();
+//		model.addAttribute("customer", customer);
+//		return "index";
+//	}
+//	@Override
+//	 public void setServletContext(ServletContext servletContext) {
+//		ArrayList<Category> category = null;
+//		  this.servletContext = servletContext;
+//	       
+//	    }
+//	
+//	
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 //			throws ServletException, IOException {
 //		

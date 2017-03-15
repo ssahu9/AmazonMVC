@@ -43,6 +43,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
+
+		$(function() {
+		    var button = $('#loginButton');
+		    var box = $('#loginBox');
+		    var form = $('#loginForm');
+		    button.removeAttr('href');
+		    button.click(function(login) {
+		        box.toggle();
+		        button.toggleClass('active');
+		    });
+		    form.mouseup(function() { 
+		        return false;
+		    });
+		    $(this).mouseup(function(login) {
+		        if(!($(login.target).parent('#loginButton').length > 0)) {
+		            button.removeClass('active');
+		            box.hide();
+		        }
+		    });
+		});
 	});
 </script>
 <script src="js/menu_jquery.js"></script>
@@ -97,10 +117,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="log">
 									<div class="login">
 										<div id="loginContainer">
-											<a href="#" id="loginButton"><span>Login</span></a>
+										<!--  <input  id="loginButton" type="button" value="Login" /> -->
+											 <a  id="loginButton"><span>Login</span></a> 
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form:form  action="" method="post" commandName="customer">
+												<form:form  action="" method="post"  id="loginForm" commandName="customer">
 													<fieldset id="body">
 														<fieldset>
 															<form:label path="email">Email Address</form:label>
@@ -159,17 +180,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form action="SearchProductServlet">
+							<form:form action="SearchProductServlet">
 								<input type="text" value="" placeholder="search by product name"
 									name="searchProduct"> <input type="submit" value="">
-							</form>
+							</form:form>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 
-
+				<h1>${demo}</h1>
 				<!-- start header menu -->
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
