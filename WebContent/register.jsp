@@ -50,8 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 
-	<!-- Load category list from database -->
-	<jsp:include page="/AvailableCategory" />
+	<!-- Load category list from database 
+	<jsp:include page="/AvailableCategory" />-->
 
 	<!-- header_top -->
 	<div class="top_bg">

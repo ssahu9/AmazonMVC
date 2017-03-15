@@ -15,11 +15,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
 	Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScripts plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,8 +37,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
+	<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
+	media="all" ></link>
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>
 	$(document).ready(function() {
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 	<!-- Load category list from database -->
- <%-- <jsp:include page="/AvailableCategory" /> --%> 
+<!--<jsp:include page="/AvailableCategory" />-->
 
 	<!-- header_top -->
 	<div class="top_bg">
@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form:form  action=".\LoginServlet" modelAttribute="student" method="POST">
+												<form:form  action="" method="post" commandName="customer">
 													<fieldset id="body">
 														<fieldset>
 															<form:label path="email">Email Address</form:label>

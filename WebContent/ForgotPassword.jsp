@@ -41,8 +41,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 
-	<!-- Load category list from database -->
-	<jsp:include page="/AvailableCategory" />
+	<!-- Load category list from database 
+	<jsp:include page="/AvailableCategory" />-->
 
 
 					<div class="registration_form">
