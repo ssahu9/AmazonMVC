@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
@@ -22,6 +24,16 @@ public class Register extends HttpServlet {
 	Customer customer = new Customer();
 	CustomerBl customerBL = new CustomerBl();
 
+	@RequestMapping("/customer/regForm")
+	public String showRegisterform(ModelMap model){
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);	
+		
+		
+		
+		return null;
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BasicConfigurator.configure();

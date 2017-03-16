@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	Website Template | Home :: w3layouts</title>
 <link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScripts plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+	<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
 <!-- Custom Theme files -->
 <link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start menu -->
 	<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
 	media="all" ></link>
-<script type="text/javascript" src="js/megamenu.js"></script>
+	<script src="<c:url value="/static/js/megamenu.js" />"></script>
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
@@ -47,8 +47,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	});
 </script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js">
+	<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
+		<script src="<c:url value="/static/js/simpleCart.min.js" />"></script>
 	
 </script>
 <script>
@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a> 
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form:form  action="" method="post"  id="loginForm" commandName="customer">
+												<form:form  action="./login" method="post"  id="loginForm" commandName="user">
 													<fieldset id="body">
 														<fieldset>
 															<form:label path="email">Email Address</form:label>

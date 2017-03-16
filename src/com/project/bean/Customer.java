@@ -1,11 +1,25 @@
 package com.project.bean;
+import org.hibernate.validator.constraints.Email;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.project.validator.Phone;
 
 public class Customer {
+	
 	private int customerId;			//to store the customer_id (auto-generated)
-	private String firstName;		//to store the first name of the customer
+	@NotEmpty
+	private String firstName;
+	//to store the first name of the customer
+	@NotEmpty
 	private String lastName;		//to store the last name of the customer
+	@Email
 	private String email;			//to store the email address of customer(username==email)
+	@NotEmpty
 	private String password;		//to store the password which the customer has entered
+
+	@NotEmpty
+	@Phone
 	private String phoneNumber;		//to store the phone number of the customer
 
 	

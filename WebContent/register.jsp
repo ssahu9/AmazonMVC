@@ -283,7 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>existing user</h2>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form" action=".\LoginServlet" method="post">
+						<form id="registration_form" action="/login" method="post">
 							<div>
 								<label> <input placeholder="email:" name="email"
 									type="email" tabindex="3" required>
