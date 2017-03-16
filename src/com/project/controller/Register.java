@@ -11,27 +11,25 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
-
-public class Register extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@Controller
+public class Register  {
+	
 	private static Logger logger=Logger.getLogger(Register.class);
 	
 	Customer customer = new Customer();
 	CustomerBl customerBL = new CustomerBl();
 
-	@RequestMapping("/customer/regForm")
+	@RequestMapping("/regForm")
 	public String showRegisterform(ModelMap model){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);	
-		
-		
-		
-		return null;
+		return "register";
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
