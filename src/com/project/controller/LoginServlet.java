@@ -90,14 +90,10 @@ public class LoginServlet {
 	protected String login(ModelMap model, @ModelAttribute("user") User user) {
 
 		Customer customer = new Customer();
-		// logger.info("Login working!!");
-		// Customer customer = null;
-
+		 //logger.info("Login working!!");
+		
 		if (user.getEmail().equals("admin@admin.com") && user.getPassword().equals("admin123")) {
-			// HttpSession session = request.getSession(); // creating session
-			// session.setAttribute("email", email);
-			//
-			// setting session attribute
+			
 			
 		} else {
 			try {
