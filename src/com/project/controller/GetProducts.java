@@ -42,6 +42,7 @@ public class GetProducts  {
 			proList = (ArrayList<Product>)customerBl.viewProduct(pCategory);
 			model.addAttribute("currentCategory", proList);
 			model.addAttribute("user", new User());	
+			model.addAttribute("product", new Product());	
 		} catch (ClassNotFoundException | SQLException e) {
 			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
 			return("error404page");
