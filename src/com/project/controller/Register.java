@@ -8,15 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.bean.Customer;
 import com.project.bl.CustomerBl;
+
 @Controller
 public class Register  {
 	
@@ -31,8 +35,27 @@ public class Register  {
 		model.addAttribute("customer", customer);	
 		return "register";
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public String saveRegistration(@Valid Customer customer,
+			BindingResult result, ModelMap model) {
+
+		if (result.hasErrors()) {
+			return "register";
+		}
+		logger.info("register working!!");
+		try {
+			if (customerBL.signUp(customer) > 0) {
+				return("index"); // redirecting
+																						// to
+																						// index.jsp
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
+			return("error404page");
+		}
+		return "index";
+	}
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BasicConfigurator.configure();
  	    logger.info("register working!!");
@@ -73,5 +96,5 @@ public class Register  {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
+*/
 }

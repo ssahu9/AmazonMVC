@@ -40,12 +40,12 @@ public class LoginServlet {
 		ArrayList<Category> category = new ArrayList<Category>();
 		Category category1 = new Category();
 		category1.setCategoryName("Sports");
-		// try {
-		// category = (ArrayList<Category>) customerBl.viewCategory();
-		// } catch (ClassNotFoundException | SQLException e) {
-		//
-		// return "error404admin";
-		// }
+		 try {
+		 category = (ArrayList<Category>) customerBl.viewCategory();
+		 } catch (ClassNotFoundException | SQLException e) {
+		
+		 return "error404admin";
+		 }
 
 		// Customer customer = new Customer();
 

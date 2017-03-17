@@ -1,3 +1,4 @@
+
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -15,13 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
 	Website Template | Register :: w3layouts</title>
-
-<!-- jQuery (necessary JavaScript plugins) -->
-
-<script type='text/javascript' src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
-<!-- Custom Theme files -->
-
-<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
+	<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
 <link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -29,13 +24,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
-<!-- start menu -->
-	<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
+<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
 	media="all" ></link>
-	<link href="<c:url value='/static/css/logo.css' />" rel="stylesheet"  type="text/css"
-	media="all" ></link>
-	<link href="<c:url value='/static/css/etalage.css' />" rel="stylesheet"  type="text/css"
-	media="all" ></link>
+<link href="<c:url value='/static/css/table.css' />" rel='stylesheet' type='text/css' />
+<link href="css/table.css" rel='stylesheet' type='text/css' />	
+	
+
+<!-- jQuery (necessary JavaScript plugins) -->
+<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
+<!-- Custom Theme files -->
+
+
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,24 +45,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-
-
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
+	rel='stylesheet' type='text/css'>
 <!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css"
+	media="all" />
+	<script src="<c:url value="/static/js/megamenu.js" />"></script>
 
-<script type="text/javascript" src="<c:url value="/static/js/megamenu.js" />"></script>
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
 	});
 </script>
-<script type="text/javascript" src="<c:url value="/static/js/menu_jquery.js" />"></script>
-
+<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
 </head>
 <body>
 
 
-	<!-- Load category list from database 
-	<jsp:include page="/AvailableCategory" />-->
+	<!-- Load category list from database -->
+	
 
 	<!-- header_top -->
 	<div class="top_bg">
@@ -106,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\login" method="post">
+												<form id="loginForm" action=".\LoginServlet" method="post">
 													<fieldset id="body">
 														<fieldset>
 															<label for="email">Email Address</label> <input
@@ -127,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 								<div class="reg">
-									<a href="./regForm">REGISTER</a>
+									<a href="register.jsp">REGISTER</a>
 								</div>
 							</c:if>
 							<!--  Link for signout  only if user variable is not exit in session scope -->
@@ -208,32 +212,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<! [endif] -->
 					<script>
 						(function() {
-
 							// Create input element for testing
 							var inputs = document.createElement('input');
-
 							// Create the supports object
 							var supports = {};
-
 							supports.autofocus = 'autofocus' in inputs;
 							supports.required = 'required' in inputs;
 							supports.placeholder = 'placeholder' in inputs;
-
 							// Fallback for autofocus attribute
 							if (!supports.autofocus) {
-
 							}
-
 							// Fallback for required attribute
 							if (!supports.required) {
-
 							}
-
 							// Fallback for placeholder attribute
 							if (!supports.placeholder) {
-
 							}
-
 							// Change text inside send button on submit
 							var send = document
 									.getElementById('register-submit');
@@ -242,52 +236,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									this.innerHTML = '...Sending';
 								}
 							}
-
 						})();
 					</script>
 					<div class="registration_form">
 						<!-- Form -->
-						<form:form id="registration_form" action="Register" method="post">
+						<form:form id="registration_form" modelAttribute="customer" action="./register" method="post">
 							<div>
-								<label> <form:input placeholder="first name:" type="text"
-									pattern=^[a-zA-Z]{1,20}$ tabindex="1" name="fname" required
-									autofocus>
-								</label>
+								<form:label path="firstName"> <form:input placeholder="first name:" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
+								</form:label>
+								<form:errors path="firstName" class="help-inline"/>
 							</div>
 							<div>
-								<label> <form:input placeholder="last name:" type="text"
-									tabindex="2" pattern=^[a-zA-Z]{1,20}$ name="lname" required
-									autofocus>
-								</label>
+								<form:label path="lastName"> <form:input placeholder="last name:" type="text"
+									tabindex="2" path="lastName" pattern="^[a-zA-Z]{1,20}$" name="lname" 
+									/>
+								</form:label>
+								<form:errors path="lastName" class="help-inline"/>
 							</div>
 							<div>
-								<label> <input placeholder="email address:" type="email"
-									name="email" tabindex="3" required>
-								</label>
+								<form:label path="email"> <form:input placeholder="email address:" type="email"
+									name="email" path="email" tabindex="3" />
+								</form:label>
+								<form:errors path="email" class="help-inline"/>
 							</div>
 							<div>
-								<label> <input placeholder="number" type="tel"
-									name="phone" pattern=^[7-9][0-9]{9}$ tabindex="3" required>
-								</label>
-							</div>
-						
-							<div>
-								<label> <input placeholder="password" type="password"
-									pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$ name="pwd" tabindex="4"
-									required>
-								</label>
+								<form:label path="phoneNumber"> <form:input placeholder="phone number:" 
+									 path="phoneNumber" tabindex="3" />
+								</form:label>
+								<form:errors path="phoneNumber" class="help-inline"/>
 							</div>
 							<div>
-								<label> <input placeholder="retype password"
-									type="password" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$
-									name="rpwd" tabindex="4" required>
-								</label>
+								<form:label path="password"> <form:input placeholder="password:" type="password"
+									 path="password" tabindex="3" />
+								</form:label>
+								<form:errors path="password" class="help-inline"/>
 							</div>
-							<div>
-								<input type="submit" value="create an account"
-									id="register-submit">
+							
+								<div>
+								<form:input type="submit" value="create an account" id="register-submit" path=""/>
 							</div>
-						</form>
+						</form:form>
 						<!-- /Form -->
 					</div>
 				</div>
@@ -295,7 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>existing user</h2>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form" action="/login" method="post">
+						<form id="registration_form" action=".\LoginServlet" method="post">
 							<div>
 								<label> <input placeholder="email:" name="email"
 									type="email" tabindex="3" required>

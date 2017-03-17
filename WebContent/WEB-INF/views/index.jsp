@@ -27,9 +27,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
-<!-- start menu -->
 	<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
 	media="all" ></link>
+<!-- start menu -->
+	
 	<script src="<c:url value="/static/js/megamenu.js" />"></script>
 	<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
 		<script src="<c:url value="/static/js/simpleCart.min.js" />"></script>
