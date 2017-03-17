@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<div class="registration_form">
 						<!-- Form -->
-						<form:form id="registration_form" modelAttribute="customer" action="./register" method="post">
+						<form:form id="registration_form" commandName="customer" action="./register" method="post">
 							<div>
 								<form:label path="firstName"> <form:input placeholder="first name:" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
 								</form:label>

@@ -15,10 +15,12 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.bean.Customer;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 
 @Controller
@@ -30,25 +32,30 @@ public class Register  {
 	CustomerBl customerBL = new CustomerBl();
 
 	@RequestMapping("/regForm")
+	/*@ModelAttribute("customer")*/
 	public String showRegisterform(ModelMap model){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);	
 		return "register";
 	}
+	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
+	@ModelAttribute("user")
 	public String saveRegistration(@Valid Customer customer,
 			BindingResult result, ModelMap model) {
+		
 
 		if (result.hasErrors()) {
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>error");
 			return "register";
 		}
 		logger.info("register working!!");
 		try {
 			if (customerBL.signUp(customer) > 0) {
-				return("index"); // redirecting
-																						// to
-																						// index.jsp
-			}
+				model.addAttribute("user", new User());
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>Signup");
+			return "index";
+		}
 		} catch (ClassNotFoundException | SQLException e) {
 			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
 			return("error404page");
