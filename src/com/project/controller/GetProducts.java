@@ -33,59 +33,21 @@ public class GetProducts  {
 	@RequestMapping(value="/getProducts")
 	
 	public String getProducts( @RequestParam("category") String pCategory, ModelMap model)
-	{	System.out.println(">>>>>>>>>>>>>>>>gdgdgdgdgd>>>>>>product list");
+	{	
 		CustomerBl customerBl = new CustomerBl();
 		ArrayList<Product> proList =null;
 		
 		try {
 			
 			proList = (ArrayList<Product>)customerBl.viewProduct(pCategory);
-			System.out.println(proList);
 			model.addAttribute("currentCategory", proList);
-			model.addAttribute("user", new User());
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>product list");
+			model.addAttribute("user", new User());	
 		} catch (ClassNotFoundException | SQLException e) {
 			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>product error");
 			return("error404page");
-		}
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>product list2");
-
+		}		
 		return "women";
 	}
 	
-	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		BasicConfigurator.configure();
- 	    logger.info(" get products working!!");
- 	    
-		response.setContentType("text/html");
-	HttpSession session=request.getSession(false);
-		CustomerBl customerBl = new CustomerBl();
-		ArrayList<Product> proList =null;
-		String pcategory=null;
-		try {
-			pcategory =request.getParameter("selectedCategory");
-			proList = (ArrayList<Product>)customerBl.viewProduct(pcategory);
-			System.out.println(proList);
-		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Unable to Get Product");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
-		}
-		if(session!=null){
-			session.setAttribute("currentCategory",pcategory);
-		}
-		request.setAttribute("productList",proList);
-		request.getRequestDispatcher("women.jsp").include(request, response);
-
-		
-		
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}*/
 
 }
