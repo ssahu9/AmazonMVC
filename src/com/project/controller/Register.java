@@ -52,7 +52,12 @@ public class Register  {
 		logger.info("register working!!");
 		try {
 			if (customerBL.signUp(customer) > 0) {
-				model.addAttribute("user", new User());
+				try{model.addAttribute("user", new User());
+				
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>Signup");
 			return "index";
 		}
