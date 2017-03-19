@@ -56,6 +56,7 @@ public class CheckoutServlet {
 			mv.addObject("product", new Product());
 			System.out.println(cartDetails);
 			mv.addObject("cartList", cartDetails);
+			mv.addObject("user", new User());
 			mv.setViewName("checkout");
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			// call error page and display appropriate message

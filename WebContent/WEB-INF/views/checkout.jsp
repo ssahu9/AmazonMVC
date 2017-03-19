@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page import="org.springframework.web.context.annotation.RequestScope"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page import="com.project.bean.Product"%>
@@ -58,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="<c:url value="/static/js/megamenu.js" />"></script>
 
 <c:if test="${empty sessionScope.email}"></<c:redirect
-		url="/index.jsp"></c:redirect>
+		url="/./"></c:redirect>
 </c:if>
 <script>
 	$(document).ready(function() {
@@ -98,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span>
+						<a href="./"><span id="logo">Amazon Online Store</span>
 						</a>
 					</div>
 					<!-- start header_right -->
@@ -110,10 +111,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="log">
-									<a href="./Logout">LOGOUT</a>
+									<a href="./logout">LOGOUT</a>
 								</div>
 								<div class="log">
-									<a href="./CustomerAllBill">BILL DETAILS</a>
+									<a href="./getAllBill">BILL DETAILS</a>
 								</div>
 
 								<!--  Link for profile information updation  -->
@@ -122,13 +123,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</c:if>
 							<div class="create_btn">
-								<a href="CheckoutServlet" style="margin-left: 50px;">CHECKOUT</a>
+								<a href="./checkout" style="margin-left: 50px;">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 
 						<div class="cart box_1">
-							<a href="CheckoutServlet">
+							<a href="./checkout">
 								<h3>
 									<span></span>
 								</h3>
@@ -142,10 +143,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form action="SearchProductServlet">
+							<form:form action="./searchProduct">
 								<input type="text" value="" placeholder="search by product name"
-									name="searchProduct"> <input type="submit" value="">
-							</form>
+									name="productName"> <input type="submit" value="">
+							</form:form>
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -158,11 +160,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- header -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="./">Home</a></li>
-					<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
+					<li class="grid"><a class="color1" href="./getProducts?category=">ALL</a></li>
 					<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
 						<li class="grid"><a class="color6"
-							href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+							href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>
 					</c:forEach>
 
 
@@ -171,16 +173,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-	<%-- <%
-		LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) RequestScope.ca;
-
-		double sum = 0;
-		for (CartDetails cart : cartDetails) {
-
-			sum = sum + cart.getTotalPrice();
-		}
-	%>
- --%>
 
 
 	<div class="container">
@@ -367,10 +359,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
-				<li><a href="register.jsp">Register</a></li>
-				<li><a href="CheckoutServlet">My Cart</a></li>
-				<li><a href="./CustomerAllBill">Bill History</a></li>
-				<li><a href="CheckoutServlet">Payment</a></li>
+				<li><a href="./regForm">Register</a></li>
+				<li><a href="./checkout">My Cart</a></li>
+				<li><a href="./getAllBill">Bill History</a></li>
+				<li><a href="./checkout">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">

@@ -73,6 +73,7 @@ public class Placeorder  {
 					List<BillDetails> list = customerBl.getCurrentBill(bill);
 					
 					mv.addObject("allBill", list);
+					mv.addObject("user", new User());
 					mv.setViewName("CustomerBillDetails");
 					return mv;
 					

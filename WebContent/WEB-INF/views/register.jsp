@@ -16,7 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
 	Website Template | Register :: w3layouts</title>
-	<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
 <link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -27,7 +27,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
 	media="all" ></link>
 <link href="<c:url value='/static/css/table.css' />" rel='stylesheet' type='text/css' />
-<link href="css/table.css" rel='stylesheet' type='text/css' />	
+	<link href="<c:url value='/static/css/table.css' />" rel="stylesheet"  type="text/css"
+	 ></link>	
 	
 
 <!-- jQuery (necessary JavaScript plugins) -->
@@ -52,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
+	<link href="<c:url value='/static/css/megamenu.css' />" rel="stylesheet"  type="text/css"
+	media="all" ></link>
 	<script src="<c:url value="/static/js/megamenu.js" />"></script>
 
 <script>
@@ -95,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
+						<a href="./"><span id="logo">Amazon Online Store</span> </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -110,50 +111,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet" method="post">
+												<form:form  action="./login" method="post"  id="loginForm" commandName="user">
 													<fieldset id="body">
 														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
+															<form:label path="email">Email Address</form:label>
+															<form:input path="email"/>
 														</fieldset>
 														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
+															<form:label path="password">Password</form:label> 
+															<form:password path="password"/>
 														</fieldset>
 														<input type="submit" id="login" value="Sign in"> <label
 															for="checkbox"><input type="checkbox"
 															id="checkbox"> <i>Remember me</i></label>
 													</fieldset>
 													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
+												</form:form>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="reg">
-									<a href="register.jsp">REGISTER</a>
+									<a href="./regForm">REGISTER</a>
 								</div>
 							</c:if>
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="reg">
-									<a href="register.jsp">LOGOUT</a>
+									<a href="./logout">LOGOUT</a>
 								</div>
 								
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
-									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
+									<a href="./updateForm">UPDATE PROFILE</a>
 								</div>
 								
 							</c:if>
 							<div class="create_btn">
-								<a href="CheckoutServlet">CHECKOUT</a>
+								<a href="./checkout">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 
 						<div class="cart box_1">
-							<a href="checkout.jsp">
+							<a href="./checkout">
 								<h3>
 									<span></span>
 								</h3>
@@ -167,10 +168,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form action="SearchProductServlet">
-								<input type="text" value="" placeholder="search..."> <input
-									type="submit" value="">
-							</form>
+						<form:form action="./searchProduct">
+								<input type="text" value="" placeholder="search by product name"
+									name="productName"> <input type="submit" value="">
+							</form:form>
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -181,11 +183,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- start header menu -->
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+					<li class="active grid"><a class="color1" href="./">Home</a></li>
+					<li class="grid"><a class="color1"  href="./getProducts?category=">ALL</a></li>
 				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						<li class="grid"><a class="color6"  href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>
 						</c:forEach>
 
 
@@ -373,10 +375,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
-				<li><a href="register.jsp">Register</a></li>
-				<li><a href="CheckoutServlet">My Cart</a></li>
-				<li><a href="./CustomerAllBill">Bill History</a></li>
-				<li><a href="CheckoutServlet">Payment</a></li>
+				<li><a href="./regForm">Register</a></li>
+				<li><a href="./checkout">My Cart</a></li>
+				<li><a href="./getAllBill">Bill History</a></li>
+				<li><a href="./checkout">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">

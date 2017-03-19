@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page import="com.project.bean.Product"%>
 <%@page import="javax.websocket.Session"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
@@ -15,11 +16,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive Website Template | Women :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
+
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
+
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
+
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +34,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="<c:url value='/static/css/megamenu.css' />" rel='stylesheet' media="all" type='text/css' />
+<script src="<c:url value="/static/js/megamenu.js" />"></script>
+
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
+<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
+<script src="<c:url value="/static/js/simpleCart.min.js" />"></script>
 </head>
 <body>
 
@@ -68,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo">Amazon Online Store</span> </a>
+						<a href="./"><span id="logo">Amazon Online Store</span> </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -83,23 +88,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
+									<form:form  action="./login" method="post"  id="loginForm" commandName="user">
 													<fieldset id="body">
 														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
+															<form:label path="email">Email Address</form:label>
+															<form:input path="email"/>
 														</fieldset>
 														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
+															<form:label path="password">Password</form:label> 
+															<form:password path="password"/>
 														</fieldset>
 														<input type="submit" id="login" value="Sign in"> <label
 															for="checkbox"><input type="checkbox"
 															id="checkbox"> <i>Remember me</i></label>
 													</fieldset>
 													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
-											</div>
+												</form:form>
+														</div>
 										</div>
 									</div>
 								</div>
@@ -113,22 +118,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="./Logout">LOGOUT</a>
 								</div>
 								<div class="log">
-									<a href="./CustomerAllBill">BILL DETAILS</a>
+									<a href="./getAllBill">BILL DETAILS</a>
 								</div>
 								
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
-									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
+									<a href="./updateForm">UPDATE PROFILE</a>
 								</div>
 							</c:if>
 							<div class="create_btn">
-								<a href="CheckoutServlet" style="margin-left: 50px;">CHECKOUT</a>
+								<a href="./checkout" style="margin-left: 50px;">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 
 						<div class="cart box_1">
-							<a href="CheckoutServlet">
+							<a href="./checkout">
 								<h3>
 									<span></span>
 								</h3>
@@ -142,10 +147,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form action="SearchProductServlet">
+							<form:form action="./searchProduct">
 								<input type="text" value="" placeholder="search by product name"
-									name="searchProduct"> <input type="submit" value="">
-							</form>
+									name="productName"> <input type="submit" value="">
+							</form:form>
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -156,11 +162,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!-- start header menu -->
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+					<li class="active grid"><a class="color1" href="./">Home</a></li>
+					<li class="grid"><a class="color1"  href="./getProducts?category=">ALL</a></li>
 				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
-						<li class="grid"><a class="color6"  href="GetProducts?selectedCategory=${category.categoryName}">${category.categoryName}</a></li>
+						<li class="grid"><a class="color6"  href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>
 						</c:forEach>
 
 
@@ -189,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <td><p>What Happened??</p></td>
 <td><p><strong><br><br><h3>${requestScope.errorMessage}</h3></strong></p></td>
 <p style="color:red;">  <p>
-<a href="index.jsp"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
+<a href="./"><img src="51Jq79tvPHL._SX258_BO1,204,203,200_.jpg" alt="LETS GO BACK HOME"></a>
 			</tbody></table>
 		</td>
 	</tr></tbody>
@@ -261,9 +267,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
 				<li><a href="register.jsp">Register</a></li>
-				<li><a href="CheckoutServlet">My Cart</a></li>
-				<li><a href="./CustomerAllBill">Bill History</a></li>
-				<li><a href="CheckoutServlet">Payment</a></li>
+				<li><a href="./checkout">My Cart</a></li>
+				<li><a href="./getAllBill">Bill History</a></li>
+				<li><a href="./checkout">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">

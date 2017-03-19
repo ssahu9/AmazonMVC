@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.bean.Cart;
 import com.project.bean.Product;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 @Controller
 public class SearchProductServlet{
@@ -40,6 +41,7 @@ public class SearchProductServlet{
 		pList.add(product);
 		model.addAttribute("productObject", pList);
 		model.addAttribute("cart", new Cart());
+		model.addAttribute("user", new User());
 		return("SearchResult");}
 		return null;
 			}

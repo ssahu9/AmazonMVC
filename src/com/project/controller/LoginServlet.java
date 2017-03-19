@@ -71,6 +71,8 @@ public class LoginServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				model.addAttribute("errorMessage", "<a href=\"index.jsp\">Invalid User, please retry again</a>");
 				System.out.println(e);
+				User user2 = new User();
+				model.addAttribute("user", user2);
 				return ("index");
 
 			}
@@ -81,10 +83,13 @@ public class LoginServlet {
 
 			} else { // customer login successful
 				model.addAttribute("customer", customer);
+				model.addAttribute("customer2", new Customer());
 				model.addAttribute("email", user.getEmail());
 				
 			}
 		}
+		
+		model.addAttribute("user", new User());
 		return ("index");
 
 	}

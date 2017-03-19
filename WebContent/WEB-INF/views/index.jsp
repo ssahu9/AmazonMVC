@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header">
 				<div class="head-t">
 					<div class="logo">
-						<a href="index.jsp"><span id="logo" style="color:navy; font-size: large;   ">Amazon Online Store</span> </a>
+						<a href="./"><span id="logo" style="color:navy; font-size: large;   ">Amazon Online Store</span> </a>
 					</div>
 					<!-- start header_right -->
 					<div class="header_right">
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 								<!--  Link for profile information updation  -->
 								<div class="log" style="margin-left: 0px;">
-									<a href="UpdateCustomerProfile.jsp">UPDATE PROFILE</a>
+									<a href="./updateForm">UPDATE PROFILE</a>
 								</div>
 							</c:if>
 							<div class="create_btn">
@@ -153,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 						<div class="cart box_1">
-							<a href="CheckoutServlet">
+							<a href="./checkout">
 								<h3>
 									<span></span>
 								</h3>
@@ -181,8 +181,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- start header menu -->
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
-					<li class="grid"><a class="color1"  href="GetProducts">ALL</a></li>
+					<li class="active grid"><a class="color1" href="./">Home</a></li>
+					<li class="grid"><a class="color1"  href="./getProducts?category=null">ALL</a></li>
 				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
 						<li class="grid"><a class="color6"  href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>
@@ -370,10 +370,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
-				<li><a href="register.jsp">Register</a></li>
-				<li><a href="CheckoutServlet">My Cart</a></li>
-				<li><a href="./CustomerAllBill">Bill History</a></li>
-				<li><a href="CheckoutServlet">Payment</a></li>
+				<li><a href="./regForm">Register</a></li>
+				<li><a href="./checkout">My Cart</a></li>
+				<li><a href="./getAllBill">Bill History</a></li>
+				<li><a href="./checkout">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">

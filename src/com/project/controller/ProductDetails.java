@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.bean.Cart;
 import com.project.bean.Customer;
 import com.project.bean.Product;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 
 @Controller
@@ -41,6 +42,7 @@ public ModelAndView getProductDetails(@ModelAttribute("product2")Product product
 	 if(product!=null){
 		 mv.addObject("pname", product);
 		 mv.addObject("cart", new Cart());
+		 mv.addObject("user", new User());
 		 mv.setViewName("details");
 		 return mv;
 	 }

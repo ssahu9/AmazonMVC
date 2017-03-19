@@ -36,6 +36,7 @@ public class Register  {
 	public String showRegisterform(ModelMap model){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);	
+		model.addAttribute("user", new User());
 		return "register";
 	}
 	
@@ -52,19 +53,14 @@ public class Register  {
 		logger.info("register working!!");
 		try {
 			if (customerBL.signUp(customer) > 0) {
-				try{model.addAttribute("user", new User());
-				
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}
-		
+				model.addAttribute("user", new User());
 			return "index";
 		}
 		} catch (ClassNotFoundException | SQLException e) {
 			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
 			return("error404page");
 		}
+		model.addAttribute("user", new User());
 		return "index";
 	}
 
