@@ -229,20 +229,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="content_box">
 								<img src="images/1.jpg" class="img-responsive" alt="" />
 								<h4>
-									<a href="details.jsp"><c:out value="${product.name}"></c:out></a>
+									<a href="details.jsp"><c:out value="${product.name}">dd</c:out></a>
 								</h4>
 								<p></p>
 								<!--  display the discription of item-->
 								<div class="grid_1 simpleCart_shelfItem">
 									<div class="item_add">
 										<span class="item_price"><h6>
-												<strike> <c:out value="${product.price}"></c:out></strike>
+												<strike> <c:out value="${product.price}">dd</c:out></strike>
 											</h6></span>
 									</div>
 									<div class="item_add">
 										<span class="item_price"><h6>
 												discount
-												<c:out value="${product.discount}"></c:out>
+												<c:out value="${product.discount}">dd</c:out>
 											</h6></span>
 									</div>
 									<div class="item_add">
@@ -259,16 +259,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="item_add">
 										<!-- Creating form to take input quantity and send the value to controller -->
-										<form action="InsertIntoCart">
-											<input class="item_add" type="text"
-												value="<c:out value="${product.productId}"></c:out>"
-												name="pId" readonly> <input class="item_add"
-												type="hidden"
-												value="<c:out value="${product.quantity}" ></c:out>"
-												name="originalQuantity" readonly> Enter Quantity<input type="number"
-												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="${product.quantity}"> <input
-												type="submit" class="item_price" value="Add to Cart">
-										</form>
+										
+										
+										<form:form action="./insertIntoCart" commandName="cart">
+											<form:input path="productId" class="item_add" type="hidden"
+												value="${pname.productId }"
+												 readonly="true"/>
+											<input path="name" class="item_add" type="hidden" value="${pname.name }"
+												 readonly="true"/>
+												 
+												 Enter Quantity<form:input type="number"
+												name="quantity" path="quantity" placeholder="Enter Quantity" value="1" min="1" max="${pname.quantity }"/>
+												 <form:input
+												type="submit" class="button button2" path="" value="Add to Cart"/>
+										</form:form>
 									</div>
 								</div>
 							</div>
@@ -279,11 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<div class="item_add">
-				<form action="index.jsp">
-					<input type="hidden" value="sasa" name="searchProduct"> <input
-						type="submit" value=" add to cart">
-				</form>
-
+		
 				<div class="clearfix"></div>
 
 				<!-- end content -->

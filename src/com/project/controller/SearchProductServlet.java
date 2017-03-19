@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.bean.Cart;
 import com.project.bean.Product;
 import com.project.bl.CustomerBl;
 @Controller
@@ -25,15 +26,22 @@ public class SearchProductServlet{
 	public String searchProduct( @RequestParam("productName") String productName, ModelMap model)
 	{	Product product =null ;
 		try{
-		     product= customerBl.searchProductByName(productName);
+		     product= customerBl.searchProductByName(productName.toUpperCase());
 			}
 			catch (ClassNotFoundException | SQLException e) {
 			// call error page
 			}
+		
+		if(product== null){
+			//call error page
+		}
+		else{
 		ArrayList<Product> pList = new ArrayList<Product>();
 		pList.add(product);
 		model.addAttribute("productObject", pList);
-		return("SearchResult");
+		model.addAttribute("cart", new Cart());
+		return("SearchResult");}
+		return null;
 			}
 	
 	
