@@ -1,58 +1,57 @@
 package com.project.controller;
-
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.bean.BillDetails;
 import com.project.bean.Customer;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 
-public class CustomerAllBill extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	private static Logger logger=Logger.getLogger(CustomerAllBill.class);
+@Controller
+public class CustomerAllBill {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	@Autowired
+	private CustomerBl customerBl;
+	private static Logger logger = Logger.getLogger(CustomerAllBill.class);
 
-		BasicConfigurator.configure();
- 	    logger.info("customer all bill working!!");
- 	    
-		HttpSession session = request.getSession(false);
-		String mail=(String)session.getAttribute("email");
-		if (mail == null) {
-			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").forward(request, response);
+	@RequestMapping(value = "/getAllBill", method = { RequestMethod.GET, RequestMethod.POST })
+
+	public ModelAndView allBill(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String email = (String) session.getAttribute("email");
+		Customer customer = (Customer) session.getAttribute("customer");
+		boolean status = false;
+		if (email == null) {
+			// Unauthorized user
+			// redirect to index view
+			mv.addObject("user", new User());
+			mv.setViewName("index");
+			return mv;
 		}
-		CustomerBl customerBl = new CustomerBl();
-		Customer customer = (Customer) session.getAttribute("customerObject");
+
 		try {
-			System.out.println("test test" + customer);
-			LinkedList<BillDetails> billList = (LinkedList<BillDetails>) customerBl
+
+			LinkedList<BillDetails> list = (LinkedList<BillDetails>) customerBl
 					.getBillDetails(customer.getCustomerId());
-			session.setAttribute("allBill", billList);
-			request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
+
+			mv.addObject("allBill", list);
+			mv.setViewName("CustomerBillDetails");
+			return mv;
+
 		} catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Unable to Process");
-			request.getRequestDispatcher("error404admin.jsp").forward(request, response);
+			// error page
 		}
 
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		return null;
 	}
 
 }

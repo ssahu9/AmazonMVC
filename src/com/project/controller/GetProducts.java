@@ -26,7 +26,7 @@ import com.project.bl.CustomerBl;
 
 @Controller
 
-@SessionAttributes("proList")
+@SessionAttributes({"proList","currentCategory"})
 public class GetProducts  {
 	
 	private static Logger logger=Logger.getLogger(GetProducts.class);
@@ -35,14 +35,16 @@ public class GetProducts  {
 	public String getProducts( @RequestParam("category") String pCategory, ModelMap model)
 	{	
 		CustomerBl customerBl = new CustomerBl();
-		ArrayList<Product> proList =null;
+		ArrayList<Product> productList =null;
 		
 		try {
 			
-			proList = (ArrayList<Product>)customerBl.viewProduct(pCategory);
-			model.addAttribute("currentCategory", proList);
-			model.addAttribute("user", new User());	
-			model.addAttribute("product", new Product());	
+			productList = (ArrayList<Product>)customerBl.viewProduct(pCategory);
+			//this attribute will be used at the time of product insertion in cart in insertIntoCart controller
+			model.addAttribute("currentCategory", pCategory);
+			model.addAttribute("user", new User());
+			model.addAttribute("product2", new Product());
+			model.addAttribute("productList", productList);	
 		} catch (ClassNotFoundException | SQLException e) {
 			model.addAttribute("errorMessage", "Invalid Entry, please retry again");
 			return("error404page");

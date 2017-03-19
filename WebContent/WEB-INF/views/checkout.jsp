@@ -4,23 +4,34 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@page import="org.springframework.web.context.annotation.RequestScope"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page import="com.project.bean.Product"%>
-<%@page import="javax.websocket.Session"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.project.bean.CartDetails"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML>
+<!-- <!DOCTYPE HTML> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+  "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
-	Website Template | Women :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	Website Template | Home :: w3layouts</title>
+<link href="<c:url value='/static/css/bootstrap.css' />"
+	rel='stylesheet' type='text/css' />
+
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
+
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/style.css' />" rel='stylesheet'
+	type='text/css' />
+
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +40,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+		
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 </script>
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -38,24 +53,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link href="css/table.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="<c:url value='/static/css/megamenu.css' />" media="all"
+	rel='stylesheet' type='text/css' />
+<script src="<c:url value="/static/js/megamenu.js" />"></script>
+
+<c:if test="${empty sessionScope.email}"></<c:redirect
+		url="/index.jsp"></c:redirect>
+</c:if>
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
 	});
 </script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js">
-	
+<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
+<script src="<c:url value="/static/js/simpleCart.min.js" />"></script>
+
+
 </script>
 </head>
 <body>
-
-<c:if test="${empty sessionScope.email}"></<c:redirect url="/index.jsp"></c:redirect></c:if>
-	<!-- Load category list from database -->
 	<!-- header_top -->
 	<div class="top_bg">
 		<div class="container">
@@ -90,38 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="rgt-bottom">
 							<!-- Session check -->
 							<!-- Providing login and register option  only if user variable is exit in session scope -->
-							<c:if test="${sessionScope.email == null}">
 
-								<div class="log">
-									<div class="login">
-										<div id="loginContainer">
-											<a href="#" id="loginButton"><span>Login</span></a>
-											<div id="loginBox">
-												<!-- Insert target jsp page -->
-												<form id="loginForm" action=".\LoginServlet">
-													<fieldset id="body">
-														<fieldset>
-															<label for="email">Email Address</label> <input
-																type="text" name="email" id="email">
-														</fieldset>
-														<fieldset>
-															<label for="password">Password</label> <input
-																type="password" name="password" id="password">
-														</fieldset>
-														<input type="submit" id="login" value="Sign in"> <label
-															for="checkbox"><input type="checkbox"
-															id="checkbox"> <i>Remember me</i></label>
-													</fieldset>
-													<!-- <span><a href="#">Forgot your password?</a></span>-->
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="reg">
-									<a href="register.jsp">REGISTER</a>
-								</div>
-							</c:if>
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="log">
@@ -166,9 +151,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<!-- Category bar -->
+
+				<!-- start header menu -->
+
+
+				<!-- header -->
 				<ul class="megamenu skyblue">
-					<li class="active grid"><a class="color1" href="index.jsp">Home</a></li>
+					<li class="active grid"><a class="color1" href="./">Home</a></li>
 					<li class="grid"><a class="color1" href="GetProducts">ALL</a></li>
 					<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
@@ -178,97 +167,137 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				</ul>
-				<!-- End of Header Menu -->
+			</div>
+		</div>
+	</div>
+
+	<%-- <%
+		LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) RequestScope.ca;
+
+		double sum = 0;
+		for (CartDetails cart : cartDetails) {
+
+			sum = sum + cart.getTotalPrice();
+		}
+	%>
+ --%>
+
+
+	<div class="container">
+		<div class="check">
+			<div class="col-md-3 cart-total">
+				<a class="continue" href="./">Continue shopping</a>
+
+
+				<div class="price-details">
+					<h3>Price Details</h3>
+					<span>Total</span> <span class="total1" style="color: black;">sum></span>
+					<!-- 	<span>Discount</span> -->
+					<!--  <span class="total1">---</span> <span>Delivery Charges</span> <span
+						class="total1">150.00</span>-->
+					<div class="clearfix"></div>
+				</div>
+				<ul class="total_price">
+					<li class="last_price">
+						<h4>TOTAL</h4>
+					</li>
+					<li class="last_price"><span>sum</span></li>
+					<div class="clearfix"></div>
+				</ul>
+
+
+				<div class="clearfix"></div>
+				<a class="order" href="./placeOrder">Place Order</a>
+				<div class="total-item"></div>
+			</div>
+			<div class="col-md-9 cart-items">
+				<h1>My Shopping Bag</h1>
+
+				<script>
+					$(document).ready(function(c) {
+						$('.close1').on('click', function(c) {
+							$('.cart-header').fadeOut('slow', function(c) {
+								//$('.cart-header').remove();
+							});
+						});
+					});
+				</script>
+				<c:forEach items="${cartList}" var="cart">
+					<div class="cart-header">
+						<div class="close1">
+							<form:form commandName="product" action="./removeFromCart">
+
+								<form:input class="item_add" type="hidden"
+									value="${cart.productId}" name="pId" path="productId" />
+								<form:input path="" type="submit" class="item_price"
+									value="Remove From Cart" />
+							</form:form>
+						</div>
+						<div class="cart-sec simpleCart_shelfItem">
+							<div class="cart-item cyc">
+								<img src="${cart.productId}" class="img-responsive" alt="" />
+							</div>
+							<div class="cart-item-info">
+								<h3>${cart.productName}</h3>
+								Quantity:
+								<ul class="qty">
+									<li><p>${cart.quantity}</p></li>
+
+								</ul>
+
+								<div class="delivery">
+
+									<span>Delivered in 2-3 bussiness days</span>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+				</c:forEach>
+
+				<!-- 		<script>
+					$(document).ready(function(c) {
+						$('.close2').on('click', function(c) {
+							$('.cart-header2').fadeOut('slow', function(c) {
+								$('.cart-header2').remove();
+							});
+						});
+					});
+				</script>
+				<div class="cart-header2">
+					<div class="close2"></div>
+					<div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							<img src="images/11.jpg" class="img-responsive" alt="" />
+						</div>
+						<div class="cart-item-info">
+							
+							<h3>
+								<a href="#">Mountain Hopper(XS R034)</a><span>Model No:
+									3578</span>
+							</h3>
+							<ul class="qty">
+								<li><p>Size : 5</p></li>
+								<li><p>Qty : 1</p></li>
+							</ul>
+							<div class="delivery">
+								<p>Service Charges : Rs.100.00</p>
+								<span>Delivered in 2-3 bussiness days</span>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+ -->
+				<div class="clearfix"></div>
 
 			</div>
 		</div>
 	</div>
 
-	<!-- *************************************************************************************************** -->
-	<!-- -->
-	<!-- content -->
-	<div class="container" style="margin-left: 130px;">
-		<div class="women_main" style="margin-left: 50px;">
-			<!-- *********************************************************************************************** -->
-			<!-- start content -->
-		<script>
- 
-			function printDiv(divName) {
-			     var printContents = document.getElementById(divName).innerHTML;
-			     var originalContents = document.body.innerHTML;
 
-			     document.body.innerHTML = printContents;
-
-			     window.print();
-
-			     document.body.innerHTML = originalContents;
-			} 
-						
-
-		</script>
-			<div class="items">
-				<div style="width: 100%;" id="divName">
-					<!-- Run loop to display the products  -->
-					<!-- Used jstl tag for loop and printing the object values -->
-					<table>
-						<c:forEach items="${sessionScope.allBill}" var="bill">
-							<tr>
-								<td><h4>DATE</h4></td>
-								<td><h4>
-										<c:out value="${bill.date}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4>BILL ID</h4></td>
-								<td><h4>
-										<c:out value="${bill.billId}"></c:out>
-									</h4></td>
-							</tr>
-
-							<tr>
-								<td><h4>PRODUCT ID</h4></td>
-								<td><h4>
-										<c:out value="${bill.productId}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4>PRODUCT PRICE</h4></td>
-								<td><h4>
-										<c:out value="${bill.price}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4>PRODUCT QUANTITY</h4></td>
-								<td><h4>
-										<c:out value="${bill.quantity}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4>DISCOUNT</h4></td>
-								<td><h4>
-										<c:out value="${bill.discount}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4>TOTAL PRICE</h4></td>
-								<td><h4>
-										<c:out value="${bill.totalPrice}"></c:out>
-									</h4></td>
-							</tr>
-							<tr>
-								<td><h4><br></h4></td>
-								<td><h4>
-										<br> 	
-									</h4></td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<input type="button" onclick="printDiv('divName')" value="SAVE">
-			</div>
-		</div>
-
-		<!-- end content -->
+	<div class="clearfix"></div>
 	</div>
 	</div>
 	<!-- Foot top section (Follow us on) -->

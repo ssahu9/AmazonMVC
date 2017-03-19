@@ -135,10 +135,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!--  Link for signout  only if user variable is not exit in session scope -->
 							<c:if test="${sessionScope.email != null}">
 								<div class="log">
-									<a href="./Logout">LOGOUT</a>
+									<a href="./logout">LOGOUT</a>
 								</div>
 								<div class="log">
-									<a href="./CustomerAllBill">BILL DETAILS</a>
+									<a href="./getAllBill">BILL DETAILS</a>
 								</div>
 								
 								<!--  Link for profile information updation  -->
@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</c:if>
 							<div class="create_btn">
-								<a href="CheckoutServlet" style="margin-left: 50px;">CHECKOUT</a>
+								<a href="./checkout" style="margin-left: 50px;">CHECKOUT</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -167,9 +167,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						<div class="search">
-							<form:form action="SearchProductServlet">
+							<form:form action="./searchProduct">
 								<input type="text" value="" placeholder="search by product name"
-									name="searchProduct"> <input type="submit" value="">
+									name="productName"> <input type="submit" value="">
 							</form:form>
 						</div>
 						<div class="clearfix"></div>

@@ -4,6 +4,8 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <%@page import="com.project.bean.Product"%>
 <%@page import="javax.websocket.Session"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,11 +18,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
 	Website Template | Women :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	
+<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
+
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,16 +42,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="<c:url value='/static/css/megamenu.css' />" media="all" rel='stylesheet' type='text/css' />
+
+	<script src="<c:url value="/static/js/megamenu.js" />"></script>
+
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
 	});
 </script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js">
+<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
+<script src="<c:url value="/static/js/simpleCart.min.js" />"></script>
+
 	
 </script>
 </head>

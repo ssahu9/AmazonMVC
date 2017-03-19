@@ -13,51 +13,57 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.bean.CartDetails;
 import com.project.bean.Category;
 import com.project.bean.Customer;
+import com.project.bean.Product;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 
-public class CheckoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private static Logger logger=Logger.getLogger(CheckoutServlet.class);
+@Controller
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		BasicConfigurator.configure();
- 	    logger.info("checkout working properly!!");
- 	    
-		HttpSession session = request.getSession(false);
-		String mail=(String)session.getAttribute("email");
-		if (mail == null) {
-			request.setAttribute("errorMessage", "<a href=\"index.jsp\">Please Login</a> ");
-			request.getRequestDispatcher("error404page.jsp").forward(request, response);
+@SessionAttributes("cartList")
+public class CheckoutServlet {
+	@Autowired
+	private CustomerBl customerBl;
+	private static Logger logger = Logger.getLogger(CheckoutServlet.class);
+
+	@RequestMapping(value = "/checkout", method = { RequestMethod.GET, RequestMethod.POST })
+	
+	public ModelAndView checkout(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String email = (String) session.getAttribute("email");
+		boolean status = false;
+		if (email == null) {
+			// Unauthorized user
+			// redirect to index view
+			mv.addObject("user", new User());
+			mv.setViewName("index");
+			return mv;
 		}
-		response.setContentType("text/html");
-		CustomerBl customerBl = new CustomerBl();
 		LinkedList<CartDetails> cartDetails = null;
-		Customer customer = (Customer) session.getAttribute("customerObject");
+		Customer customer = (Customer) session.getAttribute("customer");
 		try {
 			cartDetails = (LinkedList<CartDetails>) customerBl.viewCart(customer.getCustomerId());
-			session.setAttribute("cartList", cartDetails);
-			response.sendRedirect("checkout.jsp");
-
+			mv.addObject("product", new Product());
 			System.out.println(cartDetails);
-
+			mv.addObject("cartList", cartDetails);
+			mv.setViewName("checkout");
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
-			request.setAttribute("errorMessage", "Unable to checkout");
-			request.getRequestDispatcher("error404page.jsp").forward(request, response);
+			// call error page and display appropriate message
+			// request.setAttribute("errorMessage", "Unable to checkout");
+			// request.getRequestDispatcher("error404page.jsp").forward(request,
+			// response);
 		}
-
-		
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		return mv;
 	}
 
 }

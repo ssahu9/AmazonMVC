@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <%@page import="com.project.bean.Product"%>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,12 +17,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Gretong a Ecommerce Category Flat Bootstarp Responsive
 	Website Template | Details :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/bootstrap.css' />" rel='stylesheet' type='text/css' />	
+
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script src="<c:url value="/static/js/jquery-1.11.1.min.js" />"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href="css/table.css" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/style.css' />" rel='stylesheet' type='text/css' />
+<link href="<c:url value='/static/css/table.css' />" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,23 +41,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900'
 	rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link rel="stylesheet" href="css/etalage.css">
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="<c:url value='/static/css/megamenu.css' />" rel='stylesheet' media="all" type='text/css' />
+<link href="<c:url value='/static/css/etalage.css' />" rel='stylesheet' type='text/css' />
+<script src="<c:url value="/static/js/megamenu.js" />"></script>
+
 <script>
 	$(document).ready(function() {
 		$(".megamenu").megamenu();
 	});
 </script>
-<script src="js/jquery.etalage.min.js"></script>
-<script src="js/menu_jquery.js"></script>
+<script src="<c:url value="/static/js/jquery.etalage.min.js" />"></script>
+<script src="<c:url value="/static/js/menu_jquery.js" />"></script>
 <script>
 	jQuery(document)
 			.ready(
 					function($) {
-
-
 				$('#etalage').etalage({
 					thumb_image_width: 300,
 					thumb_image_height: 400,
@@ -67,7 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
 					}
 				});
-
 						$('#etalage')
 								.etalage(
 										{
@@ -84,8 +82,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														+ instance_id + '")');
 											}
 										});
-
-
 					});
 </script>
 
@@ -216,15 +212,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="single_left">
 				 	<div class="grid images_3_of_2"> -
 						<ul id="etalage">
-				  <% 
-				  
-				  Product product2=new Product();
-				  
-				product2=(Product)(request.getAttribute("pname")); %>
 
 							<li>
 								<a href="optionallink.jsp">
-									<img  class="etalage_source_image" style="width:150px" height="150px" src="<%=product2.getProductId() %>" class="img-responsive" alt="" />
+									<img  class="etalage_source_image" style="width:150px" height="150px" src="${pname.productId }" class="img-responsive" alt="" />
 								<!-- 	<img class="etalage_source_image" src="images/d1.jpg" class="img-responsive" title="" />
 									 --><%--<img class="etalage_source_image" style="width:150px" height="150px" src="<%=product2.getProductId() %>" class="img-responsive" alt="" />
 						--%>	</a>
@@ -234,42 +225,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <div class="clearfix"></div>		
 				  </div>
 				  <div class="desc1 span_3_of_2">
-					<h3><%=product2.getName() %></h3>
+					<h3>${pname.name }</h3>
 					<span class="brand"> <a href="#"> </a></span>
 					<br>
 					<span class="text">Product Id:</span>
-					<span class="price-new"><%=product2.getProductId() %></span>
+					<span class="price-new">${pname.productId }</span>
 				
 						<div class="price">
 							<span class="text">Price:</span>
-							<span class="price-new"><%=product2.getPrice() %></span> 
-							<%
-							double newPrice= product2.getPrice()-(product2.getDiscount()/100)*product2.getPrice();	
-							
-							%><br>
+							<span class="price-new">${pname.price }</span> 
+							<c:set var="price" value="${pname.price }"></c:set>
+							<c:set var="price" value="${pname.price }"></c:set>
+							<br>
 							<span class="text">Discount:</span>
 							
-					 	<span class="price-new"><%=product2.getDiscount()%>%</span>  <br>
+					 	<span class="price-new">${pname.discount }%</span>  <br>
 							<span class="text">New Price:</span>
-							<span class="price-new"><%= newPrice%></span> 
+							<span class="price-new"> ${pname.price-(pname.discount/100)*pname.price}</span> 
 						
 				
 						</div>
 				
 					<div class="btn_form">
 						
-						<form action="InsertIntoCart" >
-											<input class="item_add" type="hidden"
-												value="<c:out value="<%=product2.getProductId() %>"></c:out>"
-												name="pId" readonly>
-<input class="item_add" type="hidden" value="<c:out value="<%=product2.getName() %>"></c:out>"
-												name="pname" readonly><input class="item_add"
-												type="hidden"
-												value="<c:out value="<%=product2.getQuantity() %>" ></c:out>"
-												name="originalQuantity" readonly> Enter Quantity<input type="number"
-												name="quantity" placeholder="Enter Quantity" value="0" min="0" max="<%=product2.getQuantity() %>"> <input
-												type="submit" class="button button2" value="Add to Cart">
-										</form>
+						<form:form action="./insertIntoCart" commandName="cart">
+											<form:input path="productId" class="item_add" type="hidden"
+												value="${pname.productId }"
+												 readonly="true"/>
+<input path="name" class="item_add" type="hidden" value="${pname.name }"
+												 readonly="true"/>
+												 
+												 Enter Quantity<form:input type="number"
+												name="quantity" path="quantity" placeholder="Enter Quantity" value="1" min="1" max="${pname.quantity }"/>
+												 <form:input
+												type="submit" class="button button2" path="" value="Add to Cart"/>
+										</form:form>
 						
 						
 					</div>
@@ -312,9 +302,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-6 s-c">
 			<div class="stay">
 						<div class="stay-left">
-							<form>
-								<input type="text" placeholder="Enter your email to join our newsletter" required="">
-							</form>
+							<form:form>
+								<input type="text" placeholder="Enter your email to join our newsletter" required=""/>
+							</form:form>
 						</div>
 						<div class="btn-1">
 							<form>
@@ -324,49 +314,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"> </div>
 
 
+<!-- Footer Section -->
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 cust">
 				<h4>CUSTOMER CARE</h4>
-				<li><a href="#">Help Center</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="buy.jsp">How To Buy</a></li>
-				<li><a href="#">Delivery</a></li>
+				<li><a href="CallErrorPageServlet">Help Center</a></li>
+				<li><a href="CallErrorPageServlet">FAQ</a></li>
+				<li><a href="CallErrorPageServlet">How To Buy</a></li>
+				<li><a href="CallErrorPageServlet">Delivery</a></li>
 			</div>
 			<div class="col-md-2 abt">
 				<h4>ABOUT US</h4>
-				<li><a href="#">Our Stories</a></li>
-				<li><a href="#">Press</a></li>
-				<li><a href="#">Career</a></li>
-				<li><a href="contact.jsp">Contact</a></li>
+				<li><a href="CallErrorPageServlet">Our Stories</a></li>
+				<li><a href="CallErrorPageServlet">Press</a></li>
+				<li><a href="CallErrorPageServlet">Career</a></li>
+				<li><a href="CallErrorPageServlet">Contact</a></li>
 			</div>
 			<div class="col-md-2 myac">
 				<h4>MY ACCOUNT</h4>
 				<li><a href="register.jsp">Register</a></li>
-				<li><a href="#">My Cart</a></li>
-				<li><a href="#">Order History</a></li>
-				<li><a href="buy.jsp">Payment</a></li>
+				<li><a href="CheckoutServlet">My Cart</a></li>
+				<li><a href="./CustomerAllBill">Bill History</a></li>
+				<li><a href="CheckoutServlet">Payment</a></li>
 			</div>
 			<div class="col-md-5 our-st">
 				<div class="our-left">
 					<h4>OUR STORES</h4>
 				</div>
-				<div class="our-left1">
-					<div class="cr_btn">
-						<a href="#">SOLO</a>
-					</div>
-				</div>
-				<div class="our-left1">
-					<div class="cr_btn1">
-						<a href="#">BOGOR</a>
-					</div>
-				</div>
 				<div class="clearfix"></div>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
-				<li><a href="mailto:info@example.com"><i class="mail">
-					</i>info@sitename.com </a></li>
-
+				
 			</div>
 			<div class="clearfix"></div>
 			<p>
@@ -375,5 +354,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</p>
 		</div>
 	</div>
+	<!-- End of Footer section -->
 </body>
 </html>

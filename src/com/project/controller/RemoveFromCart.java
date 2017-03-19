@@ -11,47 +11,56 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.bean.Customer;
+import com.project.bean.Product;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
 
+@Controller
 public class RemoveFromCart extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private static Logger logger=Logger.getLogger(RemoveFromCart.class);
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+
+	@Autowired
+	private CustomerBl customerBl;
+	private static Logger logger = Logger.getLogger(RemoveFromCart.class);
+
+	@RequestMapping(value = "/removeFromCart", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView removeFromCart(@ModelAttribute("product") Product product, HttpSession session) {
 		BasicConfigurator.configure();
- 	    logger.info("remove from cart working!!");
-		
-		HttpSession session = request.getSession(false);
-		String mail = (String) request.getAttribute("mail");
-		if (mail == null) {
-			request.setAttribute("errorMessage", "Please Login ");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+		logger.info("remove from cart working!!");
+		ModelAndView mv = new ModelAndView();
+		String email = (String) session.getAttribute("email");
+		Customer customer = (Customer) session.getAttribute("customer");
+		boolean status = false;
+		if (email == null) {
+			// Unauthorized user
+			// redirect to index view
+			mv.addObject("user", new User());
+			mv.setViewName("index");
+			return mv;
 		}
-		Customer customer = (Customer) session.getAttribute("customerObject");
-		response.setContentType("text/html");
-
-		CustomerBl customerBl = new CustomerBl();
-		int pid = Integer.parseInt(request.getParameter("pId"));
-
 		try {
-			customerBl.removeFromCart(pid, customer.getCustomerId());
-
+			customerBl.removeFromCart(product.getProductId(), customer.getCustomerId());
+			String url = "/checkout";
+			return new ModelAndView("redirect:" + url);
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			// TODO Auto-generated catch block
-			request.setAttribute("errorMessage", "Failed to Remove the product from the cart");
-			request.getRequestDispatcher("error404page.jsp").include(request, response);
+			/*
+			 * request.setAttribute("errorMessage",
+			 * "Failed to Remove the product from the cart");
+			 * request.getRequestDispatcher("error404page.jsp").include(request,
+			 * response);
+			 */
 		}
-		response.sendRedirect("CheckoutServlet");
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+return null;
 	}
 
 }

@@ -12,6 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -259,7 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="item_add">
 										<!-- Creating form to take input quantity and send the value to controller -->
 									
-										<form:form action="./ProductDetails" commandName="product">
+										<form:form action="./ProductDetails" commandName="product2">
 											
    <form:input class="item_add" type="hidden" value="${product.name}" readonly="true" path="name"/>
                                           
@@ -287,7 +288,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 
 	<!-- Footer Section -->
+	<div class="foot-top">
+	<div class="container">
+		<div class="col-md-6 s-c">
+			<li>
+				<div class="fooll">
+					<h5>follow us on</h5>
+				</div>
+			</li>
+			<li>
+				<div class="social-ic">
+					<ul>
+						<li><a href="#"><i class="facebok"> </i></a></li>
+						<li><a href="#"><i class="twiter"> </i></a></li>
+						<li><a href="#"><i class="goog"> </i></a></li>
+						<li><a href="#"><i class="be"> </i></a></li>
+						<li><a href="#"><i class="pp"> </i></a></li>
+							<div class="clearfix"></div>	
+					</ul>
+				</div>
+			</li>
+				<div class="clearfix"> </div>
+		</div>
+		<div class="col-md-6 s-c">
+			<div class="stay">
+						<div class="stay-left">
+							<form>
+								<input type="text" placeholder="Enter your email to join our newsletter" required="">
+							</form>
+						</div>
+						<div class="btn-1">
+							<form>
+								<input type="submit" value="join">
+							</form>
+						</div>
+							<div class="clearfix"> </div>
 
+
+	
+<!-- Footer Section -->
+	<div class="footer" style="margin-top: 50px"  >
+		<div class="container">
+			<div class="col-md-3 cust">
+				<h4>CUSTOMER CARE</h4>
+				<li><a href="CallErrorPageServlet">Help Center</a></li>
+				<li><a href="CallErrorPageServlet">FAQ</a></li>
+				<li><a href="CallErrorPageServlet">How To Buy</a></li>
+				<li><a href="CallErrorPageServlet">Delivery</a></li>
+			</div>
+			<div class="col-md-2 abt">
+				<h4>ABOUT US</h4>
+				<li><a href="CallErrorPageServlet">Our Stories</a></li>
+				<li><a href="CallErrorPageServlet">Press</a></li>
+				<li><a href="CallErrorPageServlet">Career</a></li>
+				<li><a href="CallErrorPageServlet">Contact</a></li>
+			</div>
+			<div class="col-md-2 myac">
+				<h4>MY ACCOUNT</h4>
+				<li><a href="register.jsp">Register</a></li>
+				<li><a href="CheckoutServlet">My Cart</a></li>
+				<li><a href="./CustomerAllBill">Bill History</a></li>
+				<li><a href="CheckoutServlet">Payment</a></li>
+			</div>
+			<div class="col-md-5 our-st">
+				<div class="our-left">
+					<h4>OUR STORES</h4>
+				</div>
+				<div class="clearfix"></div>
+				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
+				<li><i class="phone"> </i>025-2839341</li>
+				
+			</div>
+			<div class="clearfix"></div>
+			<p>
+				Copyrights © 2015 Gretong. All rights reserved | Template by <a
+					href="http://w3layouts.com/">W3layouts</a>
+			</p>
+		</div>
+	</div>
+	<!-- End of Footer section -->
 	<!-- End of Footer section -->
 </body>
 </html>

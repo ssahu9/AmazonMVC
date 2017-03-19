@@ -1,63 +1,40 @@
 package com.project.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.bean.Product;
 import com.project.bl.CustomerBl;
-
-public class SearchProductServlet extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+@Controller
+public class SearchProductServlet{
+	@Autowired
+	private CustomerBl customerBl;
+	
 	private static Logger logger=Logger.getLogger(SearchProductServlet.class);
 	
-	String pName;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		BasicConfigurator.configure();
- 	    logger.info("search product servlet working!!");
-		
-		response.setContentType("text/html");
-		PrintWriter out = null;
-		Product product = null;
-		HttpSession session = request.getSession(false);
-		
-		
-		if (session != null){
-			
-		String productName = request.getParameter("searchProduct");
-		
-		 pName=productName.toUpperCase();
-		
-		CustomerBl customerBl = new CustomerBl();
+	
+	@RequestMapping(value="/searchProduct")
+	
+	public String searchProduct( @RequestParam("productName") String productName, ModelMap model)
+	{	Product product =null ;
 		try{
-	     product= customerBl.searchProductByName(pName);
-		}
-		catch (ClassNotFoundException | SQLException e) {
-			request.setAttribute("errorMessage", "Unable to search");
-			request.getRequestDispatcher("error404page.jsp").forward(request, response);
+		     product= customerBl.searchProductByName(productName);
 			}
-		}
+			catch (ClassNotFoundException | SQLException e) {
+			// call error page
+			}
 		ArrayList<Product> pList = new ArrayList<Product>();
 		pList.add(product);
-		request.setAttribute("productObject", pList);
-		request.getRequestDispatcher("SearchResult.jsp").forward(request, response);
-		}
+		model.addAttribute("productObject", pList);
+		return("SearchResult");
+			}
 	
 	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 }

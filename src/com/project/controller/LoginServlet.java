@@ -1,19 +1,19 @@
 package com.project.controller;
 
-import java.io.IOException;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 import com.project.bean.Category;
@@ -24,13 +24,15 @@ import com.project.bl.CustomerBl;
 @Controller
 @RequestMapping("/")
 @SessionAttributes({ "customer", "email" })
+
 public class LoginServlet {
 	private ServletContext servletContext;
-	private CustomerBl customerBl = new CustomerBl();	
+	@Autowired
+	private CustomerBl customerBl;	
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcome(ModelMap model, HttpServletRequest request) {
 		this.servletContext = request.getServletContext();
-		CustomerBl customerBl = new CustomerBl();
+		//CustomerBl customerBl = new CustomerBl();
 		ArrayList<Category> category = new ArrayList<Category>();
 		Category category1 = new Category();
 		category1.setCategoryName("Sports");
@@ -40,11 +42,12 @@ public class LoginServlet {
 		
 		 return "error404admin";
 		 }
-
+		 String demo="asasasas";
 		User user = new User();
 		model.addAttribute("user", user);
 		category.add(category1);
-		servletContext.setAttribute("demo", "demo apllcation scope");
+		model.addAttribute("demo", "demo apllcation scope");
+		
 		servletContext.setAttribute("categoryList", category);
 		return "index";
 	}

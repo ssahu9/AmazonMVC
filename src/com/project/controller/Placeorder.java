@@ -13,60 +13,68 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.bean.Bill;
 import com.project.bean.BillDetails;
 import com.project.bean.CartDetails;
 import com.project.bean.Customer;
+import com.project.bean.User;
 import com.project.bl.CustomerBl;
-public class Placeorder extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private static Logger logger=Logger.getLogger(Placeorder.class);
+
+@Controller
+
+public class Placeorder  {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BasicConfigurator.configure();
- 	    logger.info("place order working!!");
-		
-		CustomerBl customerBL = new CustomerBl();
-		
-		HttpSession session = request.getSession(false);
-		String mail=(String)session.getAttribute("email");
-			if(mail==null){
-				request.setAttribute("errorMessage", "Please Login ");
-				request.getRequestDispatcher("error404page.jsp").forward(request, response);
-			}
-		Customer customer = (Customer) session.getAttribute("customerObject");
-		long millis=System.currentTimeMillis();  
-		java.sql.Date date=new java.sql.Date(millis);  
+	private static Logger logger=Logger.getLogger(Placeorder.class);
+	@Autowired
+	private CustomerBl customerBl;
+	@RequestMapping(value = "/placeOrder", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView placeOrder( HttpSession session)
+	{
+		ModelAndView mv = new ModelAndView();
+		String email = (String) session.getAttribute("email");
+		Customer customer = (Customer) session.getAttribute("customer");
+		boolean status = false;
+		if (email == null) {
+			// Unauthorized user
+			// redirect to index view
+			mv.addObject("user", new User());
+			mv.setViewName("index");
+			return mv;
+		}
 		
 		try {
-			LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) customerBL.viewCart(customer.getCustomerId());
+			LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) customerBl.viewCart(customer.getCustomerId());
 			if(cartDetails==null){
 				// bill will not generate as Cart is empty 
 				// call error message
-				request.setAttribute("errorMessage", "Cart is empty");
-				request.getRequestDispatcher("error404page.jsp").forward(request, response);
+//				request.setAttribute("errorMessage", "Cart is empty");
+//				request.getRequestDispatcher("error404page.jsp").forward(request, response);
 			}
 			else{
 				
 				Bill bill = null;
-				System.out.println("customer id"+customer.getCustomerId());
-				bill = customerBL.generateBill(customer.getCustomerId());
+
+				bill = customerBl.generateBill(customer.getCustomerId());
 				if(bill == null){
 					// something went wrong
 					// call error message
-					request.setAttribute("errorMessage", "Unable to Process bill");
-					request.getRequestDispatcher("error404page.jsp").forward(request, response);
-					
 					
 				}
 				else{
 					// bill generated successful 
 					// display current bill
-					System.out.println("billllll"+bill);
-					List<BillDetails> list = customerBL.getCurrentBill(bill);
-					session.setAttribute("allBill", list);
-					request.getRequestDispatcher("CustomerBillDetails.jsp").forward(request, response);
+					
+					List<BillDetails> list = customerBl.getCurrentBill(bill);
+					
+					mv.addObject("allBill", list);
+					mv.setViewName("CustomerBillDetails");
+					return mv;
 					
 					
 					
@@ -75,12 +83,17 @@ public class Placeorder extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			// call error page and display appropriate message
 		}
+		
+		
+		
+		
+		
+		return mv;
+	}
 	
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
+	
+	
+	
 }
