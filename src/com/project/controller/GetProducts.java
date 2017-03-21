@@ -38,8 +38,14 @@ public class GetProducts  {
 		ArrayList<Product> productList =null;
 		
 		try {
+			if(pCategory.equalsIgnoreCase("all"))
+			{
+				productList = (ArrayList<Product>)customerBl.viewProduct(null);
+			}
+			else{
+				productList = (ArrayList<Product>)customerBl.viewProduct(pCategory);	
+			}
 			
-			productList = (ArrayList<Product>)customerBl.viewProduct(pCategory);
 			//this attribute will be used at the time of product insertion in cart in insertIntoCart controller
 			model.addAttribute("currentCategory", pCategory);
 			model.addAttribute("user", new User());

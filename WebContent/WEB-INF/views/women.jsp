@@ -224,10 +224,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="grid1_of_4" style="margin-left: 8px;">
 							<!-- div for product image -->
 							<div class="content_box">
-							<%! String path= "images/"; %>
-							<%! String ext =".jpg"; %>
-								<img style="idth:"100px" height="100px" src="${product.productId}" class="img-responsive" alt="" />
+							
+							<c:set var="path" value="/static/images/${product.productId}.jpg"></c:set>
+							<c:out value="${path }"></c:out>
+					
+								<img style="idth:"100px" height="100px" src="<c:url value="${path}" />" class="img-responsive" alt="" />
 								<h4>
+					<form:label path="firstname"><spring:message code="label.firstname"></spring:message></form:label>
 								<span class="mycss"><c:out   value="${product.name}"></c:out></span>	
 								</h4>
 								<p></p>

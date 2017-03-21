@@ -45,9 +45,10 @@ public class CheckoutServlet {
 		if (email == null) {
 			// Unauthorized user
 			// redirect to index view
-			mv.addObject("user", new User());
-			mv.setViewName("index");
-			return mv;
+			 mv.addObject("user", new User());
+			  mv.addObject("errorMessage", "please login");
+			  mv.setViewName("error404page");
+			  return mv;
 		}
 		LinkedList<CartDetails> cartDetails = null;
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -60,9 +61,10 @@ public class CheckoutServlet {
 			mv.setViewName("checkout");
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			// call error page and display appropriate message
-			// request.setAttribute("errorMessage", "Unable to checkout");
-			// request.getRequestDispatcher("error404page.jsp").forward(request,
-			// response);
+			
+			  mv.addObject("user", new User());
+			  mv.addObject("errorMessage", "Unable to checkout");
+			  mv.setViewName("error404page"); 
 		}
 		return mv;
 	}

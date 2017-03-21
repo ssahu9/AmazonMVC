@@ -28,14 +28,14 @@ import com.project.bl.CustomerBl;
 
 @Controller
 
-public class Placeorder  {
-	
-	private static Logger logger=Logger.getLogger(Placeorder.class);
+public class Placeorder {
+
+	private static Logger logger = Logger.getLogger(Placeorder.class);
 	@Autowired
 	private CustomerBl customerBl;
+
 	@RequestMapping(value = "/placeOrder", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView placeOrder( HttpSession session)
-	{
+	public ModelAndView placeOrder(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		String email = (String) session.getAttribute("email");
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -47,54 +47,45 @@ public class Placeorder  {
 			mv.setViewName("index");
 			return mv;
 		}
-		
+
 		try {
-			LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) customerBl.viewCart(customer.getCustomerId());
-			if(cartDetails==null){
-				// bill will not generate as Cart is empty 
+			LinkedList<CartDetails> cartDetails = (LinkedList<CartDetails>) customerBl
+					.viewCart(customer.getCustomerId());
+			if (cartDetails == null) {
+				// bill will not generate as Cart is empty
 				// call error message
-//				request.setAttribute("errorMessage", "Cart is empty");
-//				request.getRequestDispatcher("error404page.jsp").forward(request, response);
-			}
-			else{
-				
+				// request.setAttribute("errorMessage", "Cart is empty");
+				// request.getRequestDispatcher("error404page.jsp").forward(request,
+				// response);
+			} else {
+
 				Bill bill = null;
 
 				bill = customerBl.generateBill(customer.getCustomerId());
-				if(bill == null){
+				if (bill == null) {
 					// something went wrong
 					// call error message
-					
-				}
-				else{
-					// bill generated successful 
+
+				} else {
+					// bill generated successful
 					// display current bill
-					
+
 					List<BillDetails> list = customerBl.getCurrentBill(bill);
-					
+
 					mv.addObject("allBill", list);
 					mv.addObject("user", new User());
 					mv.setViewName("CustomerBillDetails");
 					return mv;
-					
-					
-					
+
 				}
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			// call error page and display appropriate message
+			mv.addObject("user", new User());
+			mv.addObject("errorMessage", "Sorry, Please try again!!!!!!!!");
+			mv.setViewName("error404page");
 		}
-		
-		
-		
-		
-		
+
 		return mv;
 	}
-	
-	
-	
-	
+
 }

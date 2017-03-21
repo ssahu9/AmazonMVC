@@ -51,13 +51,9 @@ public class RemoveFromCart extends HttpServlet {
 			String url = "/checkout";
 			return new ModelAndView("redirect:" + url);
 		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
-			// TODO Auto-generated catch block
-			/*
-			 * request.setAttribute("errorMessage",
-			 * "Failed to Remove the product from the cart");
-			 * request.getRequestDispatcher("error404page.jsp").include(request,
-			 * response);
-			 */
+			  mv.addObject("user", new User());
+			  mv.addObject("errorMessage", "Sorry please try agin");
+			  mv.setViewName("error404page"); 
 		}
 		
 return null;

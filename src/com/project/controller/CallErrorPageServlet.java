@@ -8,24 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-public class CallErrorPageServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
+import com.project.bean.User;
+@Controller
+public class CallErrorPageServlet  {
 	private static Logger logger=Logger.getLogger(CallErrorPageServlet.class);
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		BasicConfigurator.configure();
- 	    logger.info("error page working fine working!!");
-		
-		request.getRequestDispatcher("DisplayError.jsp").include(request, response);
+	@RequestMapping(value="/CallErrorPageServlet")
+	public ModelAndView displayErrorPage()
+	{
+	
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", new User());
+		  mv.addObject("errorMessage", "Failed to save");
+		  mv.setViewName("error404page");
+		  return mv;
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
-
+	
 }

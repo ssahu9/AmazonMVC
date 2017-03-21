@@ -31,11 +31,10 @@ public class CustomerAllBill {
 		Customer customer = (Customer) session.getAttribute("customer");
 		boolean status = false;
 		if (email == null) {
-			// Unauthorized user
-			// redirect to index view
-			mv.addObject("user", new User());
-			mv.setViewName("index");
-			return mv;
+			 mv.addObject("user", new User());
+			  mv.addObject("errorMessage", "please Login");
+			  mv.setViewName("error404page");			
+			  return mv;
 		}
 
 		try {
@@ -48,10 +47,12 @@ public class CustomerAllBill {
 			return mv;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			// error page
+			 mv.addObject("user", new User());
+			  mv.addObject("errorMessage", "Some internal problem occured please try again!!!");
+			  mv.setViewName("error404page");
 		}
 
-		return null;
+		return mv;
 	}
 
 }

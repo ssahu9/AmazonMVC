@@ -182,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- Category bar -->
 				<ul class="megamenu skyblue">
 					<li class="active grid"><a class="color1" href="./">Home</a></li>
-					<li class="grid"><a class="color1"  href="./getProducts?category=null">ALL</a></li>
+					<li class="grid"><a class="color1"  href="./getProducts?category=all">ALL</a></li>
 				<c:forEach items="${applicationScope['categoryList']}"
 						var="category">
 						<li class="grid"><a class="color6"  href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>

@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="#" id="loginButton"><span>Login</span></a>
 											<div id="loginBox">
 												<!-- Insert target jsp page -->
-												<form:form  action="./login" method="post"  id="loginForm" commandName="user">
+												<%-- <form:form  action="./login" method="post"  id="loginForm" commandName="user">
 													<fieldset id="body">
 														<fieldset>
 															<form:label path="email">Email Address</form:label>
@@ -127,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</fieldset>
 													<!-- <span><a href="#">Forgot your password?</a></span>-->
 												</form:form>
-											</div>
+ --%>											</div>
 										</div>
 									</div>
 								</div>
@@ -244,25 +244,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- Form -->
 						<form:form id="registration_form" commandName="customer" action="./register" method="post">
 							<div>
-								<form:label path="firstName"> <form:input placeholder="first name:" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
+								<form:label path="firstName"> <form:input style="text-transform:uppercase" placeholder="first name:" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
 								</form:label>
 								<form:errors path="firstName" class="help-inline"/>
 							</div>
 							<div>
-								<form:label path="lastName"> <form:input placeholder="last name:" type="text"
+								<form:label path="lastName"> <form:input placeholder="last name:" style="text-transform:uppercase" type="text"
 									tabindex="2" path="lastName" pattern="^[a-zA-Z]{1,20}$" name="lname" 
 									/>
 								</form:label>
 								<form:errors path="lastName" class="help-inline"/>
 							</div>
 							<div>
-								<form:label path="email"> <form:input placeholder="email address:" type="email"
-									name="email" path="email" tabindex="3" />
-								</form:label>
+								<form:label path="email"> </form:label>
+								<form:input placeholder="email address:" style="text-transform:uppercase" type="email"
+									 path="email" tabindex="3" />
+								
 								<form:errors path="email" class="help-inline"/>
 							</div>
 							<div>
-								<form:label path="phoneNumber"> <form:input placeholder="phone number:" 
+								<form:label path="phoneNumber"> <form:input placeholder="phone number:"  
 									 path="phoneNumber" tabindex="3" />
 								</form:label>
 								<form:errors path="phoneNumber" class="help-inline"/>
@@ -285,24 +286,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>existing user</h2>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form" action=".\LoginServlet" method="post">
+						<form:form id="registration_form" action="./login"  commandName="user" method="post">
 							<div>
-								<label> <input placeholder="email:" name="email"
-									type="email" tabindex="3" required>
+								<label> <form:input path="email" placeholder="email:" 
+									type="email" tabindex="3" required="true"/>
 								</label>
 							</div>
 							<div>
-								<label> <input placeholder="password" name="password"
-									type="password" tabindex="4" required>
+								<label> <form:input  path="password" placeholder="password" 
+									type="password" tabindex="4" required="true"/>
 								</label>
 							</div>
 							<div>
-								<input type="submit" value="sign in" id="register-submit">
+								<input type="submit" value="sign in" id="register-submit"/>
 							</div>
-							<div class="forget">
-								<a href="#">forgot your password</a>
-							</div>
-						</form>
+							
+						</form:form>
 						<!-- /Form -->
 					</div>
 				</div>

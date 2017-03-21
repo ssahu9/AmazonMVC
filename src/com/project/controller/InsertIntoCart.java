@@ -1,4 +1,4 @@
-package com.project.controller;
+  package com.project.controller;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -35,12 +35,13 @@ public class InsertIntoCart  {
 	  {
 		  ModelAndView mv = new ModelAndView();
 		  String email = (String)session.getAttribute("email");
+		 
 		  boolean status= false;
 		  if(email== null){
 			  // Unauthorized user
 			  // redirect to index view
 			  mv.addObject("user", new User());
-			  mv.setViewName("index");
+			  mv.setViewName("error404page");
 			  return mv;
 		  }
 		  else{
@@ -58,7 +59,9 @@ public class InsertIntoCart  {
 					 status=customerBL.addToCart(cartList);
 					 System.out.println(status);
 				} catch (ClassNotFoundException | SQLException e) {
-				// call Error display View	
+					  mv.addObject("user", new User());
+					  mv.addObject("errorMessage", "Some internal error occured please try again!!!!");
+					  mv.setViewName("error404page"); 	
 		  }
 				 if(status== true){
 					// call get product controller
@@ -67,10 +70,12 @@ public class InsertIntoCart  {
 					 // response.sendRedirect("GetProducts?selectedCategory="+currentCategory);
 									 }
 				 else{
-					 // call error message 
+					  mv.addObject("user", new User());
+					  mv.addObject("errorMessage", "Failed to save");
+					  mv.setViewName("error404page"); 
 				 }
 		  }
-		  return null;
+		  return mv;
 	  }
 	  
 	  

@@ -47,8 +47,10 @@ public ModelAndView getProductDetails(@ModelAttribute("product2")Product product
 		 return mv;
 	 }
 	 else{
-		 // call error message 
-	 }
+		  mv.addObject("user", new User());
+		  mv.addObject("errorMessage", "Sorry please try again!!!!!!!!!!!!");
+		  mv.setViewName("error404page"); 
+		  }
 
 	
 	return null;
