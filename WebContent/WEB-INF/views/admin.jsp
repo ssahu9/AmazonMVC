@@ -1,5 +1,7 @@
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,13 +14,16 @@
 </head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+<!-- <script>
 	$(document).ready(function() {
 		$("#vc").click(function() {
+			
 			$("#div1").load("viewcategories.jsp");
 		});
 		$("#ap").click(function() {
-			$("#div1").load("addproduct.jsp");
+		/* 	$("#div1").innerHTML="<jsp:include page="addcategory.jsp" />  "; */
+		
+		 $("#div1").load("addproduct.jsp"); 
 		});
 		$("#ac").click(function() {
 			$("#div1").load("addcategory.jsp");
@@ -43,17 +48,7 @@
 		});
 	});
 
-	/*
-	function loadcategory(){
-
-	document.getElementById('div1').innerHTML.
-
-
-
-		
-	}
-	 */
-</script>
+</script> -->
 
 <body>
 
@@ -63,10 +58,10 @@
 			<a href="./Logout">LOGOUT</a>
 		</div>
 	</c:if>
-
+<h4>${message }</h4>
 	<table border="2">
 
-		<tr height="50px" width="1500px" border="1" bordercolor="black">
+		<tr height="50px" style="width:1500px; border: 1px" bordercolor="black">
 
 			<td colspan="2"
 				style="background-color: black; color: white; font-size: 40px;">
@@ -75,37 +70,37 @@
 				</center>
 			</td>
 		</tr>
-		<tr height="700px" width="1500px">
+		<tr style="height=700px; width=1500px;">
 			<td height="700px" width="300px"
 				style="background-color: orange; color: black; font-size: 30px;">
-				<form action="AdminEntry" style="text-align: center;">
-					<input type="button" name="button" id="vc" value="  View Category "><br>
+				<form:form action="./adminEntry" style="text-align: center;">
+					<input type="submit" name="button" id="vc" value="View Category"/><br>
 					<br> <input type="button" name="button" id="ap"
-						value="  Add  Product   "><br>
-					<br> <input type="button" name="button" id="ac"
-						value="  Add  Category  "><br>
-					<br> <input type="button" name="button" id="rc"
+						value="Add  Product"><br>
+					<br> <input type="submit" name="button" id="ac"
+						value="Add Category"><br>
+					<br> <input type="submit" name="button" id="rc"
 						value="Remove Category"><br>
-					<br> <input type="button" name="button" id="rp"
-						value="Remove Product "><br>
+					<br> <input type="submit" name="button" id="rp"
+						value="Remove Product"><br>
 				
-					<br> <input type="button" name="button" id="up"
-						value=" Update Product "><br>
-					<br> <input type="button" name="button" id="vp"
-						value=" View Products  "><br>
+					<br> <input type="submit" name="button" id="up"
+						value="Update Product"><br>
+					<br> <input type="submit" name="button" id="vp"
+						value="View Products"><br>
 					<br>
 
 
-				</form>
+				</form:form>
 
 			</td>
 			<td height="700px" width="1500px"
 				style="background-color: #FAEBD7; color: black; text-align: center;"><c:if
-					test="${sessionScope.email == null}">
+					test="${sessionScope.admin == null}">
 					<div id="div1" style="text-align: center;">
 						<p>Your Session has Failed!</p>
 					</div>
-				</c:if> <c:if test="${sessionScope.email != null}">
+				</c:if> <c:if test="${sessionScope.admin != null}">
 					<div id="div1" style="text-align: center;">
 						<p>Your Session has Started!</p>
 					</div>

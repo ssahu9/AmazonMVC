@@ -10,7 +10,7 @@
 </head>
 <body>
 	<% int i=1;
-		ArrayList<Category> categoryList = (ArrayList<Category>) getServletContext().getAttribute("categoryList");
+		ArrayList<Category> categoryList = (ArrayList<Category>)request.getAttribute("categoryList");
 	%>
 	<table border="1">
 	<tr><th>S.No</th><th>Category Name</th></tr>

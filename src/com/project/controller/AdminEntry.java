@@ -9,60 +9,73 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-public class AdminEntry extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	private static Logger logger=Logger.getLogger(AdminEntry.class);
+import com.project.bean.Category;
+import com.project.bean.Product;
+@Controller
+public class AdminEntry  {
+		private static Logger logger=Logger.getLogger(AdminEntry.class);
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+		
+		@RequestMapping(value="/adminEntry")
+		protected ModelAndView adimnOperation(HttpServletRequest request)  {
 		
 		BasicConfigurator.configure();
  	    logger.info("admin entry class working!!");
- 	    
+ 	    System.out.println(">>>>>>>>>>>>>>>>>>>>>>\n\n\n\n>>>>>>>>>>>");
 		String str = request.getParameter("button");
-		HttpSession session=request.getSession(false);
-		
-		switch (str) {
+		System.out.println(str);
+		ModelAndView mv = new ModelAndView();
+		switch (str.trim()) {
 		case "View Category":
-			//response.sendRedirect("ViewCategory");
+			String url = "/viewCategory";
+			return	new ModelAndView("redirect:"+ url);
+
+			//call controller
 			
-			request.getRequestDispatcher("./ViewCategory").forward(request, response);
-			break;
-		case "Add Product":
+		case "Add  Product":
 			
-			request.getRequestDispatcher("./AddProductServlet").forward(request, response);
+			//call view
+			mv.addObject("product", new Product());
+			mv.setViewName("addcategory");
 			break;
 		case "Add Category":
-			response.sendRedirect("addcategory.jsp");
-			//request.getRequestDispatcher("addcategory.jsp").forward(request, response);
+		
+			mv.addObject("category", new Category());
+			mv.setViewName("addcategory");
+
 			break;
 		case "Remove Category":
-			request.getRequestDispatcher("removecategory.jsp").forward(request, response);
+			//call view
+			System.out.println("remove category");
+			mv.addObject("category", new Category());
+			mv.setViewName("removecategory");
 			break;
 		case "Remove Product":
-			request.getRequestDispatcher("removeproduct.jsp").forward(request, response);
+			System.out.println("remove product");
+			mv.addObject("product", new Product());
+			mv.setViewName("removeproduct");
 			break;
-		case "Bill History":
-			System.out.println("testinggggggggggggggggggg");
-			request.getRequestDispatcher("./BillHistory").forward(request, response);
-			break;
+		
 		case "Update Product":
-			request.getRequestDispatcher("updateproduct.jsp").forward(request, response);
+			//call view
+			mv.addObject("product", new Product());
+			mv.setViewName("updateproduct");
 			break;
 		case "View Products":
-			request.getRequestDispatcher("./ViewProducts").forward(request, response);
+			//call controller
 			break;
-		case "Update Password":
-			request.getRequestDispatcher("updatepassword.jsp").forward(request, response);
-			break;
+		
 		default:
 			break;
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		return mv;
 	}
 
 }

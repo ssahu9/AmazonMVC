@@ -10,14 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.bean.Customer;
 import com.project.bean.User;
 import com.project.bl.CustomerBl;
+import com.project.validator.CustomerInsertGroup;
 
 @Controller
 public class Register  {
@@ -40,12 +43,15 @@ public class Register  {
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	@ModelAttribute("user")
-	public String saveRegistration(@Valid Customer customer,
+	public String saveRegistration(@Validated(CustomerInsertGroup.class) Customer customer,
 			BindingResult result, ModelMap model) {
 		
 
 		if (result.hasErrors()) {
-			
+			String url = "/regForm";
+			//return	new ModelAndView("redirect:"+ url);
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n>>>>>>>>>>>>>>>>>>>\n>>>>");
+//			return "redirect:"+ url;
 			return "register";
 		}
 		logger.info("register working!!");

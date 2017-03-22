@@ -23,7 +23,7 @@ import com.project.bl.CustomerBl;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes({ "customer", "email" })
+@SessionAttributes({ "customer", "email" , "admin" , "category" })
 
 public class LoginServlet {
 	private ServletContext servletContext;
@@ -61,7 +61,9 @@ public class LoginServlet {
 		 //logger.info("Login working!!");
 		
 		if (user.getEmail().equals("admin@admin.com") && user.getPassword().equals("admin123")) {
-			
+			model.addAttribute("admin", "admin");
+			model.addAttribute("category", new Category());
+			return "admin";
 			
 		} else {
 			try {

@@ -5,6 +5,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.project.bean.Category"%>
@@ -189,9 +190,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						var="category">
 						<li class="grid"><a class="color6"  href="./getProducts?category=${category.categoryName}">${category.categoryName}</a></li>
 						</c:forEach>
-
-
 				</ul>
+				<h2><a href="?lang=de">FFF</a><a href="?lang=en">English</a></h2>
 				<!-- End of Header Menu -->
 			</div>
 		</div>
@@ -240,36 +240,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							}
 						})();
 					</script>
+					
+				
 					<div class="registration_form">
 						<!-- Form -->
 						<form:form id="registration_form" commandName="customer" action="./register" method="post">
 							<div>
-								<form:label path="firstName"> <form:input style="text-transform:uppercase" placeholder="first name:" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
+								<c:set var="fname"><spring:message code="label.firstName"/></c:set>
+								<form:label path="firstName"> <form:input style="text-transform:uppercase" placeholder="${fname }" type="text" pattern="^[a-zA-Z]{1,20}$" tabindex="1" name="fname"  autofocus="" path="firstName"/>
 								</form:label>
+								
 								<form:errors path="firstName" class="help-inline"/>
 							</div>
-							<div>
-								<form:label path="lastName"> <form:input placeholder="last name:" style="text-transform:uppercase" type="text"
+							<div><c:set var="lname"><spring:message code="label.lastName"/></c:set>
+								<form:label path="lastName"> <form:input placeholder="${lname }" style="text-transform:uppercase" type="text"
 									tabindex="2" path="lastName" pattern="^[a-zA-Z]{1,20}$" name="lname" 
 									/>
 								</form:label>
 								<form:errors path="lastName" class="help-inline"/>
 							</div>
-							<div>
+							<div><c:set var="mail"><spring:message code="label.email"/></c:set>
 								<form:label path="email"> </form:label>
-								<form:input placeholder="email address:" style="text-transform:uppercase" type="email"
+								<form:input placeholder="${mail }" style="text-transform:uppercase" type="email"
 									 path="email" tabindex="3" />
 								
 								<form:errors path="email" class="help-inline"/>
 							</div>
 							<div>
-								<form:label path="phoneNumber"> <form:input placeholder="phone number:"  
+							<c:set var="pno"><spring:message code="label.phoneNumber"/></c:set>
+								<form:label path="phoneNumber"> <form:input placeholder="${pno }"  
 									 path="phoneNumber" tabindex="3" />
 								</form:label>
 								<form:errors path="phoneNumber" class="help-inline"/>
 							</div>
 							<div>
-								<form:label path="password"> <form:input placeholder="password:" type="password"
+							<c:set var="pass"><spring:message code="label.password"/></c:set>
+								<form:label path="password"> <form:input placeholder="${pass }" type="password"
 									 path="password" tabindex="3" />
 								</form:label>
 								<form:errors path="password" class="help-inline"/>

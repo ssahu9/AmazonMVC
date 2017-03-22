@@ -1,7 +1,9 @@
 package com.project.bean;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Category {
-	
+	@NotEmpty
 	private String CategoryName; 	//to store the name of the category
 	
 	//constructor made to be used for further processing

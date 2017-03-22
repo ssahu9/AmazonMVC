@@ -3,23 +3,25 @@ import org.hibernate.validator.constraints.Email;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.project.validator.CustomerInsertGroup;
 import com.project.validator.Phone;
 
 public class Customer {
-	
+	@NotEmpty 
 	private int customerId;			//to store the customer_id (auto-generated)
-	@NotEmpty
+	@NotEmpty(groups={CustomerInsertGroup.class} )
 	private String firstName;
 	//to store the first name of the customer
-	@NotEmpty
+	@NotEmpty(groups={CustomerInsertGroup.class} )
 	private String lastName;		//to store the last name of the customer
-	@Email
+	@NotEmpty(groups={CustomerInsertGroup.class} )
+	@Email(groups={CustomerInsertGroup.class} )
 	private String email;			//to store the email address of customer(username==email)
-	@NotEmpty
+	@NotEmpty(groups={CustomerInsertGroup.class} )
 	private String password;		//to store the password which the customer has entered
 
-	@NotEmpty
-	@Phone
+	@NotEmpty(groups={CustomerInsertGroup.class} )
+	@Phone(groups={CustomerInsertGroup.class} )
 	private String phoneNumber;		//to store the phone number of the customer
 
 	

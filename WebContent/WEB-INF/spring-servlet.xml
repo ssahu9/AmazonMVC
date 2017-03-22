@@ -28,5 +28,18 @@
 	</bean>
 	<bean class="com.project.bl.CustomerBl" id="customerBl">
 	</bean>
+		<bean class="com.project.bl.AdminBL" id="adminBl">
+	</bean>
+  
+    <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver">
+        <property value="de" name="defaultLocale"/>
+    </bean>
+   
+    <mvc:interceptors>
+              <bean id="localeChangeInterceptor"
+                     class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+                     <property name="paramName" value="lang" />
+              </bean>
+       </mvc:interceptors>
 
 </beans>
